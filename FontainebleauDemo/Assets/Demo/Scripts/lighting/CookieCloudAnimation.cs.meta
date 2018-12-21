@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: ee994f256385abe408dc6c0f4982b99c
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - shader: {fileID: 4800000, guid: e11971c35d6ca404b91aa52ef763e5eb, type: 3}
+  - cloudLayer1: {fileID: 2800000, guid: b139f2ca34decb544a2ac482fa737293, type: 3}
+  - cloudLayer2: {fileID: 2800000, guid: 21efd174e67a1a8408fda6e0d637f109, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

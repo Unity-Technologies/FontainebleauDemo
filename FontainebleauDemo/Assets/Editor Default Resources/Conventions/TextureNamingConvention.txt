@@ -1,0 +1,31 @@
+GameTextures:
+
+_BC = (RGB) Base Color
+       (A) Opacity
+	  
+// Experimental _DirectionalOcclusion 	(RGB) direction
+					(A) aperture
+
+_N = (RGB) NormalMap 
+
+_H = (R) HeightMap
+
+_MSK = (R) Metalness
+       (G) Ambiant Occlusion
+       (B) Emissive Mask
+       (A) Smoothness 
+
+	  
+_SSS   (R)SSS
+	(B)Thickness
+
+-----------------------------------------------------------------------------------------------
+LightRemovalTextures:
+
+_LRBC = (RGB) Base Color
+
+_LRN = (RGB) ObjectSpace NormalMap
+
+_LRNB = (RGB) ObjectSpace Bent NormalMap
+
+_LRAO = (R) Ambiant Occlusion

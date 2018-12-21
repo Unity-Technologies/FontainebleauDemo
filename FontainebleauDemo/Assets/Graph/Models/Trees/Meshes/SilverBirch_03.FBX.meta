@@ -1,0 +1,132 @@
+fileFormatVersion: 2
+guid: 178755e9b01eb604f9dfe04c3eed2f95
+timeCreated: 1490263848
+licenseType: Pro
+ModelImporter:
+  serializedVersion: 20
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: SilverBirchBranches_03
+    100004: SilverBirchTrunk_03
+    100006: SilverBirchBranches_03_LOD0
+    100008: SilverBirchBranches_03_LOD1
+    100010: SilverBirchBranches_03_LOD2
+    100012: SilverBirchTrunk_03_LOD0
+    100014: SilverBirchTrunk_03_LOD1
+    100016: SilverBirchTrunk_03_LOD2
+    400000: //RootNode
+    400002: SilverBirchBranches_03
+    400004: SilverBirchTrunk_03
+    400006: SilverBirchBranches_03_LOD0
+    400008: SilverBirchBranches_03_LOD1
+    400010: SilverBirchBranches_03_LOD2
+    400012: SilverBirchTrunk_03_LOD0
+    400014: SilverBirchTrunk_03_LOD1
+    400016: SilverBirchTrunk_03_LOD2
+    2300000: //RootNode
+    2300002: SilverBirchBranches_03
+    2300004: SilverBirchTrunk_03
+    2300006: SilverBirchBranches_03_LOD0
+    2300008: SilverBirchBranches_03_LOD1
+    2300010: SilverBirchBranches_03_LOD2
+    2300012: SilverBirchTrunk_03_LOD0
+    2300014: SilverBirchTrunk_03_LOD1
+    2300016: SilverBirchTrunk_03_LOD2
+    3300000: //RootNode
+    3300002: SilverBirchBranches_03
+    3300004: SilverBirchTrunk_03
+    3300006: SilverBirchBranches_03_LOD0
+    3300008: SilverBirchBranches_03_LOD1
+    3300010: SilverBirchBranches_03_LOD2
+    3300012: SilverBirchTrunk_03_LOD0
+    3300014: SilverBirchTrunk_03_LOD1
+    3300016: SilverBirchTrunk_03_LOD2
+    4300000: SilverBirch_03
+    4300002: SilverBirchBranches_03
+    4300004: SilverBirchTrunk_03
+    4300006: SilverBirchBranches_03_LOD0
+    4300008: SilverBirchTrunk_03_LOD0
+    4300010: SilverBirchTrunk_03_LOD1
+    4300012: SilverBirchBranches_03_LOD1
+    4300014: SilverBirchTrunk_03_LOD2
+    4300016: SilverBirchBranches_03_LOD2
+    7400000: Take 001
+    9500000: //RootNode
+    20500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 1
+    materialSearch: 2
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages:
+    - 0.25
+    - 0.125
+    - 0.01
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 0
+    importBlendShapes: 1
+    importCameras: 0
+    importLights: 0
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

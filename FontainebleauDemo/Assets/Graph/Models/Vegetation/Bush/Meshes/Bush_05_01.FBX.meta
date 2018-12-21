@@ -1,0 +1,225 @@
+fileFormatVersion: 2
+guid: 02f77bb369fcb9943a0ac784b2ec9327
+timeCreated: 1505834269
+licenseType: Pro
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Plant_01
+    100004: Plant_02
+    100006: Plant_03
+    100008: Plant_04
+    100010: Plant_05
+    100012: Plant_06
+    100014: Plant_07
+    100016: Plant_08
+    100018: Plant_09
+    100020: Plant_10
+    100022: Plant_11
+    100024: Plant_12
+    100026: Plant_13
+    100028: Plant_14
+    100030: Plant_15
+    100032: Plant_16
+    100034: Plant_17
+    100036: Plant_18
+    100038: Plant_19
+    100040: Plant_20
+    100042: Plant_21
+    100044: Plant_22
+    100046: Plant_23
+    100048: Bush_05_LOD0
+    100050: Bush_05_LOD1
+    400000: //RootNode
+    400002: Plant_01
+    400004: Plant_02
+    400006: Plant_03
+    400008: Plant_04
+    400010: Plant_05
+    400012: Plant_06
+    400014: Plant_07
+    400016: Plant_08
+    400018: Plant_09
+    400020: Plant_10
+    400022: Plant_11
+    400024: Plant_12
+    400026: Plant_13
+    400028: Plant_14
+    400030: Plant_15
+    400032: Plant_16
+    400034: Plant_17
+    400036: Plant_18
+    400038: Plant_19
+    400040: Plant_20
+    400042: Plant_21
+    400044: Plant_22
+    400046: Plant_23
+    400048: Bush_05_LOD0
+    400050: Bush_05_LOD1
+    2100000: Bush_01_New
+    2300000: Plant_01
+    2300002: Plant_02
+    2300004: Plant_03
+    2300006: Plant_04
+    2300008: Plant_05
+    2300010: Plant_06
+    2300012: Plant_07
+    2300014: Plant_08
+    2300016: Plant_09
+    2300018: Plant_10
+    2300020: Plant_11
+    2300022: Plant_12
+    2300024: Plant_13
+    2300026: Plant_14
+    2300028: Plant_15
+    2300030: Plant_16
+    2300032: Plant_17
+    2300034: Plant_18
+    2300036: Plant_19
+    2300038: Plant_20
+    2300040: Plant_21
+    2300042: Plant_22
+    2300044: Plant_23
+    2300046: Bush_05_LOD0
+    2300048: Bush_05_LOD1
+    3300000: Plant_01
+    3300002: Plant_02
+    3300004: Plant_03
+    3300006: Plant_04
+    3300008: Plant_05
+    3300010: Plant_06
+    3300012: Plant_07
+    3300014: Plant_08
+    3300016: Plant_09
+    3300018: Plant_10
+    3300020: Plant_11
+    3300022: Plant_12
+    3300024: Plant_13
+    3300026: Plant_14
+    3300028: Plant_15
+    3300030: Plant_16
+    3300032: Plant_17
+    3300034: Plant_18
+    3300036: Plant_19
+    3300038: Plant_20
+    3300040: Plant_21
+    3300042: Plant_22
+    3300044: Plant_23
+    3300046: Bush_05_LOD0
+    3300048: Bush_05_LOD1
+    4300000: Plant_23
+    4300002: Plant_01
+    4300004: Plant_02
+    4300006: Plant_03
+    4300008: Plant_04
+    4300010: Plant_05
+    4300012: Plant_06
+    4300014: Plant_07
+    4300016: Plant_08
+    4300018: Plant_09
+    4300020: Plant_10
+    4300022: Plant_11
+    4300024: Plant_12
+    4300026: Plant_13
+    4300028: Plant_14
+    4300030: Plant_15
+    4300032: Plant_16
+    4300034: Plant_17
+    4300036: Plant_18
+    4300038: Plant_19
+    4300040: Plant_20
+    4300042: Plant_21
+    4300044: Plant_22
+    4300046: Bush_05_LOD0
+    4300048: Bush_05_LOD1
+    7400000: Take 001
+    9500000: //RootNode
+    20500000: //RootNode
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Bush_01_New
+    second: {fileID: 2100000, guid: f1cb5260c66a2434990d11ed9acd2891, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 1
+    materialSearch: 2
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages:
+    - 0.25
+    - 0.01
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 1
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

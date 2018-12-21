@@ -1,0 +1,25 @@
+FBXResetExport;
+
+// FBX file format
+FBXExportInAscii -v false; 
+FBXExportFileVersion -v FBX201600;
+
+// Geometry
+FBXExportSmoothMesh -v false; 
+FBXExportInstances -v true; 
+FBXExportReferencedAssetsContent -v false;
+
+// Animation
+FBXExportAnimationOnly -v false;
+
+FBXExportCameras -v true; 
+FBXExportLights -v true; 
+
+FBXExportEmbeddedTextures -v false;
+
+// Units
+FBXExportScaleFactor 1;
+FBXExportConvertUnitString cm;
+
+// Axis Conversion
+FBXExportUpAxis y;

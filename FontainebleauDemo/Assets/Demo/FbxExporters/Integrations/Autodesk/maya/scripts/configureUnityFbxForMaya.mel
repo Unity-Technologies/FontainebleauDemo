@@ -1,0 +1,22 @@
+global proc configureUnityFbxForMaya(
+    string $unityProject, string $unityApp,
+    string $unityTempSavePath, string $unityFbxExportSettings,
+    string $mayaInstructionPath, int $headless)
+{
+    // configure plugin settings
+    optionVar -stringValue "UnityApp" $unityApp;
+    optionVar -stringValue "UnityProject" $unityProject;
+    optionVar -stringValue "UnityTempSavePath" $unityTempSavePath;
+    optionVar -stringValue "UnityFbxExportSettings" $unityFbxExportSettings;
+    optionVar -stringValue "UnityInstructionPath" $mayaInstructionPath;
+    optionVar -intValue "UnityFbxForMaya_Headless" $headless;
+
+    // configure auto load of plugin
+    if (`pluginInfo -q -loaded UnityFbxForMayaPlugin` == false)
+    {
+        loadPlugin -quiet UnityFbxForMayaPlugin;
+        pluginInfo -edit -autoload true UnityFbxForMayaPlugin;
+    }
+
+    return;
+}
