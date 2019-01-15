@@ -58,7 +58,17 @@ Fontainebleau is the name of a forest close to the Unity Paris office. The fores
 - Once the editor is ready, take a look at the menu bar : several menus are added compared to an empty Unity project. The **"Load levels" menu** offers you 2 options :
   - The **Day, Sunset, and Night buttons** are shortcut that will load the main scene plus one of the different lighting scenes used in the project but not the gameplay elements
   - The **Loader** button allows you to load our bootstrap scene. When this scene is loaded you can enter **Play mode** and experience the demo as in a built executable.
-  
+
+# Controls layout
+
+## Keyboard
+
+
+
+## Gamepad
+
+
+
 # Scripts used in this demo
   
 - Character controller
