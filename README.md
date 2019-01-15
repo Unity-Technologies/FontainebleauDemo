@@ -25,7 +25,7 @@ Finally, we included 3 modes to explore the demo:
 
 Fontainebleau is the name of a forest close to the Unity Paris office. The forest is a good subject to speak about photogrammetry. Natural assets are often complex and hard to reproduce realistically. For our artists, it was important to have the subject close to them to go on site and do all the tests needed to analyze the best workflow possible for games.
 
-# The features implemented in this demo are:
+**The features implemented in this demo are:**
 
 - Deferred rendering
 - Layered lit shader
@@ -52,6 +52,17 @@ Fontainebleau is the name of a forest close to the Unity Paris office. The fores
   | This project uses Git Large Files Support (LFS). Downloading a zip file using the green button on Github **will not work**. You must clone the project with a version of git that has LFS. You can download Git LFS here: <https://git-lfs.github.com/>. |
 
 - Open the repository folder in Unity. **The first time you open the project Unity will import all the assets, this operation can take more than 1 hour.**
+
+# Exploring the project
+
 - Once the editor is ready, take a look at the menu bar : several menus are added compared to an empty Unity project. The **"Load levels" menu** offers you 2 options :
   - The **Day, Sunset, and Night buttons** are shortcut that will load the main scene plus one of the different lighting scenes used in the project but not the gameplay elements
   - The **Loader** button allows you to load our bootstrap scene. When this scene is loaded you can enter **Play mode** and experience the demo as in a built executable.
+  
+  # Scripts used in this demo
+  
+  - Character controller
+  - Gameplay ingredients
+  - Video manager
+  - Lightmap switching script
+  - Lightmapped LODs
