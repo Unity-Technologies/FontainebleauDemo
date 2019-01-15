@@ -59,10 +59,10 @@ Fontainebleau is the name of a forest close to the Unity Paris office. The fores
   - The **Day, Sunset, and Night buttons** are shortcut that will load the main scene plus one of the different lighting scenes used in the project but not the gameplay elements
   - The **Loader** button allows you to load our bootstrap scene. When this scene is loaded you can enter **Play mode** and experience the demo as in a built executable.
   
-  # Scripts used in this demo
+# Scripts used in this demo
   
-  - Character controller
-  - Gameplay ingredients
-  - Video manager
-  - Lightmap switching script
-  - Lightmapped LODs
+- Character controller
+- Gameplay ingredients
+- Video manager
+- Lightmap switching script
+- Lightmapped LODs
