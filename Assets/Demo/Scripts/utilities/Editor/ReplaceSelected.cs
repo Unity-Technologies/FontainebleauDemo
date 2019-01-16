@@ -105,9 +105,10 @@ public class ReplaceSelected : ScriptableWizard
         foreach (Transform t in transforms)
         {
             GameObject g;
-            PrefabType pref = PrefabUtility.GetPrefabType(replacement);
+            //PrefabType pref = PrefabUtility.GetPrefabType(replacement);
+            PrefabAssetType pref = PrefabUtility.GetPrefabAssetType(replacement);
 
-            if (pref == PrefabType.Prefab || pref == PrefabType.ModelPrefab)
+            if (pref != PrefabAssetType.NotAPrefab)
             {
                 g = (GameObject)PrefabUtility.InstantiatePrefab(replacement);
             }
