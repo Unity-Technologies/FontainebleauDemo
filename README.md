@@ -33,6 +33,7 @@ Finally, we included 3 modes to explore the demo:
 -   Cinematic mode: select your lighting program, then sit back, relax and enjoy the show,
 -   First Person & Third Person Modes: these are very rudimentary exploration modes to let you discover the environment on your own, with bonuses in First Person mode.
 
+<img src = "https://github.com/Unity-Technologies/FontainebleauDemo/blob/master/Documentation/Images/11.PNG" >
 <img src = "https://github.com/Unity-Technologies/FontainebleauDemo/blob/master/Documentation/Images/4.PNG" >
 
 **Why Fontainebleau?**
