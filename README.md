@@ -12,14 +12,28 @@ There is a playable first person and third person mode to walk inside the forest
 
 The demo also supports three different lighting condition to illustrate that correctly authored and de-lighted assets work fine in any lighting condition:
 
+<img src = "https://github.com/Unity-Technologies/FontainebleauDemo/blob/master/Documentation/Images/0.PNG" >
+
 - ​    Day lighting
+<img src = "https://github.com/Unity-Technologies/FontainebleauDemo/blob/master/Documentation/Images/3.PNG" >
+
 - ​    Sunset lighting
-- ​    Night lighting with lights off and on
+<img src = "https://github.com/Unity-Technologies/FontainebleauDemo/blob/master/Documentation/Images/5.PNG" >
+
+- ​    Night lighting with lights off
+<img src = "https://github.com/Unity-Technologies/FontainebleauDemo/blob/master/Documentation/Images/6.PNG" >
+
+- ​    Night lighting with lights on
+<img src = "https://github.com/Unity-Technologies/FontainebleauDemo/blob/master/Documentation/Images/7.PNG" >
 
 Finally, we included 3 modes to explore the demo:
 
+<img src = "https://github.com/Unity-Technologies/FontainebleauDemo/blob/master/Documentation/Images/1.PNG" title = "Fontainebleau menu screen" alt width="200" height="400" >
+
 -   Cinematic mode: select your lighting program, then sit back, relax and enjoy the show,
 -   First Person & Third Person Modes: these are very rudimentary exploration modes to let you discover the environment on your own, with bonuses in First Person mode.
+
+<img src = "https://github.com/Unity-Technologies/FontainebleauDemo/blob/master/Documentation/Images/4.PNG" >
 
 **Why Fontainebleau?**
 
@@ -63,11 +77,11 @@ Fontainebleau is the name of a forest close to the Unity Paris office. The fores
 
 ## Keyboard
 
-
+<img src = "https://github.com/Unity-Technologies/FontainebleauDemo/blob/master/Documentation/Images/8.PNG" >
 
 ## Gamepad
 
-
+<img src = "https://github.com/Unity-Technologies/FontainebleauDemo/blob/master/Documentation/Images/9.PNG" >
 
 # Scripts used in this demo
   
