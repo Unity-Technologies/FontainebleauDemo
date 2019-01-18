@@ -91,3 +91,10 @@ Fontainebleau is the name of a forest close to the Unity Paris office. The fores
 - Video manager
 - Lightmap switching script
 - Lightmapped LODs
+
+# Feedback - Bugs
+
+Don't hesitate to use the forum thread to send us your feedback or share the work you did based on this scene :
+[Forum Thread](https://forum.unity.com/threads/photogrammetry-in-unity-making-real-world-objects-into-digital-assets.521946/)
+
+You can also use the [issue tab](https://github.com/Unity-Technologies/FontainebleauDemo/issues) to report bugs.
