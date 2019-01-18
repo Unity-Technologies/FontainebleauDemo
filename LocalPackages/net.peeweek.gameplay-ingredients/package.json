@@ -1,0 +1,7 @@
+{
+    "name": "net.peeweek.gameplay-ingredients",
+    "displayName": "Gameplay Ingredients",
+    "version": "0.0.1",
+    "unity": "2018.3",
+    "description": "Gameplay ingredients base package"
+}

@@ -1,0 +1,27 @@
+{
+    "shader": {
+        "instanceID": 354
+    },
+    "attributes": [
+        {
+            "channel": 8,
+            "index": 2,
+            "range": {
+                "x": 1.0,
+                "y": 0.0
+            },
+            "propertyTarget": "_MainTex",
+            "mask": 0
+        },
+        {
+            "channel": 8,
+            "index": 2,
+            "range": {
+                "x": 0.0,
+                "y": 1.0
+            },
+            "propertyTarget": "_Blend",
+            "mask": 0
+        }
+    ]
+}

@@ -7,7 +7,7 @@ namespace Fontainebleau
     public class BasicWind : VolumeComponent
     {
         [Header("General Parameters")]
-        public FloatParameter occlusion = new FloatParameter(1.0f);
+        public FloatParameter attenuation = new FloatParameter(1.0f);
         //[Tooltip("Wind Direction vector")]
         //public Vector3Parameter windDirection = new Vector3Parameter(new Vector3(0f,0.5f,0.5f));
         //[Tooltip("Wind Speed in Kilometers per hour")]

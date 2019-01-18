@@ -5,7 +5,8 @@ Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_Name: challenger_head
   m_Shader: {fileID: 4800000, guid: 6e4ae4064600d784cac1e41a9e6f2e59, type: 3}
   m_ShaderKeywords: _DETAIL_MAP _DISABLE_DBUFFER _MASKMAP _MATERIAL_FEATURE_SUBSURFACE_SCATTERING
@@ -154,7 +155,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _ThicknessMap:
-        m_Texture: {fileID: 2800000, guid: ec4d3eea424f2e7458fbf076de817f3c, type: 3}
+        m_Texture: {fileID: 2800000, guid: c2abab2ab0bc20f468e82192ef4ee751, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _TransmittanceColorMap:
@@ -256,6 +257,7 @@ Material:
     - _PlaneReflectionBumpScale: 0.4
     - _PreRefractionPass: 0
     - _ProbesBoost: 1
+    - _ReceivesSSR: 1
     - _RefractionMode: 0
     - _RefractionModel: 0
     - _RefractionSSRayModel: 0
@@ -283,6 +285,7 @@ Material:
     - _SubsurfaceProfile: 0
     - _SubsurfaceRadius: 0.387
     - _SupportDBuffer: 0
+    - _SupportDecals: 1
     - _SurfaceType: 0
     - _TexWorldScale: 1
     - _TexWorldScaleEmissive: 1
