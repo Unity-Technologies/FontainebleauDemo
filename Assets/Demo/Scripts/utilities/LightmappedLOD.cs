@@ -4,10 +4,9 @@ using UnityEngine;
 
 [ExecuteInEditMode]
 public class LightmappedLOD : MonoBehaviour {
-    //public int LODIndex = 1;
+
     private MeshRenderer currentRenderer;
 
-    // Use this for initialization
     private void Awake()
     {
         currentRenderer = gameObject.GetComponent<MeshRenderer>();
@@ -55,7 +54,7 @@ public class LightmappedLOD : MonoBehaviour {
             {
                 try
                 {
-                    renderers[i].lightProbeUsage = UnityEngine.Rendering.LightProbeUsage.Off;
+                    renderers[i].lightProbeUsage = lods[0].renderers[i].lightProbeUsage;
                     renderers[i].lightmapIndex = lods[0].renderers[i].lightmapIndex;
                     renderers[i].lightmapScaleOffset = lods[0].renderers[i].lightmapScaleOffset;
 
