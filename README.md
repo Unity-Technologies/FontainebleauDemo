@@ -1,5 +1,7 @@
 # Fontainebleau
 
+Check the [changelog](https://github.com/Unity-Technologies/FontainebleauDemo/blob/master/Changelog.md) to see the latest updates.
+
 <img src = "https://forum.unity.com/proxy.php?image=https%3A%2F%2Fblogs.unity3d.com%2Fwp-content%2Fuploads%2F2018%2F03%2Fimage5-1280x720.png&hash=d4dd82baaada0823f75c693064c8c964" title = "Fontainebleau title screen" alt >
 
 We created the Fontainebleau demo to illustrate the photogrammetry workflow and the use of the LayeredLit shader. 
