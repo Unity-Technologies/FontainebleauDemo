@@ -1,12 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Playables;
 using UnityEngine.Timeline;
-using UnityEngine.Rendering.PostProcessing;
+using UnityEngine.Rendering;
 
 [TrackColor(0.5f, 0, 1)]
 [TrackClipType(typeof(DOFPlayableAsset))]
+[TrackBindingType(typeof(Volume))]
 public class DOFTrack : TrackAsset
 {
     // override the type of mixer playable used by this track
@@ -21,4 +20,3 @@ public class DOFTrack : TrackAsset
 
     }
 }
-

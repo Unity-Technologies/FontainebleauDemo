@@ -1,14 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Playables;
 using UnityEngine.Timeline;
-using UnityEngine.Rendering.PostProcessing;
+using UnityEngine.Rendering;
 
 [TrackColor(0.5f, 0, 1)]
 // Specifies the type of Playable Asset this track manages
 [TrackClipType(typeof(ExposurePlayableAsset))]
-[TrackBindingType(typeof(PostProcessVolume))]
+[TrackBindingType(typeof(Volume))]
 public class ExposureTrack : TrackAsset
 {
     public float stuff = 0;

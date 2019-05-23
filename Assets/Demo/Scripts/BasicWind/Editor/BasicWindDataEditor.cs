@@ -1,7 +1,6 @@
 ﻿using UnityEditor;
-using UnityEngine;
 
-namespace Fontainebleau
+namespace HDRPSamples
 {
     [CustomEditor(typeof(BasicWindData))]
     public class BasicWindDataEditor : Editor
@@ -10,4 +9,4 @@ namespace Fontainebleau
         {
         }
     }
-}
+}   

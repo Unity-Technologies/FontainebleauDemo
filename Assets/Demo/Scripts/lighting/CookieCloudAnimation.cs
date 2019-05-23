@@ -45,7 +45,11 @@ public class CookieCloudAnimation : MonoBehaviour
 
     public void SetShaderProperties()
     {
-		m_material.SetTexture("_Tex",cloudLayer1);
+        if (m_material == null)
+            CreateMaterial();
+        if (m_material == null)
+            return;
+        m_material.SetTexture("_Tex",cloudLayer1);
 		m_material.SetTexture("_Tex2", cloudLayer2);
 		m_material.SetVector("_Speed",new Vector4(speedLayer1.x,speedLayer1.y,speedLayer2.x,speedLayer2.y));      
     }

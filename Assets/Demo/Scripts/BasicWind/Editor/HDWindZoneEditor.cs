@@ -2,7 +2,7 @@
 using UnityEditor;
 using UnityEngine.Experimental.Rendering.HDPipeline;
 
-namespace Fontainebleau
+namespace HDRPSamples
 {
     [CustomEditorForRenderPipeline(typeof(WindZone), typeof(HDRenderPipelineAsset))]
     sealed partial class BasicWindZoneEditor : Editor

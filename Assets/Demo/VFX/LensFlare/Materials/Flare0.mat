@@ -4,8 +4,9 @@
 Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_Name: Flare0
   m_Shader: {fileID: 4800000, guid: 717c3322ead263f43ba6768860789f2f, type: 3}
   m_ShaderKeywords: _ALPHACUTOFFENABLE_OFF _DEPTHOFFSETENABLE_OFF _DISTORTIONDEPTHTEST_OFF
@@ -49,7 +50,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 966ea94de6da9884082daa565834b06f, type: 3}
+        m_Texture: {fileID: 2800000, guid: b849cfbfdeef2514c8d1f8cc6f150cb3, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MaskMap:

@@ -14,7 +14,7 @@ namespace UnityEngine.Experimental.Rendering.HDPipeline
         //-----------------------------------------------------------------------------
 
         // Main structure that store the user data (i.e user input of master node in material graph)
-        [GenerateHLSL(PackingRules.Exact, false, true, 1100)]
+        [GenerateHLSL(PackingRules.Exact, false, true, false, 1100)]
         public struct SurfaceData
         {
             [SurfaceDataAttributes("Color")]
@@ -24,7 +24,7 @@ namespace UnityEngine.Experimental.Rendering.HDPipeline
         //-----------------------------------------------------------------------------
         // BSDFData
         //-----------------------------------------------------------------------------
-        [GenerateHLSL(PackingRules.Exact, false, true, 1130)]
+        [GenerateHLSL(PackingRules.Exact, false, true, false, 1130)]
         public struct BSDFData
         {
             public Vector3 color;

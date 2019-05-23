@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.Playables;
-using UnityEngine.UI;
-using UnityEngine.Rendering.PostProcessing;
+using UnityEngine.Rendering;
+using UnityEngine.Experimental.Rendering.HDPipeline;
 
 public class ExposurePlayableMixer : PlayableBehaviour
 {
@@ -9,27 +9,42 @@ public class ExposurePlayableMixer : PlayableBehaviour
     // Called each frame the mixer is active, after inputs are processed
     public override void ProcessFrame(Playable handle, FrameData info, object playerData)
     {
-        var volume = playerData as PostProcessVolume;
-        /*
-        var camera = Camera.main;
-        if (camera == null)
-            return;
-        var volume = camera.GetComponent<PostProcessVolume>();
-        */
+        var volume = playerData as Volume;
+
         if (volume == null)
             return;
-        AutoExposure m_autoExposure;
+        Exposure m_autoExposure;
 
         var profile = Application.isPlaying
                 ? volume.profile
                 : volume.sharedProfile;
 
-        if (!profile.HasSettings<AutoExposure>())
+        if (!profile.Has<Exposure>())
             return;
 
-        float newExposureKey = 0f;
 
         var count = handle.GetInputCount();
+
+        //Short loop
+        int activeClipsCount = 0;
+        for (var i = 0; i < count; i++)
+        {
+
+            var inputHandle = handle.GetInput(i);
+            var weight = handle.GetInputWeight(i);
+            if (weight > 0)
+                activeClipsCount += 1;
+        }
+
+        if (activeClipsCount == 0)
+        {
+            volume.weight = 0;
+            return;
+        }
+
+        volume.weight = 1;
+        float newExposureKey = 0f;
+
         for (var i = 0; i < count; i++)
         {
 
@@ -48,7 +63,7 @@ public class ExposurePlayableMixer : PlayableBehaviour
 
             }
         }
-        profile.TryGetSettings<AutoExposure>(out m_autoExposure);
-        m_autoExposure.keyValue.value = newExposureKey;
+        if(profile.TryGet<Exposure>(out m_autoExposure))
+            m_autoExposure.fixedExposure.value = newExposureKey;
     }
 }

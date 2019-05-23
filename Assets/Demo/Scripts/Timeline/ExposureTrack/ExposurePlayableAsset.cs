@@ -6,8 +6,7 @@ using UnityEngine.Timeline;
 [Serializable]
 public class ExposurePlayable : PlayableBehaviour
 {
-    [Range(0,1)]
-    public float exposureKey = 1;
+    public float exposureKey = 0;
 }
 
 [Serializable]

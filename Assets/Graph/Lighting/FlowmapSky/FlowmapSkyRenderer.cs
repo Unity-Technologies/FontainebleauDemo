@@ -1,3 +1,5 @@
+using UnityEngine.Rendering;
+
 namespace UnityEngine.Experimental.Rendering.HDPipeline
 {
     public class FlowmapSkyRenderer : SkyRenderer
@@ -36,9 +38,9 @@ namespace UnityEngine.Experimental.Rendering.HDPipeline
 
         public override void RenderSky(BuiltinSkyParameters builtinParams, bool renderForCubemap, bool renderSunDisk /* TODO Handle sun disk?*/)
         {
-            m_FlowmapSkyMaterial.SetTexture(HDShaderIDs._Cubemap, m_FlowmapSkyParams.skyHDRI);
-            m_FlowmapSkyMaterial.SetFloat("_Period", m_FlowmapSkyParams.period);
-            m_FlowmapSkyMaterial.SetVector(HDShaderIDs._SkyParam, new Vector4(m_FlowmapSkyParams.exposure, m_FlowmapSkyParams.multiplier, m_FlowmapSkyParams.rotation, 0.0f));
+            m_FlowmapSkyMaterial.SetTexture(HDShaderIDs._Cubemap, m_FlowmapSkyParams.skyHDRI.value);
+            m_FlowmapSkyMaterial.SetFloat("_Period", m_FlowmapSkyParams.period.value);
+            m_FlowmapSkyMaterial.SetVector(HDShaderIDs._SkyParam, new Vector4(m_FlowmapSkyParams.exposure.value, m_FlowmapSkyParams.multiplier.value, m_FlowmapSkyParams.rotation.value, 0.0f));
 
             // This matrix needs to be updated at the draw call frequency.
             m_PropertyBlock.SetMatrix(HDShaderIDs._PixelCoordToViewDirWS, builtinParams.pixelCoordToViewDirMatrix);

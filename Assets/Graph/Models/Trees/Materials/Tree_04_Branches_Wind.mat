@@ -8,11 +8,11 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Tree_04_Branches_Wind
-  m_Shader: {fileID: 4800000, guid: b74d0086cb278784d9a4cab73526c0e0, type: 3}
+  m_Shader: {fileID: 4800000, guid: d57fb981a21f4714ebcc6aa24b7a0744, type: 3}
   m_ShaderKeywords: _ALPHATEST_ON _DISABLE_DBUFFER _DOUBLESIDED_ON _HEIGHTMAP _MASKMAP
     _NORMALMAP _NORMALMAP_TANGENT_SPACE _VERTEX_WIND
   m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
+  m_EnableInstancingVariants: 1
   m_DoubleSidedGI: 1
   m_CustomRenderQueue: -1
   stringTagMap:
@@ -156,6 +156,9 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
+    - Boolean_CE25A04A: 0
+    - Vector1_2EF72CAF: 0.9
+    - Vector1_EF15B5DA: 0.5
     - _AORemapMax: 1
     - _AORemapMin: 0
     - _ATDistance: 1
@@ -165,6 +168,7 @@ Material:
     - _AlphaCutoffPostpass: 0.5
     - _AlphaCutoffPrepass: 0.5
     - _Anisotropy: 0
+    - _ApplyTrunkRotationWind: 1
     - _BlendMode: 0
     - _BumpScale: 1
     - _CoatCoverage: 1
@@ -182,6 +186,7 @@ Material:
     - _DetailNormalScale: 1
     - _DetailSmoothnessScale: 1
     - _DiffusionProfile: 0
+    - _DiffusionProfileHash: 2.5626004
     - _DisplacementLockObjectScale: 1
     - _DisplacementLockTilingScale: 1
     - _DisplacementMode: 0
@@ -307,8 +312,11 @@ Material:
     - _ZTestModeDistortion: 8
     - _ZWrite: 1
     m_Colors:
+    - Vector3_9CB9B254: {r: 1, g: 0, b: 1, a: 0}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _DiffusionProfileAsset: {r: -2.6869733e+14, g: -4.7603683e+31, b: 1.0977008e+33,
+        a: 1.2048398e-17}
     - _DoubleSidedConstants: {r: 1, g: 1, b: -1, a: 0}
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
     - _EmissiveColor: {r: 0, g: 0, b: 0, a: 1}

@@ -9,7 +9,9 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: Moon
   m_Shader: {fileID: 4800000, guid: c4edd00ff2db5b24391a4fcb1762e459, type: 3}
-  m_ShaderKeywords: _ALPHATEST_ON _BLENDMODE_ALPHA _CAMERAFADING_ON _DISTORTIONDEPTHTEST_OFF _DISTORTIONENABLE_OFF _DISTORTIONONLY_OFF _EMISSIVE_COLOR_MAP _SOFTPARTICLES_ON _SURFACE_TYPE_TRANSPARENT
+  m_ShaderKeywords: _ALPHATEST_ON _BLENDMODE_ALPHA _CAMERAFADING_ON _DISTORTIONDEPTHTEST_OFF
+    _DISTORTIONENABLE_OFF _DISTORTIONONLY_OFF _EMISSIVE_COLOR_MAP _SOFTPARTICLES_ON
+    _SURFACE_TYPE_TRANSPARENT
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -18,6 +20,7 @@ Material:
     RenderType: Transparent
   disabledShaderPasses:
   - DistortionVectors
+  - MOTIONVECTORS
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
@@ -74,8 +77,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
+    - _AlbedoAffectEmissive: 0
     - _AlphaCutoff: 0.5
     - _AlphaCutoffEnable: 1
+    - _AlphaDstBlend: 10
+    - _AlphaSrcBlend: 1
     - _BlendMode: 0
     - _Brightness: 7
     - _BumpScale: 1
@@ -102,6 +108,9 @@ Material:
     - _DistortionVectorScale: 2
     - _DoubleSidedEnable: 0
     - _DstBlend: 10
+    - _EmissiveExposureWeight: 1
+    - _EmissiveIntensity: 1
+    - _EmissiveIntensityUnit: 0
     - _EnableFogOnTransparent: 0
     - _GlossMapScale: 1
     - _Glossiness: 0.5
@@ -116,18 +125,22 @@ Material:
     - _SoftParticleInvDistance: 1
     - _SpecularHighlights: 1
     - _SrcBlend: 1
-    - _StencilRef: 2
-    - _StencilRefMV: 128
-    - _StencilWriteMask: 7
-    - _StencilWriteMaskMV: 128
+    - _StencilRef: 0
+    - _StencilRefDepth: 32
+    - _StencilRefMV: 160
+    - _StencilWriteMask: 3
+    - _StencilWriteMaskDepth: 48
+    - _StencilWriteMaskMV: 176
     - _SurfaceType: 1
     - _TransparentSortPriority: 0
     - _UVSec: 0
+    - _UseEmissiveIntensity: 0
     - _ZTestMode: 8
     - _ZTestModeDistortion: 8
     - _ZWrite: 0
     m_Colors:
-    - _Color: {r: 6.186114, g: 6.186114, b: 6.186114, a: 1}
+    - _Color: {r: 24.74445, g: 24.74445, b: 24.74445, a: 1}
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
-    - _EmissiveColor: {r: 6.186114, g: 6.186114, b: 6.186114, a: 1}
+    - _EmissiveColor: {r: 24.74445, g: 24.74445, b: 24.74445, a: 1}
+    - _EmissiveColorLDR: {r: 0, g: 0, b: 0, a: 1}
     - _UnlitColor: {r: 1, g: 1, b: 1, a: 1}

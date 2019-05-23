@@ -5,7 +5,8 @@ Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_Name: Stone_05_Layers_NoTesselation_3L
   m_Shader: {fileID: 4800000, guid: 81d02e8644315b742b154842a3a2f98c, type: 3}
   m_ShaderKeywords: _DENSITY_MODE _DETAIL_MAP1 _DISABLE_DBUFFER _HEIGHTMAP0 _HEIGHTMAP1
@@ -470,6 +471,7 @@ Material:
     - _Parallax: 0.02
     - _PerPixelDisplacementObjectScale: 1
     - _PreRefractionPass: 0
+    - _ReceivesSSR: 1
     - _SSSAndTransmissionType: 0
     - _ShiverDirectionality: 0.5
     - _ShiverDrag: 0.2
@@ -513,6 +515,7 @@ Material:
     - _SubsurfaceRadius2: 1
     - _SubsurfaceRadius3: 1
     - _SupportDBuffer: 0
+    - _SupportDecals: 1
     - _SurfaceType: 0
     - _TessellationBackFaceCullEpsilon: -1
     - _TessellationFactor: 15

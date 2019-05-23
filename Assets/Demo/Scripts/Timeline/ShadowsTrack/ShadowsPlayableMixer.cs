@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.Playables;
-using UnityEngine.UI;
-using UnityEngine.Experimental.Rendering;
+using UnityEngine.Rendering;
 using UnityEngine.Experimental.Rendering.HDPipeline;
 
 public class ShadowsPlayableMixer : PlayableBehaviour

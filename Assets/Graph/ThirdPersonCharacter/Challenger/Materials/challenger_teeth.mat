@@ -5,7 +5,8 @@ Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_Name: challenger_teeth
   m_Shader: {fileID: 4800000, guid: 6e4ae4064600d784cac1e41a9e6f2e59, type: 3}
   m_ShaderKeywords: _DETAIL_MAP _DISABLE_DBUFFER _MASKMAP _MATERIAL_FEATURE_SUBSURFACE_SCATTERING
@@ -174,6 +175,7 @@ Material:
     - _AlphaCutoffEnable: 0
     - _AlphaCutoffPostpass: 0.5
     - _AlphaCutoffPrepass: 0.5
+    - _AlphaCutoffShadow: 0.5
     - _AlphaTestRef: 0.5
     - _Anisotropy: 0
     - _BlendMode: 0
@@ -187,7 +189,8 @@ Material:
     - _DetailNormalMapScale: 0.3
     - _DetailNormalScale: 0.139
     - _DetailSmoothnessScale: 0
-    - _DiffusionProfile: 3
+    - _DiffusionProfile: -1
+    - _DiffusionProfileHash: 2.1249285
     - _DisplacementLockObjectScale: 1
     - _DisplacementLockTilingScale: 1
     - _DisplacementMode: 0
@@ -214,6 +217,9 @@ Material:
     - _EmissionScaleUI: 0
     - _EmissionTemperature: 0
     - _EmissiveColorMode: 1
+    - _EmissiveExposureWeight: 1
+    - _EmissiveIntensity: 1
+    - _EmissiveIntensityUnit: 0
     - _EnableBlendModePreserveSpecularLighting: 1
     - _EnableFogOnTransparent: 1
     - _EnableGeometricSpecularAA: 0
@@ -258,6 +264,7 @@ Material:
     - _PlaneReflectionBumpClamp: 0.05
     - _PlaneReflectionBumpScale: 0.4
     - _PreRefractionPass: 0
+    - _ReceivesSSR: 1
     - _RefractionMode: 0
     - _RefractionModel: 0
     - _RefractionSSRayModel: 0
@@ -275,14 +282,19 @@ Material:
     - _SpecularAAThreshold: 0.2
     - _SrcBlend: 1
     - _StencilRef: 1
+    - _StencilRefDepth: 0
+    - _StencilRefGBuffer: 1
     - _StencilRefMV: 128
-    - _StencilWriteMask: 7
-    - _StencilWriteMaskMV: 128
+    - _StencilWriteMask: 3
+    - _StencilWriteMaskDepth: 48
+    - _StencilWriteMaskGBuffer: 51
+    - _StencilWriteMaskMV: 176
     - _Stiffness: 1
     - _SubsurfaceMask: 1
     - _SubsurfaceProfile: 0
     - _SubsurfaceRadius: 0.318
     - _SupportDBuffer: 0
+    - _SupportDecals: 1
     - _SurfaceType: 0
     - _TexWorldScale: 1
     - _TexWorldScaleEmissive: 1
@@ -293,10 +305,13 @@ Material:
     - _TransparentDepthPostpassEnable: 0
     - _TransparentDepthPrepassEnable: 0
     - _TransparentSortPriority: 0
+    - _TransparentWritingVelocity: 0
     - _UVBase: 0
     - _UVDetail: 0
     - _UVEmissive: 0
     - _UVSec: 0
+    - _UseEmissiveIntensity: 0
+    - _UseShadowThreshold: 0
     - _ZTestDepthEqualForOpaque: 3
     - _ZTestGBuffer: 4
     - _ZTestMode: 8
@@ -304,12 +319,16 @@ Material:
     - _ZWrite: 1
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
+    - _BaseColorMap_MipInfo: {r: 0, g: 0, b: 0, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _DiffusionProfileAsset: {r: 3.8972793e-16, g: -1339.2859, b: -9.497781e+31,
+        a: 1.8593683e+31}
     - _DoubleSidedConstants: {r: 1, g: 1, b: -1, a: 0}
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColorUI: {r: 0, g: 0, b: 0, a: 1}
     - _EmissionColorWithMapUI: {r: 0.99999994, g: 0.8586226, b: 0.75000346, a: 1}
     - _EmissiveColor: {r: 0, g: 0, b: 0, a: 1}
+    - _EmissiveColorLDR: {r: 0, g: 0, b: 0, a: 1}
     - _InvPrimScale: {r: 1, g: 1, b: 0, a: 0}
     - _IridescenceThicknessRemap: {r: 0, g: 1, b: 0, a: 0}
     - _SmoothnessTweaks: {r: 1, g: 0, b: 0, a: 0}

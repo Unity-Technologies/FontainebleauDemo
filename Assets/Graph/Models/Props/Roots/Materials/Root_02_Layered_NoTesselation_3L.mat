@@ -5,7 +5,8 @@ Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_Name: Root_02_Layered_NoTesselation_3L
   m_Shader: {fileID: 4800000, guid: 81d02e8644315b742b154842a3a2f98c, type: 3}
   m_ShaderKeywords: _DENSITY_MODE _DETAIL_MAP0 _DISABLE_DBUFFER _HEIGHTMAP1 _HEIGHTMAP2
@@ -297,6 +298,8 @@ Material:
     - _AlbedoAffectEmissive: 0
     - _AlphaCutoff: 0.5
     - _AlphaCutoffEnable: 0
+    - _AlphaDstBlend: 0
+    - _AlphaSrcBlend: 1
     - _BlendMode: 0
     - _BlendSize1: 0
     - _BlendSize2: 0
@@ -334,6 +337,10 @@ Material:
     - _DiffusionProfile1: 0
     - _DiffusionProfile2: 0
     - _DiffusionProfile3: 0
+    - _DiffusionProfileHash0: 2.181737
+    - _DiffusionProfileHash1: 2.181737
+    - _DiffusionProfileHash2: 2.181737
+    - _DiffusionProfileHash3: 0
     - _DisplacementLockObjectScale: 1
     - _DisplacementLockTilingScale: 1
     - _DisplacementMode: 0
@@ -347,6 +354,9 @@ Material:
     - _Drag: 1
     - _DstBlend: 0
     - _EmissiveColorMode: 0
+    - _EmissiveExposureWeight: 1
+    - _EmissiveIntensity: 1
+    - _EmissiveIntensityUnit: 0
     - _EnableBlendModePreserveSpecularLighting: 1
     - _EnableFogOnTransparent: 1
     - _EnableGeometricSpecularAA: 0
@@ -485,6 +495,7 @@ Material:
     - _PPDPrimitiveWidth: 1
     - _Parallax: 0.02
     - _PreRefractionPass: 0
+    - _ReceivesSSR: 1
     - _SSSAndTransmissionType: 0
     - _ShiverDirectionality: 0.5
     - _ShiverDrag: 0.2
@@ -511,9 +522,13 @@ Material:
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _StencilRef: 1
+    - _StencilRefDepth: 0
+    - _StencilRefGBuffer: 1
     - _StencilRefMV: 128
-    - _StencilWriteMask: 7
-    - _StencilWriteMaskMV: 128
+    - _StencilWriteMask: 3
+    - _StencilWriteMaskDepth: 48
+    - _StencilWriteMaskGBuffer: 51
+    - _StencilWriteMaskMV: 176
     - _Stiffness: 1
     - _SubsurfaceMask0: 1
     - _SubsurfaceMask1: 1
@@ -528,6 +543,7 @@ Material:
     - _SubsurfaceRadius2: 1
     - _SubsurfaceRadius3: 1
     - _SupportDBuffer: 0
+    - _SupportDecals: 1
     - _SurfaceType: 0
     - _TessellationBackFaceCullEpsilon: -1
     - _TessellationFactor: 15
@@ -567,6 +583,7 @@ Material:
     - _UVMappingPlanarBlendMask: 0
     - _UVSec: 0
     - _UseDensityMode: 1
+    - _UseEmissiveIntensity: 0
     - _UseHeightBasedBlend: 0
     - _UseHeightBasedBlendV2: 0
     - _UseMainLayerInfluence: 0
@@ -581,10 +598,16 @@ Material:
     - _BaseColor1: {r: 1, g: 1, b: 1, a: 1}
     - _BaseColor2: {r: 1, g: 1, b: 1, a: 1}
     - _BaseColor3: {r: 1, g: 1, b: 1, a: 1}
+    - _BaseColorMap0_MipInfo: {r: 0, g: 0, b: 0, a: 0}
     - _Color: {r: 0, g: 0, b: 0, a: 1}
+    - _DiffusionProfileAsset0: {r: 0, g: 0, b: 0, a: 0}
+    - _DiffusionProfileAsset1: {r: 0, g: 0, b: 0, a: 0}
+    - _DiffusionProfileAsset2: {r: 0, g: 0, b: 0, a: 0}
+    - _DiffusionProfileAsset3: {r: 0, g: 0, b: 0, a: 0}
     - _DoubleSidedConstants: {r: 1, g: 1, b: -1, a: 0}
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
     - _EmissiveColor: {r: 0, g: 0, b: 0, a: 1}
+    - _EmissiveColorLDR: {r: 0, g: 0, b: 0, a: 1}
     - _InvPrimScale: {r: 1, g: 1, b: 0, a: 0}
     - _ThicknessRemap0: {r: 0, g: 1, b: 0, a: 0}
     - _ThicknessRemap1: {r: 0, g: 1, b: 0, a: 0}

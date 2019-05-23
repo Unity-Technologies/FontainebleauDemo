@@ -5,12 +5,10 @@ using UnityEditor;
 public class LightinScenariosInspector : Editor
 {
 	public SerializedProperty lightingScenariosScenes;
-    public SerializedProperty clearCache;
 
     public void OnEnable()
     {
 		lightingScenariosScenes = serializedObject.FindProperty("lightingScenariosScenes");
-        clearCache = serializedObject.FindProperty("clearCache");
     }
 
     public override void OnInspectorGUI()
@@ -19,52 +17,33 @@ public class LightinScenariosInspector : Editor
 
 		LevelLightmapData lightmapData = (LevelLightmapData)target;
 
-        EditorGUILayout.PropertyField(clearCache, new GUIContent("Clear cache before bake"));
-        EditorGUILayout.PropertyField(lightingScenariosScenes, new GUIContent("Lighting Scenarios Scenes"), includeChildren:true);
-
+        EditorGUI.BeginChangeCheck();
+		EditorGUILayout.PropertyField(lightingScenariosScenes, new GUIContent("Lighting Scenarios Scenes"), includeChildren:true);
+        if(EditorGUI.EndChangeCheck())
+        {
+            serializedObject.ApplyModifiedProperties();
+            lightmapData.updateNames();
+        }
         serializedObject.ApplyModifiedProperties();
 
         EditorGUILayout.Space();
 
-        var ScenariosCount = new int();
-
-        if ( lightmapData.lightingScenariosScenes != null )
+        for (int i = 0; i < lightmapData.lightingScenariosScenes.Count; i++)
         {
-            ScenariosCount = lightmapData.lightingScenariosScenes.Count;
-        }
-        else
-        {
-            ScenariosCount = 0;
-        }
-
-        for (int i = 0; i < ScenariosCount; i++)
-        {
+            EditorGUILayout.BeginHorizontal();
             if ( lightmapData.lightingScenariosScenes[i] != null )
             {
-                if (GUILayout.Button("Build " + lightmapData.lightingScenariosScenes[i]))
+                EditorGUILayout.LabelField(lightmapData.lightingScenariosScenes[i].name.ToString(), EditorStyles.boldLabel);
+                if (GUILayout.Button("Build "))
                 {
-                    lightmapData.BuildLightingScenario(lightmapData.lightingScenariosScenes[i]);
-                    //lightmapData.StoreLightmapInfos(i);
+                    lightmapData.BuildLightingScenario(i);
                 }
-            }
-            if (lightmapData.lightingScenariosScenes[i] != null)
-            {
-                if (GUILayout.Button("Store " + lightmapData.lightingScenariosScenes[i]))
+                if (GUILayout.Button("Store "))
                 {
                     lightmapData.StoreLightmapInfos(i);
                 }
             }
-
-        }
-
-        if (GUILayout.Button("Build all"))
-        {
-            lightmapData.BuildLightingScenario(lightmapData.lightingScenariosScenes[0]);
-            lightmapData.StoreLightmapInfos(0);
-            lightmapData.BuildLightingScenario(lightmapData.lightingScenariosScenes[1]);
-            lightmapData.StoreLightmapInfos(1);
-            lightmapData.BuildLightingScenario(lightmapData.lightingScenariosScenes[2]);
-            lightmapData.StoreLightmapInfos(2);
+            EditorGUILayout.EndHorizontal();
         }
     }
 }

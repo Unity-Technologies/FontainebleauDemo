@@ -5,7 +5,8 @@ Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_Name: Sun
   m_Shader: {fileID: 4800000, guid: c4edd00ff2db5b24391a4fcb1762e459, type: 3}
   m_ShaderKeywords: _ALPHATEST_ON _BLENDMODE_ALPHA _SURFACE_TYPE_TRANSPARENT
@@ -17,6 +18,7 @@ Material:
     RenderType: Transparent
   disabledShaderPasses:
   - DistortionVectors
+  - MOTIONVECTORS
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
@@ -100,6 +102,8 @@ Material:
     - _AlbedoAffectEmissive: 0
     - _AlphaCutoff: 0.5
     - _AlphaCutoffEnable: 1
+    - _AlphaDstBlend: 10
+    - _AlphaSrcBlend: 1
     - _Anisotropy: 0
     - _BlendMode: 0
     - _CoatCoverage: 1
@@ -130,6 +134,9 @@ Material:
     - _Drag: 1
     - _DstBlend: 10
     - _EmissiveColorMode: 1
+    - _EmissiveExposureWeight: 1
+    - _EmissiveIntensity: 1048576
+    - _EmissiveIntensityUnit: 1
     - _EnableFogOnTransparent: 0
     - _EnablePerPixelDisplacement: 0
     - _EnableSpecularOcclusion: 0
@@ -139,6 +146,7 @@ Material:
     - _HeightCenter: 0.5
     - _HeightMax: 1
     - _HeightMin: -1
+    - _IncludeIndirectLighting: 1
     - _InitialBend: 1
     - _MaterialID: 1
     - _Metallic: 0
@@ -154,10 +162,14 @@ Material:
     - _SmoothnessRemapMax: 1
     - _SmoothnessRemapMin: 0
     - _SrcBlend: 1
-    - _StencilRef: 2
-    - _StencilRefMV: 128
-    - _StencilWriteMask: 7
-    - _StencilWriteMaskMV: 128
+    - _StencilRef: 0
+    - _StencilRefDepth: 32
+    - _StencilRefDistortionVec: 64
+    - _StencilRefMV: 160
+    - _StencilWriteMask: 3
+    - _StencilWriteMaskDepth: 48
+    - _StencilWriteMaskDistortionVec: 64
+    - _StencilWriteMaskMV: 176
     - _Stiffness: 1
     - _SubsurfaceProfile: 0
     - _SubsurfaceRadius: 1
@@ -167,15 +179,17 @@ Material:
     - _TransparentSortPriority: 0
     - _UVBase: 0
     - _UVDetail: 0
+    - _UseEmissiveIntensity: 1
     - _ZTestMode: 8
     - _ZTestModeDistortion: 8
     - _ZWrite: 0
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
-    - _Color: {r: 1, g: 0.9249119, b: 0.753, a: 1}
+    - _Color: {r: 1048576, g: 976448.7, b: 816108.7, a: 1048576}
     - _DoubleSidedConstants: {r: 1, g: 1, b: -1, a: 0}
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
-    - _EmissiveColor: {r: 2000, g: 1849.8239, b: 1506, a: 1}
+    - _EmissiveColor: {r: 1048576, g: 976448.7, b: 816108.7, a: 1048576}
+    - _EmissiveColorLDR: {r: 1, g: 0.93121403, b: 0.7783019, a: 1}
     - _SpecularColor: {r: 1, g: 1, b: 1, a: 1}
     - _UVDetailsMappingMask: {r: 1, g: 0, b: 0, a: 0}
     - _UVMappingMask: {r: 1, g: 0, b: 0, a: 0}

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 [ExecuteInEditMode]
@@ -30,9 +28,11 @@ public class StealLightmap : MonoBehaviour {
     {
         if(lightmappedObject == null || currentRenderer == null)
             return;
-
-        currentRenderer.lightmapIndex = lightmappedObject.lightmapIndex;
-        currentRenderer.lightmapScaleOffset = lightmappedObject.lightmapScaleOffset;
-        currentRenderer.lightProbeUsage = lightmappedObject.lightProbeUsage;
+        if(!currentRenderer.isPartOfStaticBatch)
+        {
+            currentRenderer.lightmapIndex = lightmappedObject.lightmapIndex;
+            currentRenderer.lightmapScaleOffset = lightmappedObject.lightmapScaleOffset;
+            currentRenderer.lightProbeUsage = lightmappedObject.lightProbeUsage;
+        }
     }
 }

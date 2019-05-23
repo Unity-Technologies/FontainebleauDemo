@@ -14,7 +14,8 @@ Material:
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
-  stringTagMap: {}
+  stringTagMap:
+    MotionVector: User
   disabledShaderPasses:
   - DistortionVectors
   - TransparentBackfaceDebugDisplay
@@ -30,7 +31,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BaseColorMap:
-        m_Texture: {fileID: 2800000, guid: a62fc4a66f9d2c54e81ccddf12d028d2, type: 3}
+        m_Texture: {fileID: 2800000, guid: def65d375bccfce4b86449d655df33c6, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BentNormalMap:
@@ -196,6 +197,7 @@ Material:
     - _DetailNormalScale: 1
     - _DetailSmoothnessScale: 0.73
     - _DiffusionProfile: 0
+    - _DiffusionProfileHash: 2.3939052
     - _DisplacementLockObjectScale: 1
     - _DisplacementLockTilingScale: 1
     - _DisplacementMode: 0
@@ -324,6 +326,8 @@ Material:
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _DiffusionProfileAsset: {r: -1.1480938e-20, g: -713.1637, b: 1.4490831e-12,
+        a: 2.802213e-13}
     - _DoubleSidedConstants: {r: 1, g: 1, b: -1, a: 0}
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColorUI: {r: 0, g: 0, b: 0, a: 1}

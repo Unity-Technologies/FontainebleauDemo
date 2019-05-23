@@ -1,9 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Playables;
 using UnityEngine.Timeline;
-using UnityEngine.Experimental.Rendering;
+using UnityEngine.Rendering;
 
 [TrackColor(0, 0, 0)]
 [TrackClipType(typeof(ShadowsPlayableAsset))]

@@ -3,7 +3,7 @@ using UnityEngine.Events;
 
 namespace GameplayIngredients.Hooks
 {
-    public class OnKeyDownAction : HookBase
+    public class OnKeyDownHook : HookBase
     {
         public enum ActionType
         {

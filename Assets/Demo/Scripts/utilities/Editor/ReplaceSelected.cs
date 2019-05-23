@@ -7,7 +7,6 @@
 using UnityEngine;
 using UnityEditor;
 using System.Collections;
-using JBooth.VertexPainterPro;
 using UnityEngine.SceneManagement;
 using UnityEditor.SceneManagement;
 
@@ -54,22 +53,6 @@ public class ReplaceSelected : ScriptableWizard
             // Apply our changes to the game object
             serializedObject.ApplyModifiedProperties();
         }
-    }
-
-    [MenuItem("Tools/Disable StaticBatching when VertexColor stream is present")]
-    static void FixStaticBatchingAndVertexColor()
-    {
-        VertexInstanceStream[] components = FindObjectsOfType<VertexInstanceStream>();
-        foreach (JBooth.VertexPainterPro.VertexInstanceStream item in components)
-        {
-            StaticEditorFlags flags = GameObjectUtility.GetStaticEditorFlags(item.gameObject);
-            flags = flags & ~(StaticEditorFlags.BatchingStatic);
-            GameObjectUtility.SetStaticEditorFlags(item.gameObject, flags);
-            EditorUtility.SetDirty(item.gameObject);
-        }
-
-        var scene = SceneManager.GetActiveScene();
-        EditorSceneManager.MarkSceneDirty(scene);
     }
 
     [MenuItem("Tools/Replace Selection... _%#R")]

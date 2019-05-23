@@ -1,7 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.Rendering.PostProcessing;
+﻿using UnityEngine;
+using UnityEngine.Rendering;
+using UnityEngine.Experimental.Rendering.HDPipeline;
 
 [ExecuteInEditMode]
 public class MotionBlurQuality : MonoBehaviour {
@@ -16,7 +15,7 @@ public class MotionBlurQuality : MonoBehaviour {
     // Use this for initialization
     void OnEnable ()
     {
-        var volume = GetComponent<PostProcessVolume>();
+        var volume = GetComponent<Volume>();
         if (volume == null)
             return;
         MotionBlur m_motionBlur;
@@ -25,7 +24,7 @@ public class MotionBlurQuality : MonoBehaviour {
                 ? volume.profile
                 : volume.sharedProfile;
 
-        profile.TryGetSettings<MotionBlur>(out m_motionBlur);
+        profile.TryGet<MotionBlur>(out m_motionBlur);
 
         switch(QualitySettings.GetQualityLevel())
         {

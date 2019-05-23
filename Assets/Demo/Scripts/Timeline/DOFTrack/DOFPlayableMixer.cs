@@ -1,17 +1,15 @@
 ﻿using UnityEngine;
 using UnityEngine.Playables;
-using UnityEngine.UI;
-using UnityEngine.Rendering.PostProcessing;
+using UnityEngine.Rendering;
+using UnityEngine.Experimental.Rendering.HDPipeline;
 
 public class DOFPlayableMixer : PlayableBehaviour
 {
     // Called each frame the mixer is active, after inputs are processed
     public override void ProcessFrame(Playable handle, FrameData info, object playerData)
     {
-        var camera = Camera.main;
-        if (camera == null || Camera.main.transform.parent.gameObject.tag == "Player")
-            return;
-        var volume = camera.GetComponent<PostProcessVolume>();
+        Volume volume = playerData as Volume;
+
         if (volume == null)
             return;
         DepthOfField m_depthOfField;
@@ -20,14 +18,34 @@ public class DOFPlayableMixer : PlayableBehaviour
                 ? volume.profile
                 : volume.sharedProfile;
 
-        if (!profile.HasSettings<DepthOfField>())
+        if (!profile.Has<DepthOfField>())
             return;
+
+
+        var count = handle.GetInputCount();
+        //Short loop
+        int activeClipsCount = 0;
+        for (var i = 0; i < count; i++)
+        {
+
+            var inputHandle = handle.GetInput(i);
+            var weight = handle.GetInputWeight(i);
+            if (weight > 0)
+                activeClipsCount += 1;
+        }
+
+        if (activeClipsCount == 0)
+        {
+            volume.weight = 0;
+            return;
+        }
+
+        volume.weight = 1;
 
         float newFocusDistance = 0f;
         float newAperture = 0f;
         float newFocalLength = 0f;
 
-        var count = handle.GetInputCount();
         for (var i = 0; i < count; i++)
         {
 
@@ -48,9 +66,7 @@ public class DOFPlayableMixer : PlayableBehaviour
 
             }
         }
-        profile.TryGetSettings<DepthOfField>(out m_depthOfField);
+        profile.TryGet<DepthOfField>(out m_depthOfField);
         m_depthOfField.focusDistance.value = newFocusDistance;
-        m_depthOfField.aperture.value = newAperture;
-        m_depthOfField.focalLength.value = newFocalLength;
     }
 }

@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
-using UnityEngine.Experimental.Rendering;
+using UnityEngine.Rendering;
 
-namespace Fontainebleau
+namespace HDRPSamples
 {
     [ExecuteAlways]
     public class BasicWindData : MonoBehaviour
@@ -12,16 +12,8 @@ namespace Fontainebleau
         private float windSpeed = 0;
         private float windTurbulence = 0;
 
-        //Wind Direction and occlusion texture
-        public Texture2D windDirectionAndOcclusionTex;
-
         //Debug
-        public bool debug = true;
-
-        private void OnEnable()
-        {
-            CreateRenderTexture();
-        }
+        public bool debug = false;
 
         void Start()
         {
@@ -48,14 +40,13 @@ namespace Fontainebleau
 
             if (windZone == null)
                 windZone = gameObject.GetComponent<WindZone>();
-            if (windZone != null && windDirectionAndOcclusionTex != null)
+            if (windZone != null)
             {
                 GetDirectionAndSpeed();
             }
 
             Shader.SetGlobalTexture(BasicWindShaderIDs.TexNoise, windSettings.noiseTexture.value);
             Shader.SetGlobalTexture(BasicWindShaderIDs.TexGust, windSettings.gustMaskTexture.value);
-            Shader.SetGlobalTexture(BasicWindShaderIDs.TexDirectionOcclusion, windDirectionAndOcclusionTex);
             Shader.SetGlobalVector(BasicWindShaderIDs.WorldDirectionAndSpeed, new Vector4(windDirection.x, windDirection.y, windDirection.z, windSpeed * 0.2777f));
             Shader.SetGlobalFloat(BasicWindShaderIDs.FlexNoiseScale, 1.0f / Mathf.Max(0.01f, windSettings.flexNoiseWorldSize.value));
             Shader.SetGlobalFloat(BasicWindShaderIDs.ShiverNoiseScale, 1.0f / Mathf.Max(0.01f, windSettings.shiverNoiseWorldSize.value));
@@ -71,50 +62,18 @@ namespace Fontainebleau
             windDirection = windZone.transform.forward;
             windSpeed = windZone.windMain;
             windTurbulence = windZone.windTurbulence;
-            Debug.Log("Direction" + windDirection);
 
-            Color[] directionAndOcclusion = new Color[1];
-            directionAndOcclusion[0] = new Color(windDirection.x, windDirection.y, windDirection.z, 1);
-            windDirectionAndOcclusionTex.SetPixels(directionAndOcclusion);
-            Debug.Log("Color" + directionAndOcclusion[0]);
-            var pixel = windDirectionAndOcclusionTex.GetPixel(0, 0);
-            Debug.Log("ReadColor" + pixel);
-            Debug.DrawLine(Vector3.zero, new Vector3(pixel.r, pixel.g, pixel.b),Color.red);
-            Debug.Log("Shader value" + Shader.GetGlobalVector(BasicWindShaderIDs.WorldDirectionAndSpeed));
-            
-        }
-
-        void CreateRenderTexture()
-        {
-            windDirectionAndOcclusionTex = new Texture2D(1, 1, TextureFormat.RGBAFloat, false, true)
+            if(debug)
             {
-                filterMode = FilterMode.Point,
-                name = "GlobalWindDirectionAndOcclusionTexture"
-            };
-        }
-
-        private void OnDisable()
-        {
-            OnDestroy();
-        }
-
-        private void OnDestroy()
-        {
-            if (Application.isPlaying)
-            {
-                if (windDirectionAndOcclusionTex != null)
-                    Destroy(windDirectionAndOcclusionTex);
-            }
-            else
-            {
-                if (windDirectionAndOcclusionTex != null)
-                    DestroyImmediate(windDirectionAndOcclusionTex);
+                Debug.Log("Entity Direction " + windDirection);
+                Debug.Log("Shader value " + Shader.GetGlobalVector(BasicWindShaderIDs.WorldDirectionAndSpeed));
             }
         }
     }
 
     static class BasicWindShaderIDs
     {
+        internal static readonly int PlayerPos = Shader.PropertyToID("_BASICWIND_PlayerPositionAndRadius");
         internal static readonly int TexNoise = Shader.PropertyToID("_BASICWIND_TexNoise");
         internal static readonly int TexGust = Shader.PropertyToID("_BASICWIND_TexGust");
         internal static readonly int WorldDirectionAndSpeed = Shader.PropertyToID("_BASICWIND_WorldDirectionAndSpeed");
@@ -125,6 +84,5 @@ namespace Fontainebleau
         internal static readonly int GustScale = Shader.PropertyToID("_BASICWIND_GustScale");
         internal static readonly int GustWorldScale = Shader.PropertyToID("_BASICWIND_GustWorldScale");
         internal static readonly int Attenuation = Shader.PropertyToID("_BASICWIND_Attenuation");
-        internal static readonly int TexDirectionOcclusion = Shader.PropertyToID("_BASICWIND_TexDirectionOcclusion");
     }
 }

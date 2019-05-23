@@ -42,11 +42,11 @@ public static class MultiSceneSetupMenu
     [MenuItem("Load levels/Day",false,1)]
     public static void LoadDemoDay()
     {
-        var SceneSetup = (MultiSceneSetup)AssetDatabase.LoadAssetAtPath("Assets/Demo/MSE/Day.asset", typeof(MultiSceneSetup));
+        var SceneSetup = (MultiSceneSetup)AssetDatabase.LoadAssetAtPath("Assets/Demo/MultiSceneSetups/Day.asset", typeof(MultiSceneSetup));
 
         EditorSceneManager.RestoreSceneManagerSetup(SceneSetup.Setups);
 
-        Debug.Log(string.Format("Scene setup '{0}' restored", Path.GetFileNameWithoutExtension(AssetDatabase.LoadAssetAtPath("Assets/Demo/MSE/Day.asset", typeof(MultiSceneSetup)).name)));
+        Debug.Log(string.Format("Scene setup '{0}' restored", Path.GetFileNameWithoutExtension(AssetDatabase.LoadAssetAtPath("Assets/Demo/MultiSceneSetups/Day.asset", typeof(MultiSceneSetup)).name)));
 
         GameObject.FindObjectOfType<LevelLightmapData>().LoadLightingScenario(0);
     }
@@ -54,11 +54,11 @@ public static class MultiSceneSetupMenu
     [MenuItem("Load levels/Sunset", false, 2)]
     public static void LoadDemoSunset()
     {
-        var SceneSetup = (MultiSceneSetup)AssetDatabase.LoadAssetAtPath("Assets/Demo/MSE/Sunset.asset", typeof(MultiSceneSetup));
+        var SceneSetup = (MultiSceneSetup)AssetDatabase.LoadAssetAtPath("Assets/Demo/MultiSceneSetups/Sunset.asset", typeof(MultiSceneSetup));
 
         EditorSceneManager.RestoreSceneManagerSetup(SceneSetup.Setups);
 
-        Debug.Log(string.Format("Scene setup '{0}' restored", Path.GetFileNameWithoutExtension(AssetDatabase.LoadAssetAtPath("Assets/Demo/MSE/Sunset.asset", typeof(MultiSceneSetup)).name)));
+        Debug.Log(string.Format("Scene setup '{0}' restored", Path.GetFileNameWithoutExtension(AssetDatabase.LoadAssetAtPath("Assets/Demo/MultiSceneSetups/Sunset.asset", typeof(MultiSceneSetup)).name)));
 
         GameObject.FindObjectOfType<LevelLightmapData>().LoadLightingScenario(2);
     }
@@ -66,11 +66,11 @@ public static class MultiSceneSetupMenu
     [MenuItem("Load levels/Night", false, 3)]
     public static void LoadDemoNight()
     {
-        var SceneSetup = (MultiSceneSetup)AssetDatabase.LoadAssetAtPath("Assets/Demo/MSE/Night.asset", typeof(MultiSceneSetup));
+        var SceneSetup = (MultiSceneSetup)AssetDatabase.LoadAssetAtPath("Assets/Demo/MultiSceneSetups/Night.asset", typeof(MultiSceneSetup));
 
         EditorSceneManager.RestoreSceneManagerSetup(SceneSetup.Setups);
 
-        Debug.Log(string.Format("Scene setup '{0}' restored", Path.GetFileNameWithoutExtension(AssetDatabase.LoadAssetAtPath("Assets/Demo/MSE/Night.asset", typeof(MultiSceneSetup)).name)));
+        Debug.Log(string.Format("Scene setup '{0}' restored", Path.GetFileNameWithoutExtension(AssetDatabase.LoadAssetAtPath("Assets/Demo/MultiSceneSetups/Night.asset", typeof(MultiSceneSetup)).name)));
 
         GameObject.FindObjectOfType<LevelLightmapData>().LoadLightingScenario(1);
     }
@@ -78,48 +78,13 @@ public static class MultiSceneSetupMenu
     [MenuItem("Load levels/Loader", false, 14)]
     public static void LoadVideoDay()
     {
-        var SceneSetup = (MultiSceneSetup)AssetDatabase.LoadAssetAtPath("Assets/Demo/MSE/Loader.asset", typeof(MultiSceneSetup));
+        var SceneSetup = (MultiSceneSetup)AssetDatabase.LoadAssetAtPath("Assets/Demo/MultiSceneSetups/Loader.asset", typeof(MultiSceneSetup));
 
         EditorSceneManager.RestoreSceneManagerSetup(SceneSetup.Setups);
 
-        Debug.Log(string.Format("Scene setup '{0}' restored", Path.GetFileNameWithoutExtension(AssetDatabase.LoadAssetAtPath("Assets/Demo/MSE/Loader.asset", typeof(MultiSceneSetup)).name)));
+        Debug.Log(string.Format("Scene setup '{0}' restored", Path.GetFileNameWithoutExtension(AssetDatabase.LoadAssetAtPath("Assets/Demo/MultiSceneSetups/Loader.asset", typeof(MultiSceneSetup)).name)));
     }
 
-    /*
-    [MenuItem("Demo Photogrammetry/Load levels/Video Day", false, 14)]
-    public static void LoadVideoDay()
-    {
-        var SceneSetup = (MultiSceneSetup)AssetDatabase.LoadAssetAtPath("Assets/Demo/MSE/VideoDay.asset", typeof(MultiSceneSetup));
-
-        EditorSceneManager.RestoreSceneManagerSetup(SceneSetup.Setups);
-
-        Debug.Log(string.Format("Scene setup '{0}' restored", Path.GetFileNameWithoutExtension(AssetDatabase.LoadAssetAtPath("Assets/Demo/MSE/VideoDay.asset", typeof(MultiSceneSetup)).name)));
-
-        GameObject.FindObjectOfType<LevelLightmapData>().LoadLightingScenario(0);
-    }
-    [MenuItem("Demo Photogrammetry/Load levels/Video Sunset", false, 15)]
-    public static void LoadVideoSunset()
-    {
-        var SceneSetup = (MultiSceneSetup)AssetDatabase.LoadAssetAtPath("Assets/Demo/MSE/VideoSunset.asset", typeof(MultiSceneSetup));
-
-        EditorSceneManager.RestoreSceneManagerSetup(SceneSetup.Setups);
-
-        Debug.Log(string.Format("Scene setup '{0}' restored", Path.GetFileNameWithoutExtension(AssetDatabase.LoadAssetAtPath("Assets/Demo/MSE/VideoSunset.asset", typeof(MultiSceneSetup)).name)));
-
-        GameObject.FindObjectOfType<LevelLightmapData>().LoadLightingScenario(2);
-    }
-    [MenuItem("Demo Photogrammetry/Load levels/Video Night", false, 16)]
-    public static void LoadVideoNight()
-    {
-        var SceneSetup = (MultiSceneSetup)AssetDatabase.LoadAssetAtPath("Assets/Demo/MSE/VideoNight.asset", typeof(MultiSceneSetup));
-
-        EditorSceneManager.RestoreSceneManagerSetup(SceneSetup.Setups);
-
-        Debug.Log(string.Format("Scene setup '{0}' restored", Path.GetFileNameWithoutExtension(AssetDatabase.LoadAssetAtPath("Assets/Demo/MSE/VideoNight.asset", typeof(MultiSceneSetup)).name)));
-
-        GameObject.FindObjectOfType<LevelLightmapData>().LoadLightingScenario(1);
-    }
-    */
     static void SaveCurrentSceneSetup(string assetPath)
     {
         var loader = ScriptableObject.CreateInstance<MultiSceneSetup>();

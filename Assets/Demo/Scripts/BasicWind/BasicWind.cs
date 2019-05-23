@@ -1,19 +1,13 @@
-﻿using UnityEngine.Experimental.Rendering;
+﻿using UnityEngine.Rendering;
 using UnityEngine;
 
-namespace Fontainebleau
+namespace HDRPSamples
 {
     [System.Serializable]
     public class BasicWind : VolumeComponent
     {
         [Header("General Parameters")]
         public FloatParameter attenuation = new FloatParameter(1.0f);
-        //[Tooltip("Wind Direction vector")]
-        //public Vector3Parameter windDirection = new Vector3Parameter(new Vector3(0f,0.5f,0.5f));
-        //[Tooltip("Wind Speed in Kilometers per hour")]
-        //public FloatParameter windSpeed = new FloatParameter(30.0f);
-        //[Tooltip("Wind Turbulence in percentage of wind Speed")]
-        //public FloatParameter turbulence = new FloatParameter(0.25f);
         [Header("Noise Parameters")]
         [Tooltip("Texture used for wind turbulence")]
         public TextureParameter noiseTexture = new TextureParameter(null);

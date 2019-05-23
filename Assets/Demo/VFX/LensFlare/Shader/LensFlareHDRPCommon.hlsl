@@ -78,7 +78,9 @@ float GetOcclusion(float2 screenPos, float depth, float radius, float ratio)
 		pos.y = 1 - pos.y;
 		if (pos.x >= 0 && pos.x <= 1 && pos.y >= 0 && pos.y <= 1)
 		{
-			float sampledDepth = LinearEyeDepth(SAMPLE_TEXTURE2D_LOD(_CameraDepthTexture, sampler_CameraDepthTexture, pos, 0).r, _ZBufferParams);
+			//float sampledDepth = LinearEyeDepth(SAMPLE_TEXTURE2D_LOD(_CameraDepthTexture, sampler_CameraDepthTexture, pos, 0).r, _ZBufferParams);
+			float sampledDepth = LinearEyeDepth(SampleCameraDepth(pos), _ZBufferParams);
+			
 			if (sampledDepth >= depth)
 				contrib += sample_Contrib;
 		}
@@ -93,7 +95,7 @@ v2f vert(appdata v)
 	float4 clip = TransformWorldToHClip(GetCameraRelativePositionWS(v.worldPosRadius.xyz));
 	float depth = clip.w;
 
-	float3 cameraUp = normalize(mul(unity_CameraToWorld, float4(0, 1, 0, 0))).xyz;
+	float3 cameraUp = normalize(mul(UNITY_MATRIX_V, float4(0, 1, 0, 0))).xyz;
 
 	float4 extent = TransformWorldToHClip(GetCameraRelativePositionWS(v.worldPosRadius.xyz + cameraUp * v.worldPosRadius.w));
 

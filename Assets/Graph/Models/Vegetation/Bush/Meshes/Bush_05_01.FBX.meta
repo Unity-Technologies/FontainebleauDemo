@@ -1,141 +1,401 @@
 fileFormatVersion: 2
 guid: 02f77bb369fcb9943a0ac784b2ec9327
-timeCreated: 1505834269
-licenseType: Pro
 ModelImporter:
-  serializedVersion: 22
-  fileIDToRecycleName:
-    100000: //RootNode
-    100002: Plant_01
-    100004: Plant_02
-    100006: Plant_03
-    100008: Plant_04
-    100010: Plant_05
-    100012: Plant_06
-    100014: Plant_07
-    100016: Plant_08
-    100018: Plant_09
-    100020: Plant_10
-    100022: Plant_11
-    100024: Plant_12
-    100026: Plant_13
-    100028: Plant_14
-    100030: Plant_15
-    100032: Plant_16
-    100034: Plant_17
-    100036: Plant_18
-    100038: Plant_19
-    100040: Plant_20
-    100042: Plant_21
-    100044: Plant_22
-    100046: Plant_23
-    100048: Bush_05_LOD0
-    100050: Bush_05_LOD1
-    400000: //RootNode
-    400002: Plant_01
-    400004: Plant_02
-    400006: Plant_03
-    400008: Plant_04
-    400010: Plant_05
-    400012: Plant_06
-    400014: Plant_07
-    400016: Plant_08
-    400018: Plant_09
-    400020: Plant_10
-    400022: Plant_11
-    400024: Plant_12
-    400026: Plant_13
-    400028: Plant_14
-    400030: Plant_15
-    400032: Plant_16
-    400034: Plant_17
-    400036: Plant_18
-    400038: Plant_19
-    400040: Plant_20
-    400042: Plant_21
-    400044: Plant_22
-    400046: Plant_23
-    400048: Bush_05_LOD0
-    400050: Bush_05_LOD1
-    2100000: Bush_01_New
-    2300000: Plant_01
-    2300002: Plant_02
-    2300004: Plant_03
-    2300006: Plant_04
-    2300008: Plant_05
-    2300010: Plant_06
-    2300012: Plant_07
-    2300014: Plant_08
-    2300016: Plant_09
-    2300018: Plant_10
-    2300020: Plant_11
-    2300022: Plant_12
-    2300024: Plant_13
-    2300026: Plant_14
-    2300028: Plant_15
-    2300030: Plant_16
-    2300032: Plant_17
-    2300034: Plant_18
-    2300036: Plant_19
-    2300038: Plant_20
-    2300040: Plant_21
-    2300042: Plant_22
-    2300044: Plant_23
-    2300046: Bush_05_LOD0
-    2300048: Bush_05_LOD1
-    3300000: Plant_01
-    3300002: Plant_02
-    3300004: Plant_03
-    3300006: Plant_04
-    3300008: Plant_05
-    3300010: Plant_06
-    3300012: Plant_07
-    3300014: Plant_08
-    3300016: Plant_09
-    3300018: Plant_10
-    3300020: Plant_11
-    3300022: Plant_12
-    3300024: Plant_13
-    3300026: Plant_14
-    3300028: Plant_15
-    3300030: Plant_16
-    3300032: Plant_17
-    3300034: Plant_18
-    3300036: Plant_19
-    3300038: Plant_20
-    3300040: Plant_21
-    3300042: Plant_22
-    3300044: Plant_23
-    3300046: Bush_05_LOD0
-    3300048: Bush_05_LOD1
-    4300000: Plant_23
-    4300002: Plant_01
-    4300004: Plant_02
-    4300006: Plant_03
-    4300008: Plant_04
-    4300010: Plant_05
-    4300012: Plant_06
-    4300014: Plant_07
-    4300016: Plant_08
-    4300018: Plant_09
-    4300020: Plant_10
-    4300022: Plant_11
-    4300024: Plant_12
-    4300026: Plant_13
-    4300028: Plant_14
-    4300030: Plant_15
-    4300032: Plant_16
-    4300034: Plant_17
-    4300036: Plant_18
-    4300038: Plant_19
-    4300040: Plant_20
-    4300042: Plant_21
-    4300044: Plant_22
-    4300046: Bush_05_LOD0
-    4300048: Bush_05_LOD1
-    7400000: Take 001
-    9500000: //RootNode
-    20500000: //RootNode
+  serializedVersion: 25
+  internalIDToNameTable:
+  - first:
+      1: 100000
+    second: //RootNode
+  - first:
+      1: 100002
+    second: Plant_01
+  - first:
+      1: 100004
+    second: Plant_02
+  - first:
+      1: 100006
+    second: Plant_03
+  - first:
+      1: 100008
+    second: Plant_04
+  - first:
+      1: 100010
+    second: Plant_05
+  - first:
+      1: 100012
+    second: Plant_06
+  - first:
+      1: 100014
+    second: Plant_07
+  - first:
+      1: 100016
+    second: Plant_08
+  - first:
+      1: 100018
+    second: Plant_09
+  - first:
+      1: 100020
+    second: Plant_10
+  - first:
+      1: 100022
+    second: Plant_11
+  - first:
+      1: 100024
+    second: Plant_12
+  - first:
+      1: 100026
+    second: Plant_13
+  - first:
+      1: 100028
+    second: Plant_14
+  - first:
+      1: 100030
+    second: Plant_15
+  - first:
+      1: 100032
+    second: Plant_16
+  - first:
+      1: 100034
+    second: Plant_17
+  - first:
+      1: 100036
+    second: Plant_18
+  - first:
+      1: 100038
+    second: Plant_19
+  - first:
+      1: 100040
+    second: Plant_20
+  - first:
+      1: 100042
+    second: Plant_21
+  - first:
+      1: 100044
+    second: Plant_22
+  - first:
+      1: 100046
+    second: Plant_23
+  - first:
+      1: 100048
+    second: Bush_05_LOD0
+  - first:
+      1: 100050
+    second: Bush_05_LOD1
+  - first:
+      4: 400000
+    second: //RootNode
+  - first:
+      4: 400002
+    second: Plant_01
+  - first:
+      4: 400004
+    second: Plant_02
+  - first:
+      4: 400006
+    second: Plant_03
+  - first:
+      4: 400008
+    second: Plant_04
+  - first:
+      4: 400010
+    second: Plant_05
+  - first:
+      4: 400012
+    second: Plant_06
+  - first:
+      4: 400014
+    second: Plant_07
+  - first:
+      4: 400016
+    second: Plant_08
+  - first:
+      4: 400018
+    second: Plant_09
+  - first:
+      4: 400020
+    second: Plant_10
+  - first:
+      4: 400022
+    second: Plant_11
+  - first:
+      4: 400024
+    second: Plant_12
+  - first:
+      4: 400026
+    second: Plant_13
+  - first:
+      4: 400028
+    second: Plant_14
+  - first:
+      4: 400030
+    second: Plant_15
+  - first:
+      4: 400032
+    second: Plant_16
+  - first:
+      4: 400034
+    second: Plant_17
+  - first:
+      4: 400036
+    second: Plant_18
+  - first:
+      4: 400038
+    second: Plant_19
+  - first:
+      4: 400040
+    second: Plant_20
+  - first:
+      4: 400042
+    second: Plant_21
+  - first:
+      4: 400044
+    second: Plant_22
+  - first:
+      4: 400046
+    second: Plant_23
+  - first:
+      4: 400048
+    second: Bush_05_LOD0
+  - first:
+      4: 400050
+    second: Bush_05_LOD1
+  - first:
+      21: 2100000
+    second: Bush_01_New
+  - first:
+      23: 2300000
+    second: Plant_01
+  - first:
+      23: 2300002
+    second: Plant_02
+  - first:
+      23: 2300004
+    second: Plant_03
+  - first:
+      23: 2300006
+    second: Plant_04
+  - first:
+      23: 2300008
+    second: Plant_05
+  - first:
+      23: 2300010
+    second: Plant_06
+  - first:
+      23: 2300012
+    second: Plant_07
+  - first:
+      23: 2300014
+    second: Plant_08
+  - first:
+      23: 2300016
+    second: Plant_09
+  - first:
+      23: 2300018
+    second: Plant_10
+  - first:
+      23: 2300020
+    second: Plant_11
+  - first:
+      23: 2300022
+    second: Plant_12
+  - first:
+      23: 2300024
+    second: Plant_13
+  - first:
+      23: 2300026
+    second: Plant_14
+  - first:
+      23: 2300028
+    second: Plant_15
+  - first:
+      23: 2300030
+    second: Plant_16
+  - first:
+      23: 2300032
+    second: Plant_17
+  - first:
+      23: 2300034
+    second: Plant_18
+  - first:
+      23: 2300036
+    second: Plant_19
+  - first:
+      23: 2300038
+    second: Plant_20
+  - first:
+      23: 2300040
+    second: Plant_21
+  - first:
+      23: 2300042
+    second: Plant_22
+  - first:
+      23: 2300044
+    second: Plant_23
+  - first:
+      23: 2300046
+    second: Bush_05_LOD0
+  - first:
+      23: 2300048
+    second: Bush_05_LOD1
+  - first:
+      33: 3300000
+    second: Plant_01
+  - first:
+      33: 3300002
+    second: Plant_02
+  - first:
+      33: 3300004
+    second: Plant_03
+  - first:
+      33: 3300006
+    second: Plant_04
+  - first:
+      33: 3300008
+    second: Plant_05
+  - first:
+      33: 3300010
+    second: Plant_06
+  - first:
+      33: 3300012
+    second: Plant_07
+  - first:
+      33: 3300014
+    second: Plant_08
+  - first:
+      33: 3300016
+    second: Plant_09
+  - first:
+      33: 3300018
+    second: Plant_10
+  - first:
+      33: 3300020
+    second: Plant_11
+  - first:
+      33: 3300022
+    second: Plant_12
+  - first:
+      33: 3300024
+    second: Plant_13
+  - first:
+      33: 3300026
+    second: Plant_14
+  - first:
+      33: 3300028
+    second: Plant_15
+  - first:
+      33: 3300030
+    second: Plant_16
+  - first:
+      33: 3300032
+    second: Plant_17
+  - first:
+      33: 3300034
+    second: Plant_18
+  - first:
+      33: 3300036
+    second: Plant_19
+  - first:
+      33: 3300038
+    second: Plant_20
+  - first:
+      33: 3300040
+    second: Plant_21
+  - first:
+      33: 3300042
+    second: Plant_22
+  - first:
+      33: 3300044
+    second: Plant_23
+  - first:
+      33: 3300046
+    second: Bush_05_LOD0
+  - first:
+      33: 3300048
+    second: Bush_05_LOD1
+  - first:
+      43: 4300000
+    second: Plant_23
+  - first:
+      43: 4300002
+    second: Plant_01
+  - first:
+      43: 4300004
+    second: Plant_02
+  - first:
+      43: 4300006
+    second: Plant_03
+  - first:
+      43: 4300008
+    second: Plant_04
+  - first:
+      43: 4300010
+    second: Plant_05
+  - first:
+      43: 4300012
+    second: Plant_06
+  - first:
+      43: 4300014
+    second: Plant_07
+  - first:
+      43: 4300016
+    second: Plant_08
+  - first:
+      43: 4300018
+    second: Plant_09
+  - first:
+      43: 4300020
+    second: Plant_10
+  - first:
+      43: 4300022
+    second: Plant_11
+  - first:
+      43: 4300024
+    second: Plant_12
+  - first:
+      43: 4300026
+    second: Plant_13
+  - first:
+      43: 4300028
+    second: Plant_14
+  - first:
+      43: 4300030
+    second: Plant_15
+  - first:
+      43: 4300032
+    second: Plant_16
+  - first:
+      43: 4300034
+    second: Plant_17
+  - first:
+      43: 4300036
+    second: Plant_18
+  - first:
+      43: 4300038
+    second: Plant_19
+  - first:
+      43: 4300040
+    second: Plant_20
+  - first:
+      43: 4300042
+    second: Plant_21
+  - first:
+      43: 4300044
+    second: Plant_22
+  - first:
+      43: 4300046
+    second: Bush_05_LOD0
+  - first:
+      43: 4300048
+    second: Bush_05_LOD1
+  - first:
+      74: 7400000
+    second: Take 001
+  - first:
+      95: 9500000
+    second: //RootNode
+  - first:
+      205: 20500000
+    second: //RootNode
   externalObjects:
   - first:
       type: UnityEngine:Material
@@ -160,6 +420,7 @@ ModelImporter:
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
+    importConstraints: 0
     animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5
@@ -167,7 +428,36 @@ ModelImporter:
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Take 001
+      takeName: Take 001
+      internalID: 7400000
+      firstFrame: 0
+      lastFrame: 100
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     isReadable: 1
   meshes:
     lODScreenPercentages:
@@ -176,6 +466,7 @@ ModelImporter:
     globalScale: 1
     meshCompression: 0
     addColliders: 0
+    useSRGBMaterialColor: 1
     importVisibility: 1
     importBlendShapes: 1
     importCameras: 1
@@ -183,10 +474,13 @@ ModelImporter:
     swapUVChannels: 0
     generateSecondaryUV: 1
     useFileUnits: 1
-    optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
     preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    meshOptimizationFlags: -1
     indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
@@ -198,10 +492,14 @@ ModelImporter:
     normalImportMode: 0
     tangentImportMode: 3
     normalCalculationMode: 4
-  importAnimation: 1
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 1
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 0
   copyAvatar: 0
   humanDescription:
-    serializedVersion: 2
+    serializedVersion: 3
     human: []
     skeleton: []
     armTwist: 0.5
@@ -211,13 +509,13 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
+    globalScale: 1
     rootMotionBoneName: 
-    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
     hasTranslationDoF: 0
-    hasExtraRoot: 0
+    hasExtraRoot: 1
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 2
+  animationType: 0
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
