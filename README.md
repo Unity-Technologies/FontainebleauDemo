@@ -66,7 +66,7 @@ Fontainebleau is the name of a forest close to the Unity Paris office. The fores
 
   | IMPORTANT                                                    |
   | ------------------------------------------------------------ |
-  | This project uses Git Large Files Support (LFS). Downloading a zip file using the green button on Github **will not work**. You must clone the project with a version of git that has LFS. You can download Git LFS here: <https://git-lfs.github.com/>. |
+  | This project uses Git Large Files Support (LFS). Downloading a zip file using the green button on Github **will not work**. You must clone the project with a version of git that has LFS. You can download Git LFS here: <https://git-lfs.github.com/> or use the [Github Desktop](https://desktop.github.com/) which already uses LFS. |
 
 - Open the repository folder in Unity. **The first time you open the project Unity will import all the assets, this operation can take more than 1 hour.**
 
