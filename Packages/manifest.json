@@ -7,10 +7,10 @@
     "com.unity.package-manager-ui": "2.1.2",
     "com.unity.polybrush": "1.0.0-preview.17",
     "com.unity.quicksearch": "1.1.0-preview.1",
-    "com.unity.render-pipelines.high-definition": "5.16.0-preview",
+    "com.unity.render-pipelines.high-definition": "5.16.1-preview",
     "com.unity.textmeshpro": "2.0.0",
     "com.unity.timeline": "1.0.0",
-    "com.unity.visualeffectgraph": "5.16.0-preview",
+    "com.unity.visualeffectgraph": "5.16.1-preview",
     "net.peeweek.gameplay-ingredients": "file:../LocalPackages/net.peeweek.gameplay-ingredients",
     "com.unity.modules.ai": "1.0.0",
     "com.unity.modules.animation": "1.0.0",
@@ -42,6 +42,5 @@
     "com.unity.modules.vr": "1.0.0",
     "com.unity.modules.wind": "1.0.0",
     "com.unity.modules.xr": "1.0.0"
-  },
-  "registry": "https://staging-packages.unity.com"
+  }
 }
