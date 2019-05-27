@@ -2,6 +2,10 @@
 
 Check the [changelog](https://github.com/Unity-Technologies/FontainebleauDemo/blob/master/Changelog.md) to see the latest updates.
 
+### Known issues
+- Foliage is not shaded properly until the sub graph "Foliage shading" gets reimported (locate it in project view / right click / reimport)
+- PSD textures are missing
+
 <img src = "https://forum.unity.com/proxy.php?image=https%3A%2F%2Fblogs.unity3d.com%2Fwp-content%2Fuploads%2F2018%2F03%2Fimage5-1280x720.png&hash=d4dd82baaada0823f75c693064c8c964" title = "Fontainebleau title screen" alt >
 
 We created the Fontainebleau demo to illustrate the photogrammetry workflow and the use of the LayeredLit shader. 
