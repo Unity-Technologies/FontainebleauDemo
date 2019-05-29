@@ -98,6 +98,8 @@ Fontainebleau is the name of a forest close to the Unity Paris office. The fores
 - Lightmap switching script
 - Lightmapped LODs
 
+For instructions on how to bake lightmaps with the **Lightmap switching script** check this [repository](https://github.com/laurenth-unity/lightmap-switching-tool)
+
 # Feedback - Bugs
 
 Don't hesitate to use the forum thread to send us your feedback or share the work you did based on this scene :
