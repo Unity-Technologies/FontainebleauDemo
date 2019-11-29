@@ -1,7 +1,21 @@
 {
-    "name": "net.peeweek.gameplay-ingredients",
-    "displayName": "Gameplay Ingredients",
-    "version": "0.0.1",
-    "unity": "2018.3",
-    "description": "Gameplay ingredients base package"
+  "name": "net.peeweek.gameplay-ingredients",
+  "displayName": "Gameplay Ingredients",
+  "version": "2019.3.1",
+  "category": "Gameplay",
+  "unity": "2019.3",
+  "description": "Gameplay ingredients - A Collection of scripts for the editor and runtime to set-up gameplay actions and logic in your games.",
+  "dependencies": {
+    "com.unity.cinemachine": "2.3.4"
+  },
+  "keywords": [
+    "Gameplay",
+    "Ingredients",
+    "Unity",
+    "Behaviour",
+    "State Machine",
+    "Editor",
+    "Streaming"
+  ],
+  "hideInEditor": false
 }
