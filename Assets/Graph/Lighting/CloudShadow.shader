@@ -28,8 +28,8 @@
 
 		float4 frag(v2f_customrendertexture IN) : COLOR
 		{
-			vector col = tex2D(_Tex, IN.localTexcoord.xy + frac(_Time * _Speed.xy));
-			vector col2 = tex2D(_Tex2, IN.localTexcoord.xy + frac(_Time * _Speed.zw));
+			float4 col = tex2D(_Tex, IN.localTexcoord.xy + frac(_Time * _Speed.xy));
+			float4 col2 = tex2D(_Tex2, IN.localTexcoord.xy + frac(_Time * _Speed.zw));
 			return max(0.1f,col * col2);
 		}
 		ENDCG
