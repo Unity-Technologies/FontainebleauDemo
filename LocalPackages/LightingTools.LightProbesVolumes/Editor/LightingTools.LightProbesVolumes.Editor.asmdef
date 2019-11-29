@@ -1,0 +1,16 @@
+{
+    "name": "LightingTools.LightProbesVolumes.Editor",
+    "references": [
+        "LightingTools.LightProbesVolumes"
+    ],
+    "optionalUnityReferences": [],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": []
+}

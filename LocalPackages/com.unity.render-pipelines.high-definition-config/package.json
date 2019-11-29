@@ -1,0 +1,16 @@
+{
+  "name": "com.unity.render-pipelines.high-definition-config",
+  "description": "Configuration files for the High Definition Render Pipeline.",
+  "version": "7.1.6",
+  "unity": "2019.3",
+  "unityRelease": "0b13",
+  "displayName": "High Definition RP Config",
+  "dependencies": {
+    "com.unity.render-pipelines.core": "7.1.6"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:Unity-Technologies/ScriptableRenderPipeline.git",
+    "revision": "462033f359f783f5d71dc578159bf5827abb41e2"
+  }
+}

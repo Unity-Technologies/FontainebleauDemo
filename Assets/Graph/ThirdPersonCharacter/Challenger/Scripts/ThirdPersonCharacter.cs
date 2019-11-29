@@ -28,7 +28,6 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 		Vector3 m_CapsuleCenter;
 		CapsuleCollider m_Capsule;
 		bool m_Crouching;
-        public GameObject lanternParent;
         public LayerMask rayCastLayerMask = Physics.AllLayers;
 
 		void Start()
@@ -41,16 +40,10 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
 			m_Rigidbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
 			m_OrigGroundCheckDistance = m_GroundCheckDistance;
-		}
-
-        public void ToggleCarrying(bool condition)
-        {
-            float weight = condition ? 1.0f : 0.0f;
-            m_Animator.SetLayerWeight(1, weight);
-            lanternParent.SetActive(condition);
+            m_Animator.applyRootMotion = true;
         }
 
-		public void Move(Vector3 move, bool crouch, bool jump, bool carry)
+		public void Move(Vector3 move, bool crouch, bool jump)
 		{
 			// convert the world relative moveInput vector into a local-relative
 			// turn amount and forward amount required to head in the desired
@@ -79,7 +72,6 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
 			// send input and other state parameters to the animator
 			UpdateAnimator(move);
-            ToggleCarrying(carry);
 		}
 
 

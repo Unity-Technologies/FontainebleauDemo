@@ -9,12 +9,7 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: Tree_04_Layered_Wind_LOD
   m_Shader: {fileID: 4800000, guid: 7f5e57a11d3b85d4896c9c8f56c74920, type: 3}
-  m_ShaderKeywords: _DETAIL_MAP0 _DISABLE_DBUFFER _DISPLACEMENT_LOCK_TILING_SCALE
-    _HEIGHTMAP0 _HEIGHTMAP1 _HEIGHTMAP2 _LAYEREDLIT_3_LAYERS _LAYER_MAPPING_PLANAR1
-    _LAYER_MASK_VERTEX_COLOR_ADD _MAIN_LAYER_INFLUENCE_MODE _MASKMAP0 _MASKMAP1 _MASKMAP2
-    _NORMALMAP0 _NORMALMAP1 _NORMALMAP2 _NORMALMAP_TANGENT_SPACE0 _NORMALMAP_TANGENT_SPACE1
-    _NORMALMAP_TANGENT_SPACE2 _NORMALMAP_TANGENT_SPACE3 _TESSELLATION_DISPLACEMENT
-    _VERTEX_DISPLACEMENT_LOCK_OBJECT_SCALE _VERTEX_WIND
+  m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -23,7 +18,7 @@ Material:
     MotionVector: User
   disabledShaderPasses:
   - DistortionVectors
-  - MOTIONVECTORS
+  - TransparentBackface
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
@@ -330,6 +325,7 @@ Material:
     m_Floats:
     - Boolean_70519104: 1
     - Boolean_8B807E4B: 0
+    - Boolean_965B8980: 0
     - Boolean_F52A0CDB: 0
     - Vector1_1E2E9494: 0
     - Vector1_3B31B0AF: 1
@@ -351,6 +347,7 @@ Material:
     - _AORemapMin1: 0
     - _AORemapMin2: 0
     - _AORemapMin3: 0
+    - _AddPrecomputedVelocity: 1
     - _AlbedoAffectEmissive: 0
     - _AlphaCutoff: 0.5
     - _AlphaCutoffEnable: 0
@@ -366,6 +363,7 @@ Material:
     - _BlendUsingHeight3: 0
     - _BumpScale: 1
     - _CullMode: 2
+    - _CullModeForward: 2
     - _Cutoff: 0.5
     - _DepthOffsetEnable: 0
     - _DetailAOScale0: 1
@@ -556,6 +554,8 @@ Material:
     - _PerPixelDisplacementObjectScale: 1
     - _PreRefractionPass: 0
     - _ReceivesSSR: 1
+    - _RenderQueueType: 1
+    - _RequireSplitLighting: 0
     - _SSSAndTransmissionType: 0
     - _ShiverDirectionality: 0.5
     - _ShiverDrag: 1
@@ -585,12 +585,14 @@ Material:
     - _SrcBlend: 1
     - _StencilRef: 2
     - _StencilRefDepth: 0
+    - _StencilRefDistortionVec: 64
     - _StencilRefGBuffer: 2
     - _StencilRefMV: 128
-    - _StencilWriteMask: 7
-    - _StencilWriteMaskDepth: 32
-    - _StencilWriteMaskGBuffer: 3
-    - _StencilWriteMaskMV: 128
+    - _StencilWriteMask: 3
+    - _StencilWriteMaskDepth: 48
+    - _StencilWriteMaskDistortionVec: 64
+    - _StencilWriteMaskGBuffer: 51
+    - _StencilWriteMaskMV: 176
     - _Stiffness: 3
     - _SubsurfaceMask0: 1
     - _SubsurfaceMask1: 1
@@ -628,6 +630,8 @@ Material:
     - _Thickness2: 1
     - _Thickness3: 1
     - _TransmissionEnable: 1
+    - _TransparentBackfaceEnable: 0
+    - _TransparentCullMode: 2
     - _TransparentSortPriority: 0
     - _UVBase0: 0
     - _UVBase1: 4
@@ -653,6 +657,7 @@ Material:
     - _UseHeightBasedBlend3: 0
     - _UseHeightBasedBlendV2: 0
     - _UseMainLayerInfluence: 1
+    - _UseShadowThreshold: 0
     - _VertexColorHeightFactor: 1
     - _VertexColorMode: 2
     - _VertexDisplacementObjectScale: 1
@@ -660,12 +665,16 @@ Material:
     - _ZTestDepthEqualForOpaque: 3
     - _ZTestGBuffer: 4
     - _ZTestMode: 8
+    - _ZTestTransparent: 4
     - _ZWrite: 1
     m_Colors:
     - Color_C0E3BECE: {r: 0.4, g: 0.38461542, b: 0.12307694, a: 1}
     - Color_E5834B1C: {r: 1, g: 1, b: 1, a: 0}
+    - Vector4_5FE30CE2: {r: 1, g: 0, b: 0, a: 0}
     - Vector4_774A785C: {r: 10, g: 10, b: 0, a: 0}
+    - Vector4_8786B010: {r: 1, g: 0, b: 0, a: 0}
     - Vector4_B18C5418: {r: 0.25, g: 0.25, b: 0, a: 0}
+    - Vector4_C6041040: {r: 1, g: 0, b: 0, a: 0}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 0}
     - _BaseColor0: {r: 1, g: 1, b: 1, a: 1}
     - _BaseColor1: {r: 1, g: 1, b: 1, a: 1}
@@ -697,3 +706,16 @@ Material:
     - _UVMappingMaskBlendMask: {r: 1, g: 0, b: 0, a: 0}
     - _UVMappingMaskEmissive: {r: 1, g: 0, b: 0, a: 0}
     - _UVTilingAndOffset: {r: 1, g: 1, b: 0, a: 0}
+--- !u!114 &1320865274781168814
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da692e001514ec24dbc4cca1949ff7e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 0

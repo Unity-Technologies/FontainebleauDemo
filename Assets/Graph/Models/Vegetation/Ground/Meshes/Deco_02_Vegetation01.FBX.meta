@@ -1,33 +1,76 @@
 fileFormatVersion: 2
 guid: 0c7c7efd5b7c4824cad2751937b35194
-timeCreated: 1493306742
-licenseType: Pro
 ModelImporter:
-  serializedVersion: 20
-  fileIDToRecycleName:
-    100000: //RootNode
-    100002: Deco_02_Vegetation01_LOD0
-    100004: Deco_02_Vegetation01_LOD1
-    100006: Deco_02_Vegetation01_LOD2
-    400000: //RootNode
-    400002: Deco_02_Vegetation01_LOD0
-    400004: Deco_02_Vegetation01_LOD1
-    400006: Deco_02_Vegetation01_LOD2
-    2300000: Deco_02_Vegetation01_LOD0
-    2300002: Deco_02_Vegetation01_LOD1
-    2300004: Deco_02_Vegetation01_LOD2
-    3300000: Deco_02_Vegetation01_LOD0
-    3300002: Deco_02_Vegetation01_LOD1
-    3300004: Deco_02_Vegetation01_LOD2
-    4300000: Deco_02_Vegetation01_LOD0
-    4300002: Deco_02_Vegetation01_LOD1
-    4300004: Deco_02_Vegetation01_LOD2
-    9500000: //RootNode
-    20500000: //RootNode
+  serializedVersion: 26
+  internalIDToNameTable:
+  - first:
+      1: 100000
+    second: //RootNode
+  - first:
+      1: 100002
+    second: Deco_02_Vegetation01_LOD0
+  - first:
+      1: 100004
+    second: Deco_02_Vegetation01_LOD1
+  - first:
+      1: 100006
+    second: Deco_02_Vegetation01_LOD2
+  - first:
+      4: 400000
+    second: //RootNode
+  - first:
+      4: 400002
+    second: Deco_02_Vegetation01_LOD0
+  - first:
+      4: 400004
+    second: Deco_02_Vegetation01_LOD1
+  - first:
+      4: 400006
+    second: Deco_02_Vegetation01_LOD2
+  - first:
+      23: 2300000
+    second: Deco_02_Vegetation01_LOD0
+  - first:
+      23: 2300002
+    second: Deco_02_Vegetation01_LOD1
+  - first:
+      23: 2300004
+    second: Deco_02_Vegetation01_LOD2
+  - first:
+      33: 3300000
+    second: Deco_02_Vegetation01_LOD0
+  - first:
+      33: 3300002
+    second: Deco_02_Vegetation01_LOD1
+  - first:
+      33: 3300004
+    second: Deco_02_Vegetation01_LOD2
+  - first:
+      43: 4300000
+    second: Deco_02_Vegetation01_LOD0
+  - first:
+      43: 4300002
+    second: Deco_02_Vegetation01_LOD1
+  - first:
+      43: 4300004
+    second: Deco_02_Vegetation01_LOD2
+  - first:
+      95: 9500000
+    second: //RootNode
+  - first:
+      205: 20500000
+    second: //RootNode
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: GroundVegetation
+    second: {fileID: 2100000, guid: 2655f7c76f03aea438b863d8d1d373bf, type: 2}
   materials:
     importMaterials: 1
     materialName: 1
     materialSearch: 2
+    materialLocation: 0
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
@@ -40,12 +83,15 @@ ModelImporter:
     animationImportWarnings: 
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
     animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
+    extraUserProperties: []
     clipAnimations: []
     isReadable: 1
   meshes:
@@ -56,6 +102,8 @@ ModelImporter:
     globalScale: 1
     meshCompression: 0
     addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
     importVisibility: 0
     importBlendShapes: 1
     importCameras: 1
@@ -63,9 +111,14 @@ ModelImporter:
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
-    optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    meshOptimizationFlags: -1
+    indexFormat: 1
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
@@ -76,10 +129,14 @@ ModelImporter:
     normalImportMode: 0
     tangentImportMode: 3
     normalCalculationMode: 4
-  importAnimation: 1
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 1
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 0
   copyAvatar: 0
   humanDescription:
-    serializedVersion: 2
+    serializedVersion: 3
     human: []
     skeleton: []
     armTwist: 0.5
@@ -89,13 +146,13 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
+    globalScale: 1
     rootMotionBoneName: 
-    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
     hasTranslationDoF: 0
-    hasExtraRoot: 0
+    hasExtraRoot: 1
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 2
+  animationType: 0
   humanoidOversampling: 1
   additionalBone: 0
   userData: 

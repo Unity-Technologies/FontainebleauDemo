@@ -1,150 +1,437 @@
 fileFormatVersion: 2
 guid: cd0c9b3e4cdc5834289b0e62821d0f17
-timeCreated: 1482255831
-licenseType: Pro
 ModelImporter:
-  serializedVersion: 20
-  fileIDToRecycleName:
-    100000: //RootNode
-    100002: Tree04_LOD0
-    100004: Tree04_LOD1
-    100006: Tree04_LOD2
-    100008: Sprigs
-    100010: Sprigs_01
-    100012: Sprigs_02
-    100014: Sprigs_03
-    100016: Sprigs_04
-    100018: Sprigs_01_LOD0
-    100020: Sprigs_02_LOD0
-    100022: Sprigs_03_LOD0
-    100024: Sprigs_04_LOD0
-    100026: Sprigs_01_BackFace
-    100028: Sprigs_01_Face
-    100030: Sprigs_02_BackFace
-    100032: Sprigs_02_Face
-    100034: Sprigs_03_BackFace
-    100036: Sprigs_03_Face
-    100038: Sprigs_04_Backface
-    100040: Sprigs_04_Face
-    100042: TreeBranches_04_LOD0
-    100044: TreeTrunk_04_LOD0
-    100046: TreeBranches_04
-    100048: TreeTrunk_04_LOD1
-    100050: TreeTrunk_04_LOD2
-    100052: TreeTrunk_04_LOD3
-    400000: //RootNode
-    400002: Tree04_LOD0
-    400004: Tree04_LOD1
-    400006: Tree04_LOD2
-    400008: Sprigs
-    400010: Sprigs_01
-    400012: Sprigs_02
-    400014: Sprigs_03
-    400016: Sprigs_04
-    400018: Sprigs_01_LOD0
-    400020: Sprigs_02_LOD0
-    400022: Sprigs_03_LOD0
-    400024: Sprigs_04_LOD0
-    400026: Sprigs_01_BackFace
-    400028: Sprigs_01_Face
-    400030: Sprigs_02_BackFace
-    400032: Sprigs_02_Face
-    400034: Sprigs_03_BackFace
-    400036: Sprigs_03_Face
-    400038: Sprigs_04_Backface
-    400040: Sprigs_04_Face
-    400042: TreeBranches_04_LOD0
-    400044: TreeTrunk_04_LOD0
-    400046: TreeBranches_04
-    400048: TreeTrunk_04_LOD1
-    400050: TreeTrunk_04_LOD2
-    400052: TreeTrunk_04_LOD3
-    2300000: //RootNode
-    2300002: Tree04_LOD0
-    2300004: Tree04_LOD1
-    2300006: Tree04_LOD2
-    2300008: Sprigs
-    2300010: Sprigs_01
-    2300012: Sprigs_02
-    2300014: Sprigs_03
-    2300016: Sprigs_04
-    2300018: Sprigs_01_LOD0
-    2300020: Sprigs_02_LOD0
-    2300022: Sprigs_03_LOD0
-    2300024: Sprigs_04_LOD0
-    2300026: Sprigs_01_BackFace
-    2300028: Sprigs_01_Face
-    2300030: Sprigs_02_BackFace
-    2300032: Sprigs_02_Face
-    2300034: Sprigs_03_BackFace
-    2300036: Sprigs_03_Face
-    2300038: Sprigs_04_Backface
-    2300040: Sprigs_04_Face
-    2300042: TreeBranches_04_LOD0
-    2300044: TreeTrunk_04_LOD0
-    2300046: TreeBranches_04
-    2300048: TreeTrunk_04_LOD1
-    2300050: TreeTrunk_04_LOD2
-    2300052: TreeTrunk_04_LOD3
-    3300000: //RootNode
-    3300002: Tree04_LOD0
-    3300004: Tree04_LOD1
-    3300006: Tree04_LOD2
-    3300008: Sprigs
-    3300010: Sprigs_01
-    3300012: Sprigs_02
-    3300014: Sprigs_03
-    3300016: Sprigs_04
-    3300018: Sprigs_01_LOD0
-    3300020: Sprigs_02_LOD0
-    3300022: Sprigs_03_LOD0
-    3300024: Sprigs_04_LOD0
-    3300026: Sprigs_01_BackFace
-    3300028: Sprigs_01_Face
-    3300030: Sprigs_02_BackFace
-    3300032: Sprigs_02_Face
-    3300034: Sprigs_03_BackFace
-    3300036: Sprigs_03_Face
-    3300038: Sprigs_04_Backface
-    3300040: Sprigs_04_Face
-    3300042: TreeBranches_04_LOD0
-    3300044: TreeTrunk_04_LOD0
-    3300046: TreeBranches_04
-    3300048: TreeTrunk_04_LOD1
-    3300050: TreeTrunk_04_LOD2
-    3300052: TreeTrunk_04_LOD3
-    4300000: Tree04_LOD0
-    4300002: Tree04_LOD1
-    4300004: Tree04_LOD2
-    4300006: Sprigs
-    4300008: Sprigs_01
-    4300010: Sprigs_02
-    4300012: Sprigs_03
-    4300014: Sprigs_04
-    4300016: Sprigs_01_LOD0
-    4300018: Sprigs_02_LOD0
-    4300020: Sprigs_03_LOD0
-    4300022: Sprigs_04_LOD0
-    4300024: Sprigs_01_Face
-    4300026: Sprigs_02_Face
-    4300028: Sprigs_03_Face
-    4300030: Sprigs_04_Face
-    4300032: Sprigs_01_BackFace
-    4300034: Sprigs_02_BackFace
-    4300036: Sprigs_03_BackFace
-    4300038: Sprigs_04_Backface
-    4300040: TreeBranches_04_LOD0
-    4300042: TreeTrunk_04_LOD0
-    4300044: TreeBranches_04
-    4300046: TreeTrunk_04_LOD1
-    4300048: TreeTrunk_04_LOD2
-    4300050: TreeTrunk_04_LOD3
-    9500000: //RootNode
-    20500000: //RootNode
+  serializedVersion: 26
+  internalIDToNameTable:
+  - first:
+      1: 100000
+    second: //RootNode
+  - first:
+      1: 100002
+    second: Tree04_LOD0
+  - first:
+      1: 100004
+    second: Tree04_LOD1
+  - first:
+      1: 100006
+    second: Tree04_LOD2
+  - first:
+      1: 100008
+    second: Sprigs
+  - first:
+      1: 100010
+    second: Sprigs_01
+  - first:
+      1: 100012
+    second: Sprigs_02
+  - first:
+      1: 100014
+    second: Sprigs_03
+  - first:
+      1: 100016
+    second: Sprigs_04
+  - first:
+      1: 100018
+    second: Sprigs_01_LOD0
+  - first:
+      1: 100020
+    second: Sprigs_02_LOD0
+  - first:
+      1: 100022
+    second: Sprigs_03_LOD0
+  - first:
+      1: 100024
+    second: Sprigs_04_LOD0
+  - first:
+      1: 100026
+    second: Sprigs_01_BackFace
+  - first:
+      1: 100028
+    second: Sprigs_01_Face
+  - first:
+      1: 100030
+    second: Sprigs_02_BackFace
+  - first:
+      1: 100032
+    second: Sprigs_02_Face
+  - first:
+      1: 100034
+    second: Sprigs_03_BackFace
+  - first:
+      1: 100036
+    second: Sprigs_03_Face
+  - first:
+      1: 100038
+    second: Sprigs_04_Backface
+  - first:
+      1: 100040
+    second: Sprigs_04_Face
+  - first:
+      1: 100042
+    second: TreeBranches_04_LOD0
+  - first:
+      1: 100044
+    second: TreeTrunk_04_LOD0
+  - first:
+      1: 100046
+    second: TreeBranches_04
+  - first:
+      1: 100048
+    second: TreeTrunk_04_LOD1
+  - first:
+      1: 100050
+    second: TreeTrunk_04_LOD2
+  - first:
+      1: 100052
+    second: TreeTrunk_04_LOD3
+  - first:
+      4: 400000
+    second: //RootNode
+  - first:
+      4: 400002
+    second: Tree04_LOD0
+  - first:
+      4: 400004
+    second: Tree04_LOD1
+  - first:
+      4: 400006
+    second: Tree04_LOD2
+  - first:
+      4: 400008
+    second: Sprigs
+  - first:
+      4: 400010
+    second: Sprigs_01
+  - first:
+      4: 400012
+    second: Sprigs_02
+  - first:
+      4: 400014
+    second: Sprigs_03
+  - first:
+      4: 400016
+    second: Sprigs_04
+  - first:
+      4: 400018
+    second: Sprigs_01_LOD0
+  - first:
+      4: 400020
+    second: Sprigs_02_LOD0
+  - first:
+      4: 400022
+    second: Sprigs_03_LOD0
+  - first:
+      4: 400024
+    second: Sprigs_04_LOD0
+  - first:
+      4: 400026
+    second: Sprigs_01_BackFace
+  - first:
+      4: 400028
+    second: Sprigs_01_Face
+  - first:
+      4: 400030
+    second: Sprigs_02_BackFace
+  - first:
+      4: 400032
+    second: Sprigs_02_Face
+  - first:
+      4: 400034
+    second: Sprigs_03_BackFace
+  - first:
+      4: 400036
+    second: Sprigs_03_Face
+  - first:
+      4: 400038
+    second: Sprigs_04_Backface
+  - first:
+      4: 400040
+    second: Sprigs_04_Face
+  - first:
+      4: 400042
+    second: TreeBranches_04_LOD0
+  - first:
+      4: 400044
+    second: TreeTrunk_04_LOD0
+  - first:
+      4: 400046
+    second: TreeBranches_04
+  - first:
+      4: 400048
+    second: TreeTrunk_04_LOD1
+  - first:
+      4: 400050
+    second: TreeTrunk_04_LOD2
+  - first:
+      4: 400052
+    second: TreeTrunk_04_LOD3
+  - first:
+      23: 2300000
+    second: //RootNode
+  - first:
+      23: 2300002
+    second: Tree04_LOD0
+  - first:
+      23: 2300004
+    second: Tree04_LOD1
+  - first:
+      23: 2300006
+    second: Tree04_LOD2
+  - first:
+      23: 2300008
+    second: Sprigs
+  - first:
+      23: 2300010
+    second: Sprigs_01
+  - first:
+      23: 2300012
+    second: Sprigs_02
+  - first:
+      23: 2300014
+    second: Sprigs_03
+  - first:
+      23: 2300016
+    second: Sprigs_04
+  - first:
+      23: 2300018
+    second: Sprigs_01_LOD0
+  - first:
+      23: 2300020
+    second: Sprigs_02_LOD0
+  - first:
+      23: 2300022
+    second: Sprigs_03_LOD0
+  - first:
+      23: 2300024
+    second: Sprigs_04_LOD0
+  - first:
+      23: 2300026
+    second: Sprigs_01_BackFace
+  - first:
+      23: 2300028
+    second: Sprigs_01_Face
+  - first:
+      23: 2300030
+    second: Sprigs_02_BackFace
+  - first:
+      23: 2300032
+    second: Sprigs_02_Face
+  - first:
+      23: 2300034
+    second: Sprigs_03_BackFace
+  - first:
+      23: 2300036
+    second: Sprigs_03_Face
+  - first:
+      23: 2300038
+    second: Sprigs_04_Backface
+  - first:
+      23: 2300040
+    second: Sprigs_04_Face
+  - first:
+      23: 2300042
+    second: TreeBranches_04_LOD0
+  - first:
+      23: 2300044
+    second: TreeTrunk_04_LOD0
+  - first:
+      23: 2300046
+    second: TreeBranches_04
+  - first:
+      23: 2300048
+    second: TreeTrunk_04_LOD1
+  - first:
+      23: 2300050
+    second: TreeTrunk_04_LOD2
+  - first:
+      23: 2300052
+    second: TreeTrunk_04_LOD3
+  - first:
+      33: 3300000
+    second: //RootNode
+  - first:
+      33: 3300002
+    second: Tree04_LOD0
+  - first:
+      33: 3300004
+    second: Tree04_LOD1
+  - first:
+      33: 3300006
+    second: Tree04_LOD2
+  - first:
+      33: 3300008
+    second: Sprigs
+  - first:
+      33: 3300010
+    second: Sprigs_01
+  - first:
+      33: 3300012
+    second: Sprigs_02
+  - first:
+      33: 3300014
+    second: Sprigs_03
+  - first:
+      33: 3300016
+    second: Sprigs_04
+  - first:
+      33: 3300018
+    second: Sprigs_01_LOD0
+  - first:
+      33: 3300020
+    second: Sprigs_02_LOD0
+  - first:
+      33: 3300022
+    second: Sprigs_03_LOD0
+  - first:
+      33: 3300024
+    second: Sprigs_04_LOD0
+  - first:
+      33: 3300026
+    second: Sprigs_01_BackFace
+  - first:
+      33: 3300028
+    second: Sprigs_01_Face
+  - first:
+      33: 3300030
+    second: Sprigs_02_BackFace
+  - first:
+      33: 3300032
+    second: Sprigs_02_Face
+  - first:
+      33: 3300034
+    second: Sprigs_03_BackFace
+  - first:
+      33: 3300036
+    second: Sprigs_03_Face
+  - first:
+      33: 3300038
+    second: Sprigs_04_Backface
+  - first:
+      33: 3300040
+    second: Sprigs_04_Face
+  - first:
+      33: 3300042
+    second: TreeBranches_04_LOD0
+  - first:
+      33: 3300044
+    second: TreeTrunk_04_LOD0
+  - first:
+      33: 3300046
+    second: TreeBranches_04
+  - first:
+      33: 3300048
+    second: TreeTrunk_04_LOD1
+  - first:
+      33: 3300050
+    second: TreeTrunk_04_LOD2
+  - first:
+      33: 3300052
+    second: TreeTrunk_04_LOD3
+  - first:
+      43: 4300000
+    second: Tree04_LOD0
+  - first:
+      43: 4300002
+    second: Tree04_LOD1
+  - first:
+      43: 4300004
+    second: Tree04_LOD2
+  - first:
+      43: 4300006
+    second: Sprigs
+  - first:
+      43: 4300008
+    second: Sprigs_01
+  - first:
+      43: 4300010
+    second: Sprigs_02
+  - first:
+      43: 4300012
+    second: Sprigs_03
+  - first:
+      43: 4300014
+    second: Sprigs_04
+  - first:
+      43: 4300016
+    second: Sprigs_01_LOD0
+  - first:
+      43: 4300018
+    second: Sprigs_02_LOD0
+  - first:
+      43: 4300020
+    second: Sprigs_03_LOD0
+  - first:
+      43: 4300022
+    second: Sprigs_04_LOD0
+  - first:
+      43: 4300024
+    second: Sprigs_01_Face
+  - first:
+      43: 4300026
+    second: Sprigs_02_Face
+  - first:
+      43: 4300028
+    second: Sprigs_03_Face
+  - first:
+      43: 4300030
+    second: Sprigs_04_Face
+  - first:
+      43: 4300032
+    second: Sprigs_01_BackFace
+  - first:
+      43: 4300034
+    second: Sprigs_02_BackFace
+  - first:
+      43: 4300036
+    second: Sprigs_03_BackFace
+  - first:
+      43: 4300038
+    second: Sprigs_04_Backface
+  - first:
+      43: 4300040
+    second: TreeBranches_04_LOD0
+  - first:
+      43: 4300042
+    second: TreeTrunk_04_LOD0
+  - first:
+      43: 4300044
+    second: TreeBranches_04
+  - first:
+      43: 4300046
+    second: TreeTrunk_04_LOD1
+  - first:
+      43: 4300048
+    second: TreeTrunk_04_LOD2
+  - first:
+      43: 4300050
+    second: TreeTrunk_04_LOD3
+  - first:
+      95: 9500000
+    second: //RootNode
+  - first:
+      205: 20500000
+    second: //RootNode
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Bark_04
+    second: {fileID: 2100000, guid: f92b3e52768df5c4c8a20834867f51ec, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Tree_04_Branches
+    second: {fileID: 2100000, guid: cf4b43b3cfd794f48a2ac599f7702823, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Tree_04_Trunk
+    second: {fileID: 2100000, guid: 5f6a4a8533eaa364193ea7095b632e39, type: 2}
   materials:
     importMaterials: 1
     materialName: 1
     materialSearch: 2
+    materialLocation: 0
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
@@ -157,12 +444,15 @@ ModelImporter:
     animationImportWarnings: 
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
     animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
+    extraUserProperties: []
     clipAnimations: []
     isReadable: 1
   meshes:
@@ -174,6 +464,8 @@ ModelImporter:
     globalScale: 1
     meshCompression: 0
     addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
     importVisibility: 0
     importBlendShapes: 1
     importCameras: 0
@@ -181,9 +473,14 @@ ModelImporter:
     swapUVChannels: 0
     generateSecondaryUV: 1
     useFileUnits: 1
-    optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    meshOptimizationFlags: -1
+    indexFormat: 1
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
@@ -194,10 +491,14 @@ ModelImporter:
     normalImportMode: 0
     tangentImportMode: 3
     normalCalculationMode: 0
-  importAnimation: 1
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 1
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 0
   copyAvatar: 0
   humanDescription:
-    serializedVersion: 2
+    serializedVersion: 3
     human: []
     skeleton: []
     armTwist: 0.5
@@ -207,13 +508,13 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
+    globalScale: 1
     rootMotionBoneName: 
-    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
     hasTranslationDoF: 0
-    hasExtraRoot: 0
+    hasExtraRoot: 1
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 2
+  animationType: 0
   humanoidOversampling: 1
   additionalBone: 0
   userData: 

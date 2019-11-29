@@ -1,8 +1,18 @@
 {
     "name": "GameplayIngredients",
-    "references": [],
-    "optionalUnityReferences": [],
+    "references": [
+        "NaughtyAttributes.Core",
+        "Cinemachine",
+        "Unity.Timeline",
+        "UnityEngine.UI"
+    ],
     "includePlatforms": [],
     "excludePlatforms": [],
-    "allowUnsafeCode": false
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
 }

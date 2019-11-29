@@ -1,61 +1,165 @@
 fileFormatVersion: 2
 guid: 1746248796c0ff446a61796bf4eedb73
-timeCreated: 1490202675
-licenseType: Pro
 ModelImporter:
-  serializedVersion: 20
-  fileIDToRecycleName:
-    100000: //RootNode
-    100002: SilverBirchBranches_02
-    100004: SilverBirchTrunk_02
-    100006: SilverBirchBranches_02_LOD0
-    100008: SilverBirchBranches_02_LOD1
-    100010: SilverBirchBranches_02_LOD2
-    100012: SilverBirchTrunk_02_LOD0
-    100014: SilverBirchTrunk_02_LOD1
-    100016: SilverBirchTrunk_02_LOD2
-    400000: //RootNode
-    400002: SilverBirchBranches_02
-    400004: SilverBirchTrunk_02
-    400006: SilverBirchBranches_02_LOD0
-    400008: SilverBirchBranches_02_LOD1
-    400010: SilverBirchBranches_02_LOD2
-    400012: SilverBirchTrunk_02_LOD0
-    400014: SilverBirchTrunk_02_LOD1
-    400016: SilverBirchTrunk_02_LOD2
-    2300000: //RootNode
-    2300002: SilverBirchBranches_02
-    2300004: SilverBirchTrunk_02
-    2300006: SilverBirchBranches_02_LOD0
-    2300008: SilverBirchBranches_02_LOD1
-    2300010: SilverBirchBranches_02_LOD2
-    2300012: SilverBirchTrunk_02_LOD0
-    2300014: SilverBirchTrunk_02_LOD1
-    2300016: SilverBirchTrunk_02_LOD2
-    3300000: //RootNode
-    3300002: SilverBirchBranches_02
-    3300004: SilverBirchTrunk_02
-    3300006: SilverBirchBranches_02_LOD0
-    3300008: SilverBirchBranches_02_LOD1
-    3300010: SilverBirchBranches_02_LOD2
-    3300012: SilverBirchTrunk_02_LOD0
-    3300014: SilverBirchTrunk_02_LOD1
-    3300016: SilverBirchTrunk_02_LOD2
-    4300000: SilverBirch_02
-    4300002: SilverBirchBranches_02
-    4300004: SilverBirchTrunk_02
-    4300006: SilverBirchBranches_02_LOD0
-    4300008: SilverBirchTrunk_02_LOD0
-    4300010: SilverBirchTrunk_02_LOD1
-    4300012: SilverBirchBranches_02_LOD1
-    4300014: SilverBirchBranches_02_LOD2
-    4300016: SilverBirchTrunk_02_LOD2
-    9500000: //RootNode
-    20500000: //RootNode
+  serializedVersion: 26
+  internalIDToNameTable:
+  - first:
+      1: 100000
+    second: //RootNode
+  - first:
+      1: 100002
+    second: SilverBirchBranches_02
+  - first:
+      1: 100004
+    second: SilverBirchTrunk_02
+  - first:
+      1: 100006
+    second: SilverBirchBranches_02_LOD0
+  - first:
+      1: 100008
+    second: SilverBirchBranches_02_LOD1
+  - first:
+      1: 100010
+    second: SilverBirchBranches_02_LOD2
+  - first:
+      1: 100012
+    second: SilverBirchTrunk_02_LOD0
+  - first:
+      1: 100014
+    second: SilverBirchTrunk_02_LOD1
+  - first:
+      1: 100016
+    second: SilverBirchTrunk_02_LOD2
+  - first:
+      4: 400000
+    second: //RootNode
+  - first:
+      4: 400002
+    second: SilverBirchBranches_02
+  - first:
+      4: 400004
+    second: SilverBirchTrunk_02
+  - first:
+      4: 400006
+    second: SilverBirchBranches_02_LOD0
+  - first:
+      4: 400008
+    second: SilverBirchBranches_02_LOD1
+  - first:
+      4: 400010
+    second: SilverBirchBranches_02_LOD2
+  - first:
+      4: 400012
+    second: SilverBirchTrunk_02_LOD0
+  - first:
+      4: 400014
+    second: SilverBirchTrunk_02_LOD1
+  - first:
+      4: 400016
+    second: SilverBirchTrunk_02_LOD2
+  - first:
+      23: 2300000
+    second: //RootNode
+  - first:
+      23: 2300002
+    second: SilverBirchBranches_02
+  - first:
+      23: 2300004
+    second: SilverBirchTrunk_02
+  - first:
+      23: 2300006
+    second: SilverBirchBranches_02_LOD0
+  - first:
+      23: 2300008
+    second: SilverBirchBranches_02_LOD1
+  - first:
+      23: 2300010
+    second: SilverBirchBranches_02_LOD2
+  - first:
+      23: 2300012
+    second: SilverBirchTrunk_02_LOD0
+  - first:
+      23: 2300014
+    second: SilverBirchTrunk_02_LOD1
+  - first:
+      23: 2300016
+    second: SilverBirchTrunk_02_LOD2
+  - first:
+      33: 3300000
+    second: //RootNode
+  - first:
+      33: 3300002
+    second: SilverBirchBranches_02
+  - first:
+      33: 3300004
+    second: SilverBirchTrunk_02
+  - first:
+      33: 3300006
+    second: SilverBirchBranches_02_LOD0
+  - first:
+      33: 3300008
+    second: SilverBirchBranches_02_LOD1
+  - first:
+      33: 3300010
+    second: SilverBirchBranches_02_LOD2
+  - first:
+      33: 3300012
+    second: SilverBirchTrunk_02_LOD0
+  - first:
+      33: 3300014
+    second: SilverBirchTrunk_02_LOD1
+  - first:
+      33: 3300016
+    second: SilverBirchTrunk_02_LOD2
+  - first:
+      43: 4300000
+    second: SilverBirch_02
+  - first:
+      43: 4300002
+    second: SilverBirchBranches_02
+  - first:
+      43: 4300004
+    second: SilverBirchTrunk_02
+  - first:
+      43: 4300006
+    second: SilverBirchBranches_02_LOD0
+  - first:
+      43: 4300008
+    second: SilverBirchTrunk_02_LOD0
+  - first:
+      43: 4300010
+    second: SilverBirchTrunk_02_LOD1
+  - first:
+      43: 4300012
+    second: SilverBirchBranches_02_LOD1
+  - first:
+      43: 4300014
+    second: SilverBirchBranches_02_LOD2
+  - first:
+      43: 4300016
+    second: SilverBirchTrunk_02_LOD2
+  - first:
+      95: 9500000
+    second: //RootNode
+  - first:
+      205: 20500000
+    second: //RootNode
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SIlverBirchTrunk
+    second: {fileID: 2100000, guid: 201daf14e970af743b0a9e1a2522fe3b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SilverBirchBranches
+    second: {fileID: 2100000, guid: e6425cb4046f51c41a4d32dae144c05c, type: 2}
   materials:
     importMaterials: 1
     materialName: 1
     materialSearch: 2
+    materialLocation: 0
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
@@ -68,12 +172,15 @@ ModelImporter:
     animationImportWarnings: 
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
     animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
+    extraUserProperties: []
     clipAnimations: []
     isReadable: 1
   meshes:
@@ -84,6 +191,8 @@ ModelImporter:
     globalScale: 1
     meshCompression: 0
     addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
     importVisibility: 0
     importBlendShapes: 1
     importCameras: 0
@@ -91,9 +200,14 @@ ModelImporter:
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
-    optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    meshOptimizationFlags: -1
+    indexFormat: 1
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
@@ -104,10 +218,14 @@ ModelImporter:
     normalImportMode: 0
     tangentImportMode: 3
     normalCalculationMode: 0
-  importAnimation: 1
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 1
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 0
   copyAvatar: 0
   humanDescription:
-    serializedVersion: 2
+    serializedVersion: 3
     human: []
     skeleton: []
     armTwist: 0.5
@@ -117,13 +235,13 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
+    globalScale: 1
     rootMotionBoneName: 
-    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
     hasTranslationDoF: 0
-    hasExtraRoot: 0
+    hasExtraRoot: 1
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 2
+  animationType: 0
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
