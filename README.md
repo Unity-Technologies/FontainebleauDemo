@@ -1,10 +1,7 @@
 # Fontainebleau
 
-Check the [changelog](https://github.com/Unity-Technologies/FontainebleauDemo/blob/master/Changelog.md) to see the latest updates.
+**Check the [changelog](https://github.com/Unity-Technologies/FontainebleauDemo/blob/master/Changelog.md) to see the latest updates.**
 
-### Known issues
-- Foliage is not shaded properly until the sub graph "Foliage shading" gets reimported (locate it in project view / right click / reimport)
-- PSD textures are missing
 
 <img src = "https://forum.unity.com/proxy.php?image=https%3A%2F%2Fblogs.unity3d.com%2Fwp-content%2Fuploads%2F2018%2F03%2Fimage5-1280x720.png&hash=d4dd82baaada0823f75c693064c8c964" title = "Fontainebleau title screen" alt >
 
@@ -64,7 +61,7 @@ Fontainebleau is the name of a forest close to the Unity Paris office. The fores
 
 # Setup
 
-- Download **Unity 2018.3.0f2** or a more recent version of 2018.3
+- Download **Unity 2019.3.0f1** or a more recent version of 2019.3
 
 - Clone the repository using the tool of your preference (Git, Github Desktop, Sourcetree, ...). 
 
@@ -76,6 +73,11 @@ Fontainebleau is the name of a forest close to the Unity Paris office. The fores
 
 # Exploring the project
 
+- When the project opens, you should see a popup window appear named **Discover Fontainebleau**
+<img src = "https://github.com/Unity-Technologies/FontainebleauDemo/blob/master/Documentation/Images/DiscoverLevels.PNG" >
+  - The Levels tab allows you to load the different scene setups included in the project.
+<img src = "https://github.com/Unity-Technologies/FontainebleauDemo/blob/master/Documentation/Images/DiscoverItems.PNG" >
+  - The Discover tab allows you to inspect different interesting elements in the project and read small explanations.
 - Once the editor is ready, take a look at the menu bar : several menus are added compared to an empty Unity project. The **"Load levels" menu** offers you 2 options :
   - The **Day, Sunset, and Night buttons** are shortcut that will load the main scene plus one of the different lighting scenes used in the project but not the gameplay elements
   - The **Loader** button allows you to load our bootstrap scene. When this scene is loaded you can enter **Play mode** and experience the demo as in a built executable.
@@ -91,14 +93,17 @@ Fontainebleau is the name of a forest close to the Unity Paris office. The fores
 <img src = "https://github.com/Unity-Technologies/FontainebleauDemo/blob/master/Documentation/Images/9.PNG" >
 
 # Scripts used in this demo
-  
-- Character controller
+
+- Character controller from standard assets
 - Gameplay ingredients
-- Video manager
 - Lightmap switching script
 - Lightmapped LODs
 
 For instructions on how to bake lightmaps with the **Lightmap switching script** check this [repository](https://github.com/laurenth-unity/lightmap-switching-tool)
+
+# Known issues
+
+- On Some platforms the night lighting has bright white areas. This is due to reflection probes capture happening before the light probe proxy volumes used for lighting the trees and foliage get refreshed to the night values.
 
 # Feedback - Bugs
 
