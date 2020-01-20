@@ -1,3 +1,5 @@
+#include "Packages\com.unity.render-pipelines.high-definition\Runtime\ShaderLibrary\GlobalScreenSpace.hlsl"
+
 struct appdata
 {
 	float4 vertex : POSITION;
@@ -99,13 +101,14 @@ v2f vert(appdata v)
 
 	float4 extent = TransformWorldToHClip(GetCameraRelativePositionWS(v.worldPosRadius.xyz + cameraUp * v.worldPosRadius.w));
 
-	float2 screenPos = clip.xy / clip.w;
+    float2 screenPosLocal = clip.xy / clip.w;
+	float2 screenPos = CLIP_SPACE_GLOBAL(screenPosLocal);
 	float2 extentPos = extent.xy / extent.w;
 
 	float radius = distance(screenPos, extentPos);
 
 	float ratio = _ScreenParams.x / _ScreenParams.y;
-	float occlusion = GetOcclusion(screenPos, depth - v.worldPosRadius.w, radius, ratio);
+	float occlusion = GetOcclusion(screenPosLocal, depth - v.worldPosRadius.w, radius, ratio);
 
 	// Distance Fade
 	float4 d = v.lensflare_fadeData;
@@ -136,11 +139,11 @@ v2f vert(appdata v)
 
 	float2 rayOffset = -screenPos * v.lensflare_data.x;
 	o.vertex.w = v.vertex.w;
-	o.vertex.xy = screenPos + local + rayOffset;
+	o.vertex.xy = CLIP_SPACE_LOCAL(screenPos + local + rayOffset);
 
 	o.vertex.z = 1;
 	o.uv = v.uv;
 
-	o.color = v.color * occlusion * distanceFade * saturate(length(screenPos * 2));
+	o.color = v.color;// * occlusion * distanceFade * saturate(length(screenPos * 2));
 	return o;
 }

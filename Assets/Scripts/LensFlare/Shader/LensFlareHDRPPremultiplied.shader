@@ -28,10 +28,12 @@ Shader "HDRenderPipeline/LensFlare (HDRP Premultiplied)"
             #include "Packages/com.unity.render-pipelines.high-definition/Runtime/ShaderLibrary/ShaderVariables.hlsl"
 			#include "LensFlareHDRPCommon.hlsl"
 
+            #pragma multi_compile __ USING_GLOBAL_SCREEN_SPACE
+			
 			float4 frag (v2f i) : SV_Target
 			{
 				float4 col = tex2D(_MainTex, i.uv);
-				return col * i.color;
+				return i.color;
 			}
 
 			ENDHLSL
