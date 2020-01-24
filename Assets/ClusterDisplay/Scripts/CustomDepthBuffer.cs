@@ -44,26 +44,31 @@ public class CustomDepthBuffer : MonoBehaviour
 
     static List<CustomDepthBuffer> s_Instances = new List<CustomDepthBuffer>();
 
-    public static RenderTexture GetTarget(string name)
+    static CustomDepthBuffer GetInstance(string name)
     {
-        // we expect very few instances, optimize if it were to change
+        // we expect a very limited number of instances, optimize otherwise
         foreach (var instance in s_Instances) 
         {
             if (instance.id == name)
-                return instance.target;
+                return instance;
         }
         return null;
+    }
+
+    public static RenderTexture GetTarget(string name)
+    {
+        var instance = GetInstance(name);
+        if (instance == null)
+            return null;
+        return instance.target;
     }
     
     public static Vector4 GetZBufferParams(string name)
     {
-        // we expect very few instances, optimize if it were to change
-        foreach (var instance in s_Instances) 
-        {
-            if (instance.id == name)
-                return instance.zBufferParams;
-        }
-        return Vector4.zero;
+        var instance = GetInstance(name);
+        if (instance == null)
+            return Vector4.zero;
+        return instance.zBufferParams;
     }
 
     class InstancingDataGenerationVisitor
@@ -189,6 +194,9 @@ public class CustomDepthBuffer : MonoBehaviour
         m_CmdBuffer.ClearRenderTarget(true, true, Color.black);
 
         var projectionMatrix = GL.GetGPUProjectionMatrix(camera.projectionMatrix, true);
+        
+        m_ZBufferParams = GetZBufferParams(camera, projectionMatrix);
+
         var viewMatrix = camera.worldToCameraMatrix;
         var viewProjectionMatrix = projectionMatrix * viewMatrix;
 
@@ -210,20 +218,17 @@ public class CustomDepthBuffer : MonoBehaviour
         }
     }
 
-    static Vector4 GetZBufferParams(Camera camera) 
+    static Vector4 GetZBufferParams(Camera camera, Matrix4x4 projectionMatrix) 
     {
         float n = camera.nearClipPlane;
         float f = camera.farClipPlane;
-        bool reverseZ = false;
-        // http://www.humus.name/temp/Linearize%20depth.txt
-        if (true)
-        {
+        float scale     = projectionMatrix[2, 3] / (f * n) * (f - n);
+        bool  reverseZ  = scale > 0;
+        
+        if (reverseZ)
             return new Vector4(-1 + f / n, 1, -1 / f + 1 / n, 1 / f);
-        }
         else
-        {
             return new Vector4(1 - f / n, f / n, 1 / f - 1 / n, 1 / n);
-        }
     }
 
     void Update()
@@ -231,7 +236,6 @@ public class CustomDepthBuffer : MonoBehaviour
         var camera = Camera.main;
         if (camera != null && camera.cameraType == CameraType.Game)
         {
-            m_ZBufferParams = GetZBufferParams(camera);
             UpdateCommandBuffer(camera);
             Graphics.ExecuteCommandBuffer(m_CmdBuffer);
         }
