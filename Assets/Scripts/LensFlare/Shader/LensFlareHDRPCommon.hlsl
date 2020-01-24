@@ -29,6 +29,9 @@ struct v2f
 };
 
 sampler2D _MainTex;
+sampler2D _CustomDepthTex;
+float4 _CustomDepthTex_TexelSize;
+float4 _CustomDepthZBufferParams;
 float _OccludedSizeScale;
 
 // thanks, internets
@@ -78,11 +81,10 @@ float GetOcclusion(float2 screenPos, float depth, float radius, float ratio)
 		float2 pos = screenPos + (samples[i] * radius * ratioScale);
 		pos = pos * 0.5 + 0.5;
 		pos.y = 1 - pos.y;
+		
 		if (pos.x >= 0 && pos.x <= 1 && pos.y >= 0 && pos.y <= 1)
 		{
-			//float sampledDepth = LinearEyeDepth(SAMPLE_TEXTURE2D_LOD(_CameraDepthTexture, sampler_CameraDepthTexture, pos, 0).r, _ZBufferParams);
-			float sampledDepth = LinearEyeDepth(SampleCameraDepth(pos), _ZBufferParams);
-			
+			float sampledDepth = LinearEyeDepth(tex2Dlod(_CustomDepthTex, float4(pos, 0, 0)).r, _CustomDepthZBufferParams);
 			if (sampledDepth >= depth)
 				contrib += sample_Contrib;
 		}
@@ -101,14 +103,13 @@ v2f vert(appdata v)
 
 	float4 extent = TransformWorldToHClip(GetCameraRelativePositionWS(v.worldPosRadius.xyz + cameraUp * v.worldPosRadius.w));
 
-    float2 screenPosLocal = clip.xy / clip.w;
-	float2 screenPos = CLIP_SPACE_GLOBAL(screenPosLocal);
-	float2 extentPos = extent.xy / extent.w;
+	float2 screenPos = CLIP_SPACE_GLOBAL(clip.xy / clip.w);
+	float2 extentPos = CLIP_SPACE_GLOBAL(extent.xy / extent.w);
 
 	float radius = distance(screenPos, extentPos);
 
-	float ratio = _ScreenParams.x / _ScreenParams.y;
-	float occlusion = GetOcclusion(screenPosLocal, depth - v.worldPosRadius.w, radius, ratio);
+	float ratio = _CustomDepthTex_TexelSize.z /  _CustomDepthTex_TexelSize.w;
+	float occlusion = GetOcclusion(screenPos, depth - v.worldPosRadius.w, radius, ratio);
 
 	// Distance Fade
 	float4 d = v.lensflare_fadeData;
@@ -144,6 +145,6 @@ v2f vert(appdata v)
 	o.vertex.z = 1;
 	o.uv = v.uv;
 
-	o.color = v.color;// * occlusion * distanceFade * saturate(length(screenPos * 2));
+	o.color = v.color * occlusion * distanceFade * saturate(length(screenPos * 2));
 	return o;
 }

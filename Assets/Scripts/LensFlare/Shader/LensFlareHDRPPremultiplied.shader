@@ -32,8 +32,8 @@ Shader "HDRenderPipeline/LensFlare (HDRP Premultiplied)"
 			
 			float4 frag (v2f i) : SV_Target
 			{
-				float4 col = tex2D(_MainTex, i.uv);
-				return i.color;
+			    float4 col = tex2D(_MainTex, i.uv);
+				return col * i.color;
 			}
 
 			ENDHLSL

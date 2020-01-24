@@ -24,12 +24,15 @@ public class CustomDepthBuffer : MonoBehaviour
 
     [SerializeField]
     bool m_ShowDebugUI;
-    
-    RenderTexture m_ColorBuffer;
+   
     RenderTexture m_DepthBuffer;
-    CommandBuffer m_CmdBuffer;
-    
     public RenderTexture target { get { return m_DepthBuffer; } }
+
+    Vector4 m_ZBufferParams;
+    public Vector4 zBufferParams { get { return m_ZBufferParams; } }
+     
+    RenderTexture m_ColorBuffer;
+    CommandBuffer m_CmdBuffer;
 
     struct InstancedDrawArgs
     {
@@ -50,6 +53,17 @@ public class CustomDepthBuffer : MonoBehaviour
                 return instance.target;
         }
         return null;
+    }
+    
+    public static Vector4 GetZBufferParams(string name)
+    {
+        // we expect very few instances, optimize if it were to change
+        foreach (var instance in s_Instances) 
+        {
+            if (instance.id == name)
+                return instance.zBufferParams;
+        }
+        return Vector4.zero;
     }
 
     class InstancingDataGenerationVisitor
@@ -189,19 +203,26 @@ public class CustomDepthBuffer : MonoBehaviour
         m_CmdBuffer.SetGlobalMatrix("_CameraViewProjMatrix", viewProjectionMatrix);
         m_CmdBuffer.SetGlobalVector("_WorldSpaceCameraPos", Vector3.zero);
 
-        // TODO fix saturated depth
-        var f = camera.farClipPlane;
-        var n = camera.nearClipPlane;
-        var zBufferParams = new Vector4(1 - f / n, f / n, 1 / f - 1 / n, 1 / n);
-        //var zBufferParams = new Vector4(-1 + f / n, 1, -1 / f + 1 / n, 1 / f);
-        //m_CmdBuffer.SetGlobalVector("_ZBufferParams", zBufferParams);
-        
-        //m_CmdBuffer.SetGlobalDepthBias(0, 0);
-        
         foreach (var args in m_RenderingData) 
         {
             for (var i = 0; i != args.mesh.subMeshCount; ++i)
                 m_CmdBuffer.DrawMeshInstanced(args.mesh, i, m_Material, 0, args.transforms.ToArray());
+        }
+    }
+
+    static Vector4 GetZBufferParams(Camera camera) 
+    {
+        float n = camera.nearClipPlane;
+        float f = camera.farClipPlane;
+        bool reverseZ = false;
+        // http://www.humus.name/temp/Linearize%20depth.txt
+        if (true)
+        {
+            return new Vector4(-1 + f / n, 1, -1 / f + 1 / n, 1 / f);
+        }
+        else
+        {
+            return new Vector4(1 - f / n, f / n, 1 / f - 1 / n, 1 / n);
         }
     }
 
@@ -210,6 +231,7 @@ public class CustomDepthBuffer : MonoBehaviour
         var camera = Camera.main;
         if (camera != null && camera.cameraType == CameraType.Game)
         {
+            m_ZBufferParams = GetZBufferParams(camera);
             UpdateCommandBuffer(camera);
             Graphics.ExecuteCommandBuffer(m_CmdBuffer);
         }

@@ -15,6 +15,9 @@ namespace HDRPSamples
         [SerializeField]
         Light m_Light;
 
+        [SerializeField]
+        string m_CustomDepthBufferId;
+
         [Header("Global Settings")]
         public float OcclusionRadius = 1.0f;
         public float NearFadeStartDistance = 1.0f;
@@ -67,6 +70,18 @@ namespace HDRPSamples
         {
             // Lazy!
             UpdateVaryingAttributes();
+            
+            // TODO optimize!
+            var depthBuffer = CustomDepthBuffer.GetTarget(m_CustomDepthBufferId);
+            var depthBufferZParams = CustomDepthBuffer.GetZBufferParams(m_CustomDepthBufferId);
+            if (depthBuffer != null)
+            {
+                foreach (var mat in m_MeshRenderer.materials)
+                {
+                    mat.SetTexture("_CustomDepthTex", depthBuffer);
+                    mat.SetVector("_CustomDepthZBufferParams", depthBufferZParams);
+                }
+            }
         }
 
         Mesh InitMesh()
