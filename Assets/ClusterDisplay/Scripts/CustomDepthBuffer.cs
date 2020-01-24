@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Security.AccessControl;
-using System.Text.RegularExpressions;
-using Unity.ClusterRendering.Toolkit;
 using UnityEngine;
 using UnityEngine.Rendering;
 
@@ -23,7 +20,6 @@ public class CustomDepthBuffer : MonoBehaviour
     [SerializeField]
     Vector2Int m_RenderTargetSize;
     
-    [SerializeField]
     Material m_Material;
 
     [SerializeField]
@@ -32,7 +28,7 @@ public class CustomDepthBuffer : MonoBehaviour
     RenderTexture m_ColorBuffer;
     RenderTexture m_DepthBuffer;
     CommandBuffer m_CmdBuffer;
-
+    
     public RenderTexture target { get { return m_DepthBuffer; } }
 
     struct InstancedDrawArgs
@@ -127,9 +123,9 @@ public class CustomDepthBuffer : MonoBehaviour
 
     void OnEnable()
     {
-        var shader = Shader.Find("HDRP/Lit");
-        //m_Material = new Material(shader);
-        //m_Material.enableInstancing = true;
+        var shader = Shader.Find("HDRP/Unlit");
+        m_Material = new Material(shader);
+        m_Material.enableInstancing = true;
         m_CmdBuffer = new CommandBuffer();
 
         s_Instances.Add(this);
@@ -141,7 +137,7 @@ public class CustomDepthBuffer : MonoBehaviour
     {
         s_Instances.Remove(this);
         
-        //DestroyImmediate(m_Material);
+        DestroyImmediate(m_Material);
         m_CmdBuffer.Release();
         if (m_DepthBuffer != null)
             m_DepthBuffer.Release();
@@ -153,8 +149,11 @@ public class CustomDepthBuffer : MonoBehaviour
 
     void OnGUI()
     {
-        if (m_ShowDebugUI && m_DepthBuffer != null) 
-            GUI.DrawTexture(new Rect(0, Screen.height, Screen.width, -Screen.height), m_DepthBuffer);        
+        if (m_ShowDebugUI && m_DepthBuffer != null)
+        {
+            //GUI.DrawTexture(new Rect(0, 0, 256, 256), m_DepthBuffer);        
+            GUI.DrawTexture(new Rect(0, 0, Screen.width, Screen.height), m_DepthBuffer);        
+        }
     }
 
     // TODO optim only render if camera moved
@@ -177,25 +176,27 @@ public class CustomDepthBuffer : MonoBehaviour
 
         var projectionMatrix = GL.GetGPUProjectionMatrix(camera.projectionMatrix, true);
         var viewMatrix = camera.worldToCameraMatrix;
-        var viewProjectionMatrix = camera.projectionMatrix * camera.worldToCameraMatrix;
-        
+        var viewProjectionMatrix = projectionMatrix * viewMatrix;
+
         // as we use HDRP we cannot rely on CommandBuffer.SetViewProjectionMatrices(...);
         // we need to manually update uniforms
         m_CmdBuffer.SetGlobalMatrix("_ViewMatrix", viewMatrix);
+        m_CmdBuffer.SetGlobalMatrix("_InvViewMatrix", viewMatrix.inverse); 
         m_CmdBuffer.SetGlobalMatrix("_ProjMatrix", projectionMatrix);
         m_CmdBuffer.SetGlobalMatrix("_InvProjMatrix", projectionMatrix.inverse);
         m_CmdBuffer.SetGlobalMatrix("_ViewProjMatrix", viewProjectionMatrix);
         m_CmdBuffer.SetGlobalMatrix("_InvViewProjMatrix", viewProjectionMatrix.inverse);
         m_CmdBuffer.SetGlobalMatrix("_CameraViewProjMatrix", viewProjectionMatrix);
         m_CmdBuffer.SetGlobalVector("_WorldSpaceCameraPos", Vector3.zero);
-        m_CmdBuffer.SetGlobalVector("_ShadowClipPlanes", Vector3.zero);
-        
+
         // TODO fix saturated depth
         var f = camera.farClipPlane;
         var n = camera.nearClipPlane;
         var zBufferParams = new Vector4(1 - f / n, f / n, 1 / f - 1 / n, 1 / n);
         //var zBufferParams = new Vector4(-1 + f / n, 1, -1 / f + 1 / n, 1 / f);
-        m_CmdBuffer.SetGlobalVector("_ZBufferParams", zBufferParams);
+        //m_CmdBuffer.SetGlobalVector("_ZBufferParams", zBufferParams);
+        
+        //m_CmdBuffer.SetGlobalDepthBias(0, 0);
         
         foreach (var args in m_RenderingData) 
         {
