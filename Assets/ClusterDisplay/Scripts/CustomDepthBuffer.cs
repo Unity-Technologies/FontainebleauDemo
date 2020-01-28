@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Profiling;
 using UnityEngine.Rendering;
 
 [ExecuteInEditMode]
@@ -33,6 +34,8 @@ public class CustomDepthBuffer : MonoBehaviour
      
     RenderTexture m_ColorBuffer;
     CommandBuffer m_CmdBuffer;
+    CustomSampler m_Sampler;
+    int m_ActiveHandles = 0;
 
     struct InstancedDrawArgs
     {
@@ -44,31 +47,42 @@ public class CustomDepthBuffer : MonoBehaviour
 
     static List<CustomDepthBuffer> s_Instances = new List<CustomDepthBuffer>();
 
-    static CustomDepthBuffer GetInstance(string name)
+    public class Handle
+    {
+        CustomDepthBuffer m_Buffer;
+        
+        public Handle(CustomDepthBuffer buffer)
+        {
+            m_Buffer = buffer;
+            m_Buffer.m_ActiveHandles++;
+        }
+
+        public void Release()
+        {
+            m_Buffer.m_ActiveHandles--;
+            m_Buffer = null;
+        }
+        
+        public RenderTexture target
+        {
+            get { return m_Buffer.target; }
+        }
+    
+        public Vector4 zBufferParams
+        {
+            get { return m_Buffer.zBufferParams; }
+        }
+    }
+    
+    public static Handle GetHandle(string name)
     {
         // we expect a very limited number of instances, optimize otherwise
         foreach (var instance in s_Instances) 
         {
             if (instance.id == name)
-                return instance;
+                return new Handle(instance);
         }
-        return null;
-    }
-
-    public static RenderTexture GetTarget(string name)
-    {
-        var instance = GetInstance(name);
-        if (instance == null)
-            return null;
-        return instance.target;
-    }
-    
-    public static Vector4 GetZBufferParams(string name)
-    {
-        var instance = GetInstance(name);
-        if (instance == null)
-            return Vector4.zero;
-        return instance.zBufferParams;
+        throw new InvalidOperationException($"No CustomDepthBuffer named [{name}], Handle could not be instanciated.");
     }
 
     class InstancingDataGenerationVisitor
@@ -142,6 +156,9 @@ public class CustomDepthBuffer : MonoBehaviour
 
     void OnEnable()
     {
+        if (m_Sampler == null)
+            m_Sampler = CustomSampler.Create("Update Custom Depth Buffer");
+
         var shader = Shader.Find("HDRP/Unlit");
         m_Material = new Material(shader);
         m_Material.enableInstancing = true;
@@ -184,37 +201,41 @@ public class CustomDepthBuffer : MonoBehaviour
                 m_DepthBuffer.Release();
             if (m_ColorBuffer != null)
                 m_ColorBuffer.Release();
-            
+
             m_DepthBuffer = new RenderTexture(m_RenderTargetSize.x, m_RenderTargetSize.y, 0, RenderTextureFormat.Depth);
             m_ColorBuffer = new RenderTexture(m_RenderTargetSize.x, m_RenderTargetSize.y, 0, RenderTextureFormat.Default);
         }
 
         m_CmdBuffer.Clear();
-        m_CmdBuffer.SetRenderTarget(m_ColorBuffer.colorBuffer, m_DepthBuffer.colorBuffer);
-        m_CmdBuffer.ClearRenderTarget(true, true, Color.black);
 
-        var projectionMatrix = GL.GetGPUProjectionMatrix(camera.projectionMatrix, true);
-        
-        m_ZBufferParams = GetZBufferParams(camera, projectionMatrix);
-
-        var viewMatrix = camera.worldToCameraMatrix;
-        var viewProjectionMatrix = projectionMatrix * viewMatrix;
-
-        // as we use HDRP we cannot rely on CommandBuffer.SetViewProjectionMatrices(...);
-        // we need to manually update uniforms
-        m_CmdBuffer.SetGlobalMatrix("_ViewMatrix", viewMatrix);
-        m_CmdBuffer.SetGlobalMatrix("_InvViewMatrix", viewMatrix.inverse); 
-        m_CmdBuffer.SetGlobalMatrix("_ProjMatrix", projectionMatrix);
-        m_CmdBuffer.SetGlobalMatrix("_InvProjMatrix", projectionMatrix.inverse);
-        m_CmdBuffer.SetGlobalMatrix("_ViewProjMatrix", viewProjectionMatrix);
-        m_CmdBuffer.SetGlobalMatrix("_InvViewProjMatrix", viewProjectionMatrix.inverse);
-        m_CmdBuffer.SetGlobalMatrix("_CameraViewProjMatrix", viewProjectionMatrix);
-        m_CmdBuffer.SetGlobalVector("_WorldSpaceCameraPos", Vector3.zero);
-
-        foreach (var args in m_RenderingData) 
+        using (new ProfilingSample(m_CmdBuffer, "Render Custom Depth Buffer"))
         {
-            for (var i = 0; i != args.mesh.subMeshCount; ++i)
-                m_CmdBuffer.DrawMeshInstanced(args.mesh, i, m_Material, 0, args.transforms.ToArray());
+            m_CmdBuffer.SetRenderTarget(m_ColorBuffer.colorBuffer, m_DepthBuffer.colorBuffer);
+            m_CmdBuffer.ClearRenderTarget(true, true, Color.black);
+
+            var projectionMatrix = GL.GetGPUProjectionMatrix(camera.projectionMatrix, true);
+
+            m_ZBufferParams = GetZBufferParams(camera, projectionMatrix);
+
+            var viewMatrix = camera.worldToCameraMatrix;
+            var viewProjectionMatrix = projectionMatrix * viewMatrix;
+
+            // as we use HDRP we cannot rely on CommandBuffer.SetViewProjectionMatrices(...);
+            // we need to manually update uniforms
+            m_CmdBuffer.SetGlobalMatrix("_ViewMatrix", viewMatrix);
+            m_CmdBuffer.SetGlobalMatrix("_InvViewMatrix", viewMatrix.inverse);
+            m_CmdBuffer.SetGlobalMatrix("_ProjMatrix", projectionMatrix);
+            m_CmdBuffer.SetGlobalMatrix("_InvProjMatrix", projectionMatrix.inverse);
+            m_CmdBuffer.SetGlobalMatrix("_ViewProjMatrix", viewProjectionMatrix);
+            m_CmdBuffer.SetGlobalMatrix("_InvViewProjMatrix", viewProjectionMatrix.inverse);
+            m_CmdBuffer.SetGlobalMatrix("_CameraViewProjMatrix", viewProjectionMatrix);
+            m_CmdBuffer.SetGlobalVector("_WorldSpaceCameraPos", Vector3.zero);
+
+            foreach (var args in m_RenderingData)
+            {
+                for (var i = 0; i != args.mesh.subMeshCount; ++i)
+                    m_CmdBuffer.DrawMeshInstanced(args.mesh, i, m_Material, 0, args.transforms.ToArray());
+            }
         }
     }
 
@@ -233,12 +254,18 @@ public class CustomDepthBuffer : MonoBehaviour
 
     void Update()
     {
+        // No need to update if there are no handles to this this buffer.
+        if (m_ActiveHandles == 0)
+            return;
+   
+        m_Sampler.Begin();
         var camera = Camera.main;
         if (camera != null && camera.cameraType == CameraType.Game)
         {
             UpdateCommandBuffer(camera);
             Graphics.ExecuteCommandBuffer(m_CmdBuffer);
         }
+        m_Sampler.End();
     }
 
     [ContextMenu("Update Rendering Data")]

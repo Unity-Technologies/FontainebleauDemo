@@ -17,6 +17,7 @@ namespace HDRPSamples
 
         [SerializeField]
         string m_CustomDepthBufferId;
+        CustomDepthBuffer.Handle m_CustomDepthBufferHandle;
 
         [Header("Global Settings")]
         public float OcclusionRadius = 1.0f;
@@ -50,8 +51,13 @@ namespace HDRPSamples
         void OnEnable()
         {
             UpdateGeometry();
+            m_CustomDepthBufferHandle = CustomDepthBuffer.GetHandle(m_CustomDepthBufferId);
         }
 
+        void OnDisable()
+        {
+            m_CustomDepthBufferHandle.Release();
+        }
 
         // Use this for initialization
         void Start ()
@@ -72,8 +78,8 @@ namespace HDRPSamples
             UpdateVaryingAttributes();
             
             // TODO optimize!
-            var depthBuffer = CustomDepthBuffer.GetTarget(m_CustomDepthBufferId);
-            var depthBufferZParams = CustomDepthBuffer.GetZBufferParams(m_CustomDepthBufferId);
+            var depthBuffer = m_CustomDepthBufferHandle.target;
+            var depthBufferZParams = m_CustomDepthBufferHandle.zBufferParams;
             if (depthBuffer != null)
             {
                 foreach (var mat in m_MeshRenderer.materials)
