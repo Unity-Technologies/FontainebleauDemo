@@ -8,13 +8,8 @@ using UnityEngine.Rendering;
 public class CustomDepthBuffer : MonoBehaviour
 {
     [SerializeField]
-    string m_Id;
+    string m_Tag;
 
-    public string id { get { return m_Id; } }
-
-    [SerializeField]
-    Transform[] m_OccludingRoots;
-    
     [SerializeField]
     Mesh[] m_OccludingMeshes;
 
@@ -35,7 +30,6 @@ public class CustomDepthBuffer : MonoBehaviour
     RenderTexture m_ColorBuffer;
     CommandBuffer m_CmdBuffer;
     CustomSampler m_Sampler;
-    int m_ActiveHandles = 0;
 
     struct InstancedDrawArgs
     {
@@ -44,46 +38,6 @@ public class CustomDepthBuffer : MonoBehaviour
     }
     
     List<InstancedDrawArgs> m_RenderingData = new List<InstancedDrawArgs>();
-
-    static List<CustomDepthBuffer> s_Instances = new List<CustomDepthBuffer>();
-
-    public class Handle
-    {
-        CustomDepthBuffer m_Buffer;
-        
-        public Handle(CustomDepthBuffer buffer)
-        {
-            m_Buffer = buffer;
-            m_Buffer.m_ActiveHandles++;
-        }
-
-        public void Release()
-        {
-            m_Buffer.m_ActiveHandles--;
-            m_Buffer = null;
-        }
-        
-        public RenderTexture target
-        {
-            get { return m_Buffer.target; }
-        }
-    
-        public Vector4 zBufferParams
-        {
-            get { return m_Buffer.zBufferParams; }
-        }
-    }
-    
-    public static Handle GetHandle(string name)
-    {
-        // we expect a very limited number of instances, optimize otherwise
-        foreach (var instance in s_Instances) 
-        {
-            if (instance.id == name)
-                return new Handle(instance);
-        }
-        throw new InvalidOperationException($"No CustomDepthBuffer named [{name}], Handle could not be instanciated.");
-    }
 
     class InstancingDataGenerationVisitor
     {
@@ -164,15 +118,11 @@ public class CustomDepthBuffer : MonoBehaviour
         m_Material.enableInstancing = true;
         m_CmdBuffer = new CommandBuffer();
 
-        s_Instances.Add(this);
-        
         UpdateRenderingData();
     }
 
     void OnDisable()
     {
-        s_Instances.Remove(this);
-        
         DestroyImmediate(m_Material);
         m_CmdBuffer.Release();
         if (m_DepthBuffer != null)
@@ -254,10 +204,10 @@ public class CustomDepthBuffer : MonoBehaviour
 
     void Update()
     {
-        // No need to update if there are no handles to this this buffer.
-        if (m_ActiveHandles == 0)
-            return;
-   
+        // TMP DEBUG hack
+        if (Input.GetKeyDown(KeyCode.G))
+            m_ShowDebugUI = !m_ShowDebugUI;
+        
         m_Sampler.Begin();
         var camera = Camera.main;
         if (camera != null && camera.cameraType == CameraType.Game)
@@ -271,13 +221,13 @@ public class CustomDepthBuffer : MonoBehaviour
     [ContextMenu("Update Rendering Data")]
     void UpdateRenderingData()
     {
-        if (m_OccludingRoots == null)
+        if (string.IsNullOrEmpty(m_Tag))
             return;
         
         m_InstancingDataGenerationVisitor.Reset();
         m_InstancingDataGenerationVisitor.SetAllowedMeshes(m_OccludingMeshes);
-
-        foreach (var occluder in m_OccludingRoots)
+        
+        foreach (var occluder in GameObject.FindGameObjectsWithTag(m_Tag))
         {
             UpdateRenderingDataRecursive(occluder.transform, m_InstancingDataGenerationVisitor);
         }

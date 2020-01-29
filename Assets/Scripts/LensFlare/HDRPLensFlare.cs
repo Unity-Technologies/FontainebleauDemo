@@ -6,6 +6,7 @@ namespace HDRPSamples
     [ExecuteInEditMode]
     [RequireComponent(typeof(MeshRenderer))]
     [RequireComponent(typeof(MeshFilter))]
+    [RequireComponent(typeof(CustomDepthBuffer))]
     public class HDRPLensFlare : MonoBehaviour
     {
         [SerializeField, HideInInspector]
@@ -15,9 +16,7 @@ namespace HDRPSamples
         [SerializeField]
         Light m_Light;
 
-        [SerializeField]
-        string m_CustomDepthBufferId;
-        CustomDepthBuffer.Handle m_CustomDepthBufferHandle;
+        CustomDepthBuffer m_CustomDepthBuffer;
 
         [Header("Global Settings")]
         public float OcclusionRadius = 1.0f;
@@ -36,6 +35,8 @@ namespace HDRPSamples
                 m_MeshFilter = GetComponent<MeshFilter>();
             if (m_MeshRenderer == null)
                 m_MeshRenderer = GetComponent<MeshRenderer>();
+            if (m_CustomDepthBuffer == null)
+                m_CustomDepthBuffer = GetComponent<CustomDepthBuffer>();
 
             m_Light = GetComponent<Light>();
 
@@ -51,18 +52,6 @@ namespace HDRPSamples
         void OnEnable()
         {
             UpdateGeometry();
-            m_CustomDepthBufferHandle = CustomDepthBuffer.GetHandle(m_CustomDepthBufferId);
-        }
-
-        void OnDisable()
-        {
-            m_CustomDepthBufferHandle.Release();
-        }
-
-        // Use this for initialization
-        void Start ()
-        {
-            m_Light = GetComponent<Light>();
         }
 
         void OnValidate()
@@ -76,10 +65,10 @@ namespace HDRPSamples
         {
             // Lazy!
             UpdateVaryingAttributes();
-            
+          
             // TODO optimize!
-            var depthBuffer = m_CustomDepthBufferHandle.target;
-            var depthBufferZParams = m_CustomDepthBufferHandle.zBufferParams;
+            var depthBuffer = m_CustomDepthBuffer.target;
+            var depthBufferZParams = m_CustomDepthBuffer.zBufferParams;
             if (depthBuffer != null)
             {
                 foreach (var mat in m_MeshRenderer.materials)
