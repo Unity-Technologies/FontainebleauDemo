@@ -28,7 +28,7 @@ Shader "HDRenderPipeline/LensFlare (HDRP Additive)"
             #include "Packages/com.unity.render-pipelines.high-definition/Runtime/ShaderLibrary/ShaderVariables.hlsl"
 			#include "LensFlareHDRPCommon.hlsl"
 
-            #pragma multi_compile __ USING_GLOBAL_SCREEN_SPACE
+            #pragma multi_compile __ USING_CLUSTER_DISPLAY
 			
 			float4 frag (v2f i) : SV_Target
 			{

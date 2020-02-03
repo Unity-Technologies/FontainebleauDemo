@@ -34,7 +34,7 @@ public class CustomDepthBuffer : MonoBehaviour
     struct InstancedDrawArgs
     {
         public Mesh mesh;
-        public List<Matrix4x4> transforms; // TODO use arrays if we use CommandBuffer
+        public List<Matrix4x4> transforms; // TODO use arrays
     }
     
     List<InstancedDrawArgs> m_RenderingData = new List<InstancedDrawArgs>();
@@ -137,7 +137,6 @@ public class CustomDepthBuffer : MonoBehaviour
     {
         if (m_ShowDebugUI && m_DepthBuffer != null)
         {
-            //GUI.DrawTexture(new Rect(0, 0, 256, 256), m_DepthBuffer);        
             GUI.DrawTexture(new Rect(0, 0, Screen.width, Screen.height), m_DepthBuffer);        
         }
     }
@@ -193,8 +192,8 @@ public class CustomDepthBuffer : MonoBehaviour
     {
         float n = camera.nearClipPlane;
         float f = camera.farClipPlane;
-        float scale     = projectionMatrix[2, 3] / (f * n) * (f - n);
-        bool  reverseZ  = scale > 0;
+        float scale = projectionMatrix[2, 3] / (f * n) * (f - n);
+        bool reverseZ = scale > 0;
         
         if (reverseZ)
             return new Vector4(-1 + f / n, 1, -1 / f + 1 / n, 1 / f);
@@ -235,11 +234,11 @@ public class CustomDepthBuffer : MonoBehaviour
         m_InstancingDataGenerationVisitor.PopulateRenderingData(m_RenderingData);
         
         // TMP DEBUG
-        Debug.Log("INSTANCING RENDERING DATA:");
+        /*Debug.Log("INSTANCING RENDERING DATA:");
         foreach (var data in m_RenderingData)
         {
             Debug.Log($"Mesh name[{data.mesh.name}] id[{data.mesh.GetInstanceID()}] count[{data.transforms.Count}]");
-        }
+        }*/
     }
 
     static void UpdateRenderingDataRecursive(Transform parent, InstancingDataGenerationVisitor visitor) 

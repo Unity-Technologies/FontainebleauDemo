@@ -1,4 +1,4 @@
-#include "Packages\com.unity.render-pipelines.high-definition\Runtime\ShaderLibrary\GlobalScreenSpace.hlsl"
+#include "Packages\com.unity.render-pipelines.high-definition\Runtime\ShaderLibrary\ClusterDisplay.hlsl"
 
 struct appdata
 {
@@ -84,7 +84,7 @@ float GetOcclusion(float2 screenPos, float depth, float radius, float ratio)
 		
 		if (pos.x >= 0 && pos.x <= 1 && pos.y >= 0 && pos.y <= 1)
 		{
-#if defined(USING_GLOBAL_SCREEN_SPACE)
+#if defined(USING_CLUSTER_DISPLAY)
 			float sampledDepth = LinearEyeDepth(tex2Dlod(_CustomDepthTex, float4(pos, 0, 0)).r, _CustomDepthZBufferParams);
 #else
 			float sampledDepth = LinearEyeDepth(SampleCameraDepth(pos), _ZBufferParams);
@@ -107,13 +107,8 @@ v2f vert(appdata v)
 
 	float4 extent = TransformWorldToHClip(GetCameraRelativePositionWS(v.worldPosRadius.xyz + cameraUp * v.worldPosRadius.w));
 
-#if defined(USING_GLOBAL_SCREEN_SPACE)
-	float2 screenPos = CLIP_SPACE_GLOBAL(clip.xy / clip.w);
-	float2 extentPos = CLIP_SPACE_GLOBAL(extent.xy / extent.w);
-#else
-    float2 screenPos = clip.xy / clip.w;
-	float2 extentPos = extent.xy / extent.w;
-#endif
+	float2 screenPos = DEVICE_TO_CLUSTER_NORMALIZED_COORDINATES(clip.xy / clip.w);
+	float2 extentPos = DEVICE_TO_CLUSTER_NORMALIZED_COORDINATES(extent.xy / extent.w);
 
 	float radius = distance(screenPos, extentPos);
 
@@ -150,11 +145,7 @@ v2f vert(appdata v)
 	float2 rayOffset = -screenPos * v.lensflare_data.x;
 	o.vertex.w = v.vertex.w;
 	
-#if defined(USING_GLOBAL_SCREEN_SPACE)
-	o.vertex.xy = CLIP_SPACE_LOCAL(screenPos + local + rayOffset);
-#else
-	o.vertex.xy = screenPos + local + rayOffset;
-#endif
+	o.vertex.xy = CLUSTER_TO_DEVICE_NORMALIZED_COORDINATES(screenPos + local + rayOffset);
 
 	o.vertex.z = 1;
 	o.uv = v.uv;
