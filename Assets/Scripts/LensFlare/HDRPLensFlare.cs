@@ -6,6 +6,7 @@ namespace HDRPSamples
     [ExecuteInEditMode]
     [RequireComponent(typeof(MeshRenderer))]
     [RequireComponent(typeof(MeshFilter))]
+    [RequireComponent(typeof(CustomDepthBuffer))]
     public class HDRPLensFlare : MonoBehaviour
     {
         [SerializeField, HideInInspector]
@@ -14,6 +15,8 @@ namespace HDRPSamples
         MeshFilter m_MeshFilter;
         [SerializeField]
         Light m_Light;
+
+        CustomDepthBuffer m_CustomDepthBuffer;
 
         [Header("Global Settings")]
         public float OcclusionRadius = 1.0f;
@@ -32,6 +35,8 @@ namespace HDRPSamples
                 m_MeshFilter = GetComponent<MeshFilter>();
             if (m_MeshRenderer == null)
                 m_MeshRenderer = GetComponent<MeshRenderer>();
+            if (m_CustomDepthBuffer == null)
+                m_CustomDepthBuffer = GetComponent<CustomDepthBuffer>();
 
             m_Light = GetComponent<Light>();
 
@@ -49,13 +54,6 @@ namespace HDRPSamples
             UpdateGeometry();
         }
 
-
-        // Use this for initialization
-        void Start ()
-        {
-            m_Light = GetComponent<Light>();
-        }
-
         void OnValidate()
         {
             UpdateGeometry();
@@ -67,6 +65,18 @@ namespace HDRPSamples
         {
             // Lazy!
             UpdateVaryingAttributes();
+          
+            // TODO optimize!
+            var depthBuffer = m_CustomDepthBuffer.target;
+            var depthBufferZParams = m_CustomDepthBuffer.zBufferParams;
+            if (depthBuffer != null)
+            {
+                foreach (var mat in m_MeshRenderer.materials)
+                {
+                    mat.SetTexture("_CustomDepthTex", depthBuffer);
+                    mat.SetVector("_CustomDepthZBufferParams", depthBufferZParams);
+                }
+            }
         }
 
         Mesh InitMesh()

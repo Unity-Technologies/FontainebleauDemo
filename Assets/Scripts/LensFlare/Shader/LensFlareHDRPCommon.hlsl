@@ -1,3 +1,5 @@
+#include "Packages\com.unity.render-pipelines.high-definition\Runtime\ShaderLibrary\GlobalScreenSpace.hlsl"
+
 struct appdata
 {
 	float4 vertex : POSITION;
@@ -27,6 +29,9 @@ struct v2f
 };
 
 sampler2D _MainTex;
+sampler2D _CustomDepthTex;
+float4 _CustomDepthTex_TexelSize;
+float4 _CustomDepthZBufferParams;
 float _OccludedSizeScale;
 
 // thanks, internets
@@ -76,11 +81,14 @@ float GetOcclusion(float2 screenPos, float depth, float radius, float ratio)
 		float2 pos = screenPos + (samples[i] * radius * ratioScale);
 		pos = pos * 0.5 + 0.5;
 		pos.y = 1 - pos.y;
+		
 		if (pos.x >= 0 && pos.x <= 1 && pos.y >= 0 && pos.y <= 1)
 		{
-			//float sampledDepth = LinearEyeDepth(SAMPLE_TEXTURE2D_LOD(_CameraDepthTexture, sampler_CameraDepthTexture, pos, 0).r, _ZBufferParams);
+#if defined(USING_GLOBAL_SCREEN_SPACE)
+			float sampledDepth = LinearEyeDepth(tex2Dlod(_CustomDepthTex, float4(pos, 0, 0)).r, _CustomDepthZBufferParams);
+#else
 			float sampledDepth = LinearEyeDepth(SampleCameraDepth(pos), _ZBufferParams);
-			
+#endif
 			if (sampledDepth >= depth)
 				contrib += sample_Contrib;
 		}
@@ -99,12 +107,17 @@ v2f vert(appdata v)
 
 	float4 extent = TransformWorldToHClip(GetCameraRelativePositionWS(v.worldPosRadius.xyz + cameraUp * v.worldPosRadius.w));
 
-	float2 screenPos = clip.xy / clip.w;
+#if defined(USING_GLOBAL_SCREEN_SPACE)
+	float2 screenPos = CLIP_SPACE_GLOBAL(clip.xy / clip.w);
+	float2 extentPos = CLIP_SPACE_GLOBAL(extent.xy / extent.w);
+#else
+    float2 screenPos = clip.xy / clip.w;
 	float2 extentPos = extent.xy / extent.w;
+#endif
 
 	float radius = distance(screenPos, extentPos);
 
-	float ratio = _ScreenParams.x / _ScreenParams.y;
+	float ratio = _CustomDepthTex_TexelSize.z /  _CustomDepthTex_TexelSize.w;
 	float occlusion = GetOcclusion(screenPos, depth - v.worldPosRadius.w, radius, ratio);
 
 	// Distance Fade
@@ -136,7 +149,12 @@ v2f vert(appdata v)
 
 	float2 rayOffset = -screenPos * v.lensflare_data.x;
 	o.vertex.w = v.vertex.w;
+	
+#if defined(USING_GLOBAL_SCREEN_SPACE)
+	o.vertex.xy = CLIP_SPACE_LOCAL(screenPos + local + rayOffset);
+#else
 	o.vertex.xy = screenPos + local + rayOffset;
+#endif
 
 	o.vertex.z = 1;
 	o.uv = v.uv;
