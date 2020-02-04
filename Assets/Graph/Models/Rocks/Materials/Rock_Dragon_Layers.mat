@@ -9,7 +9,7 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: Rock_Dragon_Layers
   m_Shader: {fileID: 4800000, guid: eab0538d9d5746246806a9611c04ac4d, type: 3}
-  m_ShaderKeywords: _DENSITY_MODE _DETAIL_MAP0 _DETAIL_MAP1 _DISABLE_DBUFFER _DISPLACEMENT_LOCK_TILING_SCALE
+  m_ShaderKeywords: _DENSITY_MODE _DETAIL_MAP0 _DETAIL_MAP1 _DISPLACEMENT_LOCK_TILING_SCALE
     _HEIGHTMAP0 _HEIGHTMAP1 _HEIGHTMAP2 _HEIGHTMAP3 _LAYEREDLIT_4_LAYERS _LAYER_MAPPING_PLANAR2
     _LAYER_MASK_VERTEX_COLOR_ADD _LAYER_TILING_COUPLED_WITH_UNIFORM_OBJECT_SCALE
     _MAIN_LAYER_INFLUENCE_MODE _MASKMAP0 _MASKMAP1 _MASKMAP2 _MASKMAP3 _MATERIAL_FEATURE_SUBSURFACE_SCATTERING
@@ -297,6 +297,7 @@ Material:
     - _AORemapMin1: 0
     - _AORemapMin2: 0
     - _AORemapMin3: 0
+    - _AddPrecomputedVelocity: 0
     - _AlbedoAffectEmissive: 0
     - _AlphaCutoff: 0.5
     - _AlphaCutoffEnable: 0
@@ -508,15 +509,16 @@ Material:
     - _SpecularAAScreenSpaceVariance: 0.1
     - _SpecularAAThreshold: 0.2
     - _SpecularHighlights: 1
+    - _SpecularOcclusionMode: 1
     - _SrcBlend: 1
-    - _StencilRef: 1
-    - _StencilRefDepth: 0
-    - _StencilRefGBuffer: 1
-    - _StencilRefMV: 128
-    - _StencilWriteMask: 3
-    - _StencilWriteMaskDepth: 48
-    - _StencilWriteMaskGBuffer: 51
-    - _StencilWriteMaskMV: 176
+    - _StencilRef: 4
+    - _StencilRefDepth: 8
+    - _StencilRefGBuffer: 14
+    - _StencilRefMV: 40
+    - _StencilWriteMask: 6
+    - _StencilWriteMaskDepth: 8
+    - _StencilWriteMaskGBuffer: 14
+    - _StencilWriteMaskMV: 40
     - _Stiffness: 1
     - _SubsurfaceMask0: 1
     - _SubsurfaceMask1: 1
@@ -553,7 +555,9 @@ Material:
     - _Thickness2: 1
     - _Thickness3: 0
     - _TransmissionEnable: 1
+    - _TransparentCullMode: 2
     - _TransparentSortPriority: 0
+    - _TransparentZWrite: 0
     - _UVBase0: 0
     - _UVBase1: 2
     - _UVBase2: 4
@@ -580,6 +584,7 @@ Material:
     - _ZTestDepthEqualForOpaque: 3
     - _ZTestGBuffer: 4
     - _ZTestMode: 8
+    - _ZTestTransparent: 4
     - _ZWrite: 1
     m_Colors:
     - _BaseColor0: {r: 1, g: 1, b: 1, a: 1}
@@ -625,4 +630,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da692e001514ec24dbc4cca1949ff7e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  version: 0
+  version: 2

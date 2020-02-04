@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da692e001514ec24dbc4cca1949ff7e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  version: 0
+  version: 2
 --- !u!21 &2100000
 Material:
   serializedVersion: 6
@@ -23,15 +23,15 @@ Material:
   m_Name: challenger_beard
   m_Shader: {fileID: -6465566751694194690, guid: 133429b72a9ffb341a90f0035f802289,
     type: 3}
-  m_ShaderKeywords: _ALPHATEST_ON _BLENDMODE_ALPHA _DISABLE_DBUFFER _DISABLE_DECALS
-    _DISABLE_SSR _DOUBLESIDED_ON _ENABLE_FOG_ON_TRANSPARENT _MATERIAL_FEATURE_ANISOTROPY
-    _NORMALMAP _NORMALMAP_TANGENT_SPACE _SURFACE_TYPE_TRANSPARENT _TRANSPARENT_WRITES_VELOCITY
+  m_ShaderKeywords: _ALPHATEST_ON _BLENDMODE_ALPHA _DOUBLESIDED_ON _ENABLE_FOG_ON_TRANSPARENT
+    _SURFACE_TYPE_TRANSPARENT
   m_LightmapFlags: 1
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 1
   m_CustomRenderQueue: -1
   stringTagMap:
     MotionVector: User
+    RenderType: Transparent
   disabledShaderPasses:
   - DistortionVectors
   - MOTIONVECTORS
@@ -119,7 +119,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 84f0944b919b9fd4693a119215d95fad, type: 3}
+        m_Texture: {fileID: 2800000, guid: e0496b97b601d0647a69941a72359e64, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MaskMap:
@@ -197,7 +197,7 @@ Material:
     - _AlphaCutoffPrepass: 0.9
     - _AlphaCutoffShadow: 0.7
     - _AlphaCutoffShadows: 0.5
-    - _AlphaDstBlend: 0
+    - _AlphaDstBlend: 10
     - _AlphaSrcBlend: 1
     - _AlphaTestRef: 0.5
     - _Anisotropy: 0.648
@@ -292,10 +292,11 @@ Material:
     - _PPDPrimitiveWidth: 1
     - _Parallax: 0.02
     - _PreRefractionPass: 0
-    - _ReceivesSSR: 0
+    - _ReceivesSSR: 1
     - _RefractionMode: 0
     - _RefractionModel: 0
     - _RefractionSSRayModel: 0
+    - _RequireSplitLighting: 0
     - _SSRefractionProjectionModel: 0
     - _SSSAndTransmissionType: 0
     - _SecondarySpecularMultiplier: 0.538
@@ -310,16 +311,16 @@ Material:
     - _SpecularMultiplier: 0.301
     - _SpecularShift: 0.125
     - _SrcBlend: 1
-    - _StencilRef: 2
-    - _StencilRefDepth: 32
-    - _StencilRefDistortionVec: 64
-    - _StencilRefGBuffer: 34
-    - _StencilRefMV: 160
-    - _StencilWriteMask: 3
-    - _StencilWriteMaskDepth: 48
-    - _StencilWriteMaskDistortionVec: 64
-    - _StencilWriteMaskGBuffer: 51
-    - _StencilWriteMaskMV: 176
+    - _StencilRef: 0
+    - _StencilRefDepth: 8
+    - _StencilRefDistortionVec: 4
+    - _StencilRefGBuffer: 10
+    - _StencilRefMV: 40
+    - _StencilWriteMask: 6
+    - _StencilWriteMaskDepth: 8
+    - _StencilWriteMaskDistortionVec: 4
+    - _StencilWriteMaskGBuffer: 14
+    - _StencilWriteMaskMV: 40
     - _Stiffness: 1
     - _SubsurfaceMask: 1
     - _SubsurfaceProfile: 0
@@ -333,11 +334,13 @@ Material:
     - _ThicknessMultiplier: 1
     - _TransmissionEnable: 1
     - _TransparentBackfaceEnable: 1
+    - _TransparentCullMode: 2
     - _TransparentDepthPostpassEnable: 1
     - _TransparentDepthPrepassEnable: 1
     - _TransparentSortPriority: 0
     - _TransparentWritingMotionVec: 0
     - _TransparentWritingVelocity: 1
+    - _TransparentZWrite: 0
     - _UVBase: 0
     - _UVDetail: 0
     - _UVEmissive: 0
@@ -349,12 +352,13 @@ Material:
     - _ZTestGBuffer: 3
     - _ZTestMode: 8
     - _ZTestModeDistortion: 8
+    - _ZTestTransparent: 4
     - _ZWrite: 0
     m_Colors:
     - Color_6FC6C3A4: {r: 0.5019608, g: 0.39738566, b: 0.2509804, a: 1}
     - _BaseColor: {r: 0.944, g: 0.944, b: 0.944, a: 1}
     - _BaseColorMap_MipInfo: {r: 0, g: 0, b: 0, a: 0}
-    - _Color: {r: 0.6603774, g: 0.6603774, b: 0.6603774, a: 1}
+    - _Color: {r: 0.944, g: 0.944, b: 0.944, a: 1}
     - _DiffusionProfileAsset: {r: 1.2911138e+14, g: -8.325309e-27, b: -0.0034849923,
         a: -1.3505287e+28}
     - _DoubleSidedConstants: {r: 1, g: 1, b: -1, a: 0}
