@@ -2,6 +2,18 @@
 All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
+## Unity 2019.3.0f6 - HDRP 7.2.0
+
+### **Changed**
+
+- Use **Physically based sky** (preview) for night lighting setup with clouds rendered on top using a shader graph
+- Photogrammetry kit scene : disabled Static batching from some gameobjects to avoid differences in displacement in play mode
+
+### **Fixed**
+
+- Fixed bright lighting when opening night lighting in editor
+- Removed legacy UI that wasn't relevant anymore
+- Fixed typos in the Discover items
 
 ## Unity 2019.3.0f1 - HDRP 7.1.6
 
