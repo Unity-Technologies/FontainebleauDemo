@@ -1,6 +1,6 @@
 # Fontainebleau
 
-Project for Unity 2019.3.0f1 using HDRP 7.1.6
+Project for Unity 2019.3.0f6 using HDRP 7.2.0
 **Check the [changelog](https://github.com/Unity-Technologies/FontainebleauDemo/blob/master/Changelog.md) to see the latest updates.**
 
 
