@@ -3,8 +3,9 @@
 --- !u!1113 &111300000
 LightmapParameters:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_Name: LightmapStaticSettings
   serializedVersion: 3
   resolution: 1
@@ -18,8 +19,10 @@ LightmapParameters:
   edgeStitching: 1
   blurRadius: 0
   directLightQuality: 32
-  antiAliasingSamples: 8
-  bakedLightmapTag: -1
+  antiAliasingSamples: 1
   pushoff: 0.0001
+  bakedLightmapTag: -1
+  limitLightmapCount: 0
+  maxLightmapCount: 1
   AOQuality: 64
   AOAntiAliasingSamples: 16

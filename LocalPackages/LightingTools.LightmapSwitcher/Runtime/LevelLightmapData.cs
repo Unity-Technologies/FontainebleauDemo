@@ -38,6 +38,8 @@ public class LevelLightmapData : MonoBehaviour
 
     public bool latestBuildHasReltimeLights;
     public bool allowLoadingLightingScenes = true;
+    [Tooltip("Enable this if you want to use different lightmap resolutions in your different lighting scenarios. In that case you'll have to disable Static Batching in the Player Settings. When disabled, Static Batching can be used but all your lighting scenarios need to use the same lightmap resolution.")]
+    public bool applyLightmapScaleAndOffset = true;
 
 	[SerializeField]
 	List<LightingScenarioData> lightingScenariosData;
@@ -76,7 +78,10 @@ public class LevelLightmapData : MonoBehaviour
 
             var newLightmaps = LoadLightmaps(index);
 
-            ApplyRendererInfo(lightingScenariosData[index].rendererInfos);
+            if(applyLightmapScaleAndOffset)
+            {
+                ApplyRendererInfo(lightingScenariosData[index].rendererInfos);
+            }
 
             LightmapSettings.lightmaps = newLightmaps;
 
@@ -191,8 +196,6 @@ public class LevelLightmapData : MonoBehaviour
             for (int j = i; j < infos.Length; j++)
             {
                 RendererInfo info = infos[j];
-                //if (info.renderer == null)
-                    //continue;
                 info.renderer.lightmapIndex = infos[j].lightmapIndex;
                 if (!info.renderer.isPartOfStaticBatch)
                 {
