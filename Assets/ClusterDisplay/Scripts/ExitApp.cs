@@ -1,18 +1,19 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using Unity.ClusterRendering;
 using UnityEngine;
 
 public class ExitApp : MonoBehaviour
 {
     void Update()
     {
-        if (Input.GetKey(KeyCode.LeftControl) && Input.GetKeyDown(KeyCode.Q))
+        if (ClusterSynch.Active)
         {
-#if UNITY_EDITOR    
-            UnityEditor.EditorApplication.ExitPlaymode();
-#else    
-            Application.Quit();
-#endif
+            if (Input.GetKey(KeyCode.LeftControl) && Input.GetKeyDown(KeyCode.Q))
+                ClusterSynch.Instance.ShutdownAllClusterNodes();
+        }
+        else
+        {
+            if (ClusterSynch.Terminated)
+                Application.Quit(0);
         }
     }
 }

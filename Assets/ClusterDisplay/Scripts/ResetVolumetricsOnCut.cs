@@ -28,6 +28,9 @@ public class ResetVolumetricsOnCut : MonoBehaviour
             hdCam.Reset();
             hdCam.volumetricHistoryIsValid = false;
             hdCam.colorPyramidHistoryIsValid = false;
+#if UNITY_EDITOR
+            Debug.Log("ResetVolumetricsOnCut.CutHandler");
+#endif
         }
     }
 }
