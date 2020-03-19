@@ -5,14 +5,14 @@ public class ExitApp : MonoBehaviour
 {
     void Update()
     {
-        if (ClusterSynch.Active)
+        if (ClusterSync.Active)
         {
             if (Input.GetKey(KeyCode.LeftControl) && Input.GetKeyDown(KeyCode.Q))
-                ClusterSynch.Instance.ShutdownAllClusterNodes();
+                ClusterSync.Instance.ShutdownAllClusterNodes();
         }
         else
         {
-            if (ClusterSynch.Terminated)
+            if (ClusterSync.Terminated)
                 Application.Quit(0);
         }
     }
