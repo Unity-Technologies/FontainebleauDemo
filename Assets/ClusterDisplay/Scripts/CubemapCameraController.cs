@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.Rendering.HighDefinition;
 
 [ExecuteInEditMode]
 public class CubemapCameraController : MonoBehaviour
@@ -11,7 +12,6 @@ public class CubemapCameraController : MonoBehaviour
         new Vector3(0, 2, 0), 
         new Vector3(0, 3, 0),
         new Vector3(-1, 0, 0), // ceiling
-        new Vector3(1, 0, 0), // bottom 
     };
     
     int m_Index;
@@ -25,23 +25,12 @@ public class CubemapCameraController : MonoBehaviour
     {
         // B + left or right arrow to switch orientation
         if (Input.GetKey(KeyCode.B))
-        {
-            if (Input.GetKeyDown(KeyCode.RightArrow))
-                Next();
-            else if (Input.GetKeyDown(KeyCode.LeftArrow))
-                Previous();
-        }
+            Next();
     }
 
     public void Next()
     {
         m_Index = (m_Index + 1) % k_Orientations.Length;
-        SetOrientation(m_Index);
-    }
-
-    public void Previous()
-    {
-        m_Index = (m_Index - 1 + k_Orientations.Length) % k_Orientations.Length;
         SetOrientation(m_Index);
     }
 
@@ -52,6 +41,10 @@ public class CubemapCameraController : MonoBehaviour
         if (camera != null)
         {
             camera.transform.rotation = Quaternion.Euler(k_Orientations[index] * 90);
+            HDCamera hdCam = HDCamera.GetOrCreate(camera);
+            hdCam.Reset();
+            hdCam.volumetricHistoryIsValid = false;
+            hdCam.colorPyramidHistoryIsValid = false;
         }
     }
 }
