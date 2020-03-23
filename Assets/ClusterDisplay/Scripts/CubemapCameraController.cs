@@ -13,6 +13,9 @@ public class CubemapCameraController : MonoBehaviour
         new Vector3(0, 3, 0),
         new Vector3(-1, 0, 0), // ceiling
     };
+
+    [SerializeField]
+    bool m_InvalidateBuffersOnSwitch;
     
     int m_Index;
 
@@ -41,10 +44,13 @@ public class CubemapCameraController : MonoBehaviour
         if (camera != null)
         {
             camera.transform.rotation = Quaternion.Euler(k_Orientations[index] * 90);
-            HDCamera hdCam = HDCamera.GetOrCreate(camera);
-            hdCam.Reset();
-            hdCam.volumetricHistoryIsValid = false;
-            hdCam.colorPyramidHistoryIsValid = false;
+            if (m_InvalidateBuffersOnSwitch)
+            {
+                HDCamera hdCam = HDCamera.GetOrCreate(camera);
+                hdCam.Reset();
+                hdCam.volumetricHistoryIsValid = false;
+                hdCam.colorPyramidHistoryIsValid = false;
+            }
         }
     }
 }
