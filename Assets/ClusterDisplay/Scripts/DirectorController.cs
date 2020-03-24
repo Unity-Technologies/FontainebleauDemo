@@ -15,6 +15,7 @@ public class DirectorController : MonoBehaviour
     float m_SpeedDelta;
     
     PlayableDirector m_Director;
+    
     float m_Speed;
     
     void OnEnable()
@@ -39,11 +40,13 @@ public class DirectorController : MonoBehaviour
             delta = -1;
         else if (Input.GetKey(KeyCode.UpArrow))
             delta = 1;
-        else return;
-        
-        m_Speed = Mathf.Clamp(m_Speed + delta * m_SpeedDelta, m_MinSpeed, m_MaxSpeed);
-        if(!m_Director.playableGraph.IsValid())
-            m_Director.RebuildGraph();
-        m_Director.playableGraph.GetRootPlayable(0).SetSpeed(m_Speed);
+
+        if (delta != 0)
+        {
+            m_Speed = Mathf.Clamp(m_Speed + delta * m_SpeedDelta, m_MinSpeed, m_MaxSpeed);
+            if(!m_Director.playableGraph.IsValid())
+                m_Director.RebuildGraph();
+            m_Director.playableGraph.GetRootPlayable(0).SetSpeed(m_Speed);
+        }
     }
 }
