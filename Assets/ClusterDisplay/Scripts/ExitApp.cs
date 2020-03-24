@@ -7,7 +7,7 @@ public class ExitApp : MonoBehaviour
     {
         if (ClusterSync.Active)
         {
-            if (Input.GetKey(KeyCode.LeftControl) && Input.GetKeyDown(KeyCode.Q))
+            if (Input.GetKey(KeyCode.Q))
                 ClusterSync.Instance.ShutdownAllClusterNodes();
         }
         else
