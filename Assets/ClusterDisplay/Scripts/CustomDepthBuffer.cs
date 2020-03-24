@@ -203,8 +203,7 @@ public class CustomDepthBuffer : MonoBehaviour
 
     void Update()
     {
-        // TMP DEBUG hack, show depth buffer on leftCtrl+G
-        if (Input.GetKey(KeyCode.LeftControl) && Input.GetKeyDown(KeyCode.G))
+        if (Input.GetKeyDown(KeyCode.G))
             m_ShowDebugUI = !m_ShowDebugUI;
         
         m_Sampler.Begin();
