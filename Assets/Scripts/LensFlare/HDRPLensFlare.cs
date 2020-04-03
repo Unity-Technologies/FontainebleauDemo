@@ -38,8 +38,6 @@ namespace HDRPSamples
             if (m_CustomDepthBuffer == null)
                 m_CustomDepthBuffer = GetComponent<CustomDepthBuffer>();
 
-            m_Light = GetComponent<Light>();
-
             m_MeshFilter.hideFlags = HideFlags.None;
             m_MeshRenderer.hideFlags = HideFlags.None;
 

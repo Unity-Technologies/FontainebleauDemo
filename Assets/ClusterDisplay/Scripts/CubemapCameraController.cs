@@ -26,8 +26,7 @@ public class CubemapCameraController : MonoBehaviour
 
     void Update()
     {
-        // B + left or right arrow to switch orientation
-        if (Input.GetKey(KeyCode.B))
+        if (Input.GetKeyDown(KeyCode.B))
             Next();
     }
 
