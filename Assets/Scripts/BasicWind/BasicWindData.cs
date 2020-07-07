@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.Rendering;
+using UnityEngine.Rendering.HighDefinition;
 
 namespace HDRPSamples
 {
@@ -33,7 +34,8 @@ namespace HDRPSamples
 
         void ApplySettings()
         {
-            BasicWind windSettings = VolumeManager.instance.stack.GetComponent<BasicWind>();
+            var stack = HDCamera.GetOrCreate(Camera.main).volumeStack;
+            var windSettings = stack.GetComponent<BasicWind>();
 
             if (windSettings == null)
                 return;
