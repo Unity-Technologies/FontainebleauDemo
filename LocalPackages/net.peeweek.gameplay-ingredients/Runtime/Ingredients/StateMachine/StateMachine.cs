@@ -1,5 +1,6 @@
 using NaughtyAttributes;
 using System.Linq;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -35,6 +36,22 @@ namespace GameplayIngredients.StateMachines
             }
 
             SetState(DefaultState);
+        }
+
+        public void NextState ()
+        {
+            int nextStateIndex = 0;
+            for (int i = 0; i < States.Length; i++)
+            {
+                if (CurrentState != States[i])
+                    continue;
+
+                nextStateIndex = i++;
+                if (nextStateIndex >= States.Length)
+                    nextStateIndex = 0;
+            }
+
+            SetState(States[nextStateIndex].name);
         }
 
         public void SetState(string stateName)
