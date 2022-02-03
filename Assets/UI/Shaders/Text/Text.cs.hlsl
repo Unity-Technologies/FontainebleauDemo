@@ -1,31 +1,21 @@
 //
-// This file was automatically generated from Assets/UI/Shaders/Text/Text.cs.  Please don't edit by hand.
+// This file was automatically generated. Please don't edit by hand. Execute Editor command [ Edit > Rendering > Generate Shader Includes ] instead
 //
 
 #ifndef TEXT_CS_HLSL
 #define TEXT_CS_HLSL
-//
-// UnityEngine.Experimental.Rendering.HDPipeline.Text.SurfaceData:  static fields
-//
-#define DEBUGVIEW_TEXT_SURFACEDATA_COLOR (1100)
-
-//
-// UnityEngine.Experimental.Rendering.HDPipeline.Text.BSDFData:  static fields
-//
-#define DEBUGVIEW_TEXT_BSDFDATA_COLOR (1130)
-
-// Generated from UnityEngine.Experimental.Rendering.HDPipeline.Text.SurfaceData
+// Generated from UnityEngine.Rendering.HighDefinition.Text.SurfaceData
 // PackingRules = Exact
 struct SurfaceData
 {
-	float3 color;
+    float3 color;
 };
 
-// Generated from UnityEngine.Experimental.Rendering.HDPipeline.Text.BSDFData
+// Generated from UnityEngine.Rendering.HighDefinition.Text.BSDFData
 // PackingRules = Exact
 struct BSDFData
 {
-	float3 color;
+    float3 color;
 };
 
 

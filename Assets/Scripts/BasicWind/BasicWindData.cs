@@ -32,9 +32,29 @@ namespace HDRPSamples
             ApplySettings();
         }
 
+        private Camera cachedCamera;
+        private Camera Camera
+        {
+            get
+            {
+                if (cachedCamera == null)
+                {
+                    var cameras = Object.FindObjectsOfType<Camera>();
+                    for (int i = 0; i < cameras.Length; i++)
+                    {
+                        if (cameras[i].tag != "MainCamera")
+                            continue;
+                        cachedCamera = cameras[i];
+                        break;
+                    }
+                }
+
+                return cachedCamera;
+            }
+        }
         void ApplySettings()
         {
-            var stack = HDCamera.GetOrCreate(Camera.main).volumeStack;
+            var stack = HDCamera.GetOrCreate(Camera).volumeStack;
             var windSettings = stack.GetComponent<BasicWind>();
 
             if (windSettings == null)
