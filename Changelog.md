@@ -2,6 +2,13 @@
 All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
+## Unity 2019.4.36f1 - HDRP 7.7.1
+
+### **Changed**
+
+- Upgraded the project to 2019.4.36f1
+- Updated packages
+
 ## Unity 2019.4.1f1 - HDRP 7.4.1
 
 ### **Fixed**
