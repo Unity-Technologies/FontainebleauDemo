@@ -4,17 +4,25 @@
 Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_Name: FontMaterial_RobotoBold
-  m_Shader: {fileID: 4800000, guid: 99872da6e40325c419a22a1e60e027a0, type: 3}
-  m_ShaderKeywords: _ALPHACUTOFFENABLE_OFF
+  m_Shader: {fileID: -6465566751694194690, guid: 3f1ece91ad99604479551c184c5f6846,
+    type: 3}
+  m_ShaderKeywords: _ENABLE_FOG_ON_TRANSPARENT _SURFACE_TYPE_TRANSPARENT _TRANSPARENT_WRITES_MOTION_VEC
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
-  m_CustomRenderQueue: 3002
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: 2750
   stringTagMap:
+    MotionVector: User
     RenderType: Transparent
-  disabledShaderPasses: []
+  disabledShaderPasses:
+  - TransparentDepthPrepass
+  - TransparentDepthPostpass
+  - TransparentBackface
+  - MOTIONVECTORS
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
@@ -54,29 +62,97 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     m_Floats:
+    - _AddPrecomputedVelocity: 0
     - _AlphaCutoff: 0.3333
     - _AlphaCutoffEnable: 0
+    - _AlphaDstBlend: 10
+    - _AlphaSrcBlend: 1
+    - _AlphaToMask: 0
+    - _AlphaToMaskInspectorValue: 0
     - _BlendMode: 0
+    - _BlendTextureColor: 0
     - _BumpScale: 1
+    - _ColorMask: 15
     - _CullMode: 2
-    - _Cutoff: 0.5
+    - _CullModeForward: 2
+    - _Cutoff: 0.3333
+    - _DepthOffsetEnable: 0
     - _DetailNormalMapScale: 1
+    - _DoubleSidedEnable: 0
+    - _DoubleSidedNormalMode: 2
     - _DstBlend: 10
+    - _EnableBlendModePreserveSpecularLighting: 0
+    - _EnableFogOnTransparent: 1
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
+    - _OpaqueCullMode: 2
     - _Parallax: 0.02
+    - _RenderQueueType: 3
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
-    - _SrcBlend: 5
+    - _SrcBlend: 1
+    - _Stencil: 0
+    - _StencilComp: 8
+    - _StencilOp: 0
+    - _StencilReadMask: 255
+    - _StencilRef: 0
+    - _StencilRefDepth: 0
+    - _StencilRefDistortionVec: 4
+    - _StencilRefGBuffer: 2
+    - _StencilRefMV: 32
+    - _StencilWriteMask: 6
+    - _StencilWriteMaskDepth: 8
+    - _StencilWriteMaskDistortionVec: 4
+    - _StencilWriteMaskGBuffer: 14
+    - _StencilWriteMaskMV: 40
     - _SurfaceType: 1
+    - _TransparentBackfaceEnable: 0
+    - _TransparentCullMode: 2
+    - _TransparentDepthPostpassEnable: 0
+    - _TransparentDepthPrepassEnable: 0
+    - _TransparentSortPriority: 0
+    - _TransparentWritingMotionVec: 1
+    - _TransparentZWrite: 1
     - _UVSec: 0
+    - _UseShadowThreshold: 0
+    - _UseUIAlphaClip: 0
+    - _ZTestDepthEqualForOpaque: 4
+    - _ZTestGBuffer: 4
     - _ZTestMode: 8
-    - _ZWrite: 0
+    - _ZTestTransparent: 4
+    - _ZWrite: 1
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _DoubleSidedConstants: {r: 1, g: 1, b: -1, a: 0}
+    - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
+  m_BuildTextureStacks: []
+--- !u!114 &2739872312196857517
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da692e001514ec24dbc4cca1949ff7e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 11
