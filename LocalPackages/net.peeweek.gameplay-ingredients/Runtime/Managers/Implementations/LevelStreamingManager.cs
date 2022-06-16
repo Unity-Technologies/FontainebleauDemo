@@ -118,6 +118,9 @@ namespace GameplayIngredients.LevelStreaming
                 default: throw new NotImplementedException("LoadScenesCoroutine does not handle mode " + action.ToString());
             }
 
+            yield return new WaitForEndOfFrame();
+
+            /*
             if(action == StreamingAction.Replace)
             {
                 while (!asyncOperations[0].isDone)
@@ -127,6 +130,7 @@ namespace GameplayIngredients.LevelStreaming
             // Wait for all scenes to be loaded
             while (asyncOperations.Any(a => !a.isDone))
                 yield return new WaitForEndOfFrame();
+            */
 
             // Then change active scene
             if (!string.IsNullOrEmpty(sceneToActivate) && action != StreamingAction.Replace)
@@ -166,6 +170,14 @@ namespace GameplayIngredients.LevelStreaming
 
         private IEnumerator LoadLevelCoroutine(List<string> sceneNames, string singleScene = "")
         {
+            for (int i = 0; i < sceneNames.Count; i++)
+            {
+                SceneManager.LoadScene(sceneNames[i], LoadSceneMode.Additive);
+
+            }
+            yield return null;
+
+            /*
             // Manage Single Scene Loading
             int offset = 0;
             if (sceneNames.Contains(singleScene))
@@ -181,12 +193,6 @@ namespace GameplayIngredients.LevelStreaming
                 }
 
                 offset = 1;
-            }
-
-            for (int i = 0; i < sceneNames.Count; i++)
-            {
-                asyncOperations[i + offset] = SceneManager.LoadSceneAsync(sceneNames[i], LoadSceneMode.Additive);
-                asyncOperations[i + offset].allowSceneActivation = false;
             }
 
             while (asyncOperations.Any(a => a.progress < 0.9f))
@@ -209,6 +215,7 @@ namespace GameplayIngredients.LevelStreaming
             }
 
             LogDebugInformation("All scenes activated");
+            */
         }
 
         private IEnumerator UnloadLevelCoroutine(List<string> sceneNames)

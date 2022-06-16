@@ -46,9 +46,11 @@ namespace GameplayIngredients.StateMachines
                 if (CurrentState != States[i])
                     continue;
 
-                nextStateIndex = i++;
+                nextStateIndex = i + 1;
                 if (nextStateIndex >= States.Length)
                     nextStateIndex = 0;
+
+                break;
             }
 
             SetState(States[nextStateIndex].name);
