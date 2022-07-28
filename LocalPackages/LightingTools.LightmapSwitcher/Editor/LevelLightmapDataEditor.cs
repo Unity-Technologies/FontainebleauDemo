@@ -94,6 +94,7 @@ public class LevelLightmapDataEditor : Editor
         SearchLightsNeededRealtime(levelLightmapData);
 
         Debug.Log("Start baking");
+        Lightmapping.lightingSettings.lightmapper = LightingSettings.Lightmapper.ProgressiveCPU;
         EditorCoroutineUtility.StartCoroutine(BuildLightingAsync(lightingScene), this);
     }
 
