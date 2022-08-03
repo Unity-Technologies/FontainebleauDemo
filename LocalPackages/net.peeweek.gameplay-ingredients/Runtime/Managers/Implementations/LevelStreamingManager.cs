@@ -236,7 +236,7 @@ namespace GameplayIngredients.LevelStreaming
 
             LoadingText.text = "Unloading...";
 
-            while (asyncOperations.Any(a => a.progress < 1.0f))
+            while (asyncOperations.Any(a => a != null && a.progress < 1.0f))
             {
                 UpdatePercentage();
                 yield return new WaitForEndOfFrame();
