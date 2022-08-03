@@ -118,7 +118,7 @@ namespace GameplayIngredients.LevelStreaming
                 default: throw new NotImplementedException("LoadScenesCoroutine does not handle mode " + action.ToString());
             }
 
-            yield return new WaitForEndOfFrame();
+            yield return null;
 
             /*
             if(action == StreamingAction.Replace)
