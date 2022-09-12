@@ -34,7 +34,9 @@ namespace HDRPSamples
 
         void ApplySettings()
         {
-            var stack = HDCamera.GetOrCreate(Camera.main).volumeStack;
+
+            VolumeStack stack = null;//HDCamera.GetOrCreate(Camera.main).volumeStack;
+            Debug.Log("stack" + stack);
             var windSettings = stack.GetComponent<BasicWind>();
 
             if (windSettings == null)
