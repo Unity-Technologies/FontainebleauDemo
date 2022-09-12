@@ -34,31 +34,32 @@ namespace HDRPSamples
 
         void ApplySettings()
         {
-
-            VolumeStack stack = null;//HDCamera.GetOrCreate(Camera.main).volumeStack;
-            Debug.Log("stack" + stack);
-            var windSettings = stack.GetComponent<BasicWind>();
-
-            if (windSettings == null)
-                return;
-
-            if (windZone == null)
-                windZone = gameObject.GetComponent<WindZone>();
-            if (windZone != null)
+            if(Camera.main != null)
             {
-                GetDirectionAndSpeed();
-            }
+                VolumeStack stack = HDCamera.GetOrCreate(Camera.main).volumeStack;
+                var windSettings = stack.GetComponent<BasicWind>();
 
-            Shader.SetGlobalTexture(BasicWindShaderIDs.TexNoise, windSettings.noiseTexture.value);
-            Shader.SetGlobalTexture(BasicWindShaderIDs.TexGust, windSettings.gustMaskTexture.value);
-            Shader.SetGlobalVector(BasicWindShaderIDs.WorldDirectionAndSpeed, new Vector4(windDirection.x, windDirection.y, windDirection.z, windSpeed * 0.2777f));
-            Shader.SetGlobalFloat(BasicWindShaderIDs.FlexNoiseScale, 1.0f / Mathf.Max(0.01f, windSettings.flexNoiseWorldSize.value));
-            Shader.SetGlobalFloat(BasicWindShaderIDs.ShiverNoiseScale, 1.0f / Mathf.Max(0.01f, windSettings.shiverNoiseWorldSize.value));
-            Shader.SetGlobalFloat(BasicWindShaderIDs.Turbulence, windSpeed * windTurbulence);
-            Shader.SetGlobalFloat(BasicWindShaderIDs.GustSpeed, windSettings.gustSpeed.value);
-            Shader.SetGlobalFloat(BasicWindShaderIDs.GustScale, windSettings.gustScale.value);
-            Shader.SetGlobalFloat(BasicWindShaderIDs.GustWorldScale, 1.0f / Mathf.Max(0.01f, windSettings.gustWorldSize.value));
-            Shader.SetGlobalFloat(BasicWindShaderIDs.Attenuation, windSettings.attenuation.value);
+                if (windSettings == null)
+                    return;
+
+                if (windZone == null)
+                    windZone = gameObject.GetComponent<WindZone>();
+                if (windZone != null)
+                {
+                    GetDirectionAndSpeed();
+                }
+
+                Shader.SetGlobalTexture(BasicWindShaderIDs.TexNoise, windSettings.noiseTexture.value);
+                Shader.SetGlobalTexture(BasicWindShaderIDs.TexGust, windSettings.gustMaskTexture.value);
+                Shader.SetGlobalVector(BasicWindShaderIDs.WorldDirectionAndSpeed, new Vector4(windDirection.x, windDirection.y, windDirection.z, windSpeed * 0.2777f));
+                Shader.SetGlobalFloat(BasicWindShaderIDs.FlexNoiseScale, 1.0f / Mathf.Max(0.01f, windSettings.flexNoiseWorldSize.value));
+                Shader.SetGlobalFloat(BasicWindShaderIDs.ShiverNoiseScale, 1.0f / Mathf.Max(0.01f, windSettings.shiverNoiseWorldSize.value));
+                Shader.SetGlobalFloat(BasicWindShaderIDs.Turbulence, windSpeed * windTurbulence);
+                Shader.SetGlobalFloat(BasicWindShaderIDs.GustSpeed, windSettings.gustSpeed.value);
+                Shader.SetGlobalFloat(BasicWindShaderIDs.GustScale, windSettings.gustScale.value);
+                Shader.SetGlobalFloat(BasicWindShaderIDs.GustWorldScale, 1.0f / Mathf.Max(0.01f, windSettings.gustWorldSize.value));
+                Shader.SetGlobalFloat(BasicWindShaderIDs.Attenuation, windSettings.attenuation.value);
+            }
         }
 
         void GetDirectionAndSpeed()
