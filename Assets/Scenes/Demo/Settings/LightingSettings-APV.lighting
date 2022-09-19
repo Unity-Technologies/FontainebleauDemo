@@ -6,7 +6,7 @@ LightingSettings:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: LightingSettings-Day
+  m_Name: LightingSettings-APV
   serializedVersion: 7
   m_GIWorkflowMode: 1
   m_EnableBakedLightmaps: 1
@@ -18,9 +18,9 @@ LightingSettings:
   m_UsingShadowmask: 0
   m_BakeBackend: 1
   m_LightmapMaxSize: 2048
-  m_BakeResolution: 6
+  m_BakeResolution: 1
   m_Padding: 2
-  m_LightmapCompression: 3
+  m_LightmapCompression: 0
   m_AO: 0
   m_AOMaxDistance: 1
   m_CompAOExponent: 1
@@ -40,15 +40,15 @@ LightingSettings:
   m_FinalGatherFiltering: 1
   m_PVRCulling: 0
   m_PVRSampling: 1
-  m_PVRDirectSampleCount: 32
-  m_PVRSampleCount: 256
-  m_PVREnvironmentSampleCount: 512
+  m_PVRDirectSampleCount: 1
+  m_PVRSampleCount: 512
+  m_PVREnvironmentSampleCount: 256
   m_PVREnvironmentReferencePointCount: 2048
-  m_LightProbeSampleCountMultiplier: 16
-  m_PVRBounces: 4
-  m_PVRMinBounces: 2
+  m_LightProbeSampleCountMultiplier: 1
+  m_PVRBounces: 2
+  m_PVRMinBounces: 1
   m_PVREnvironmentImportanceSampling: 0
-  m_PVRFilteringMode: 2
+  m_PVRFilteringMode: 0
   m_PVRDenoiserTypeDirect: 0
   m_PVRDenoiserTypeIndirect: 2
   m_PVRDenoiserTypeAO: 1
